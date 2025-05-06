@@ -1,28 +1,28 @@
-[Title("Brawler Player"), Group("Project Brawler"), Description("Yakuza-like player controller")]
+[Title( "Brawler Player" ), Group( "Project Brawler" ), Description( "Yakuza-like player controller" )]
 public partial class BrawlerComponent : Component {
         /// <summary>
         /// Active gameplay camera
         /// </summary>
-        [Property] public GameObject Camera {get; set;}
+        [Property] public GameObject Camera { get; set; }
 
-        public BrawlerCamera BrawlerCamera {get; set;}
+        public BrawlerCamera BrawlerCamera { get; set; }
 
 
-        [Property] public bool MovementEnabled {get; set;} = true;
+        [Property] public bool MovementEnabled { get; set; } = true;
 
-	protected override void OnStart() {
+        protected override void OnStart() {
                 initializeActions();
                 BrawlerCamera = Camera.GetComponent<BrawlerCamera>();
-	}
+        }
 
-	protected override void OnUpdate() {
+        protected override void OnUpdate() {
                 buildInput();
                 actionControls();
                 miscControls();
-	}
+        }
 
         protected override void OnFixedUpdate() {
-                if (MovementEnabled) move();
+                if ( MovementEnabled ) move();
                 actionUpdate();
         }
 }
