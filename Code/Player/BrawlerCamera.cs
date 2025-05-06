@@ -7,7 +7,7 @@ public sealed class BrawlerCamera : Component {
     [Property, RequireComponent] public CameraComponent Camera {get; set;}
     [Property] public GameObject Subject {get; set;}
 
-    public static readonly int MIN_DISTANCE = 150;
+    public static readonly int MIN_DISTANCE = 125;
     public static readonly int MAX_DISTANCE = 195;
     public static readonly Vector3 PLR_CAM_HEIGHT = new Vector3(0, -15, 35);
 
