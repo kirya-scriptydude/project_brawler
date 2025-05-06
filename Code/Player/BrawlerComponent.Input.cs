@@ -16,6 +16,10 @@ public partial class BrawlerComponent : Component {
     /// </summary>
     public Vector3 MoveDirectionAngled = new(1, 0, 0);
 
+    public IReadOnlyDictionary<string, string> InputToAction {get;} = new Dictionary<string, string> {
+        {"Quickstep", "Quickstep"}
+    };
+
     private void buildInput() {
         if (AnalogMove.Length != 0) {
             MoveDirection = AnalogMove;
@@ -25,6 +29,14 @@ public partial class BrawlerComponent : Component {
         AnalogMoveAngled = AnalogMove * Scene.Camera.LocalRotation;
 
         Camera.GetComponent<BrawlerCamera>().Rotate(Scene.Camera.LocalRotation * new Vector3(0, AnalogLook.yaw, 0));
+    }
+
+    private void actionControls() {
+        foreach (var keyvalue in InputToAction) {
+            if (Input.Pressed(keyvalue.Key)) {
+                ActionActivate(keyvalue.Value);
+            }
+        }
     }
 
     /// <summary>
