@@ -11,6 +11,15 @@ public sealed class BrawlerCamera : Component {
     public static readonly int MAX_DISTANCE = 195;
     public static readonly Vector3 PLR_CAM_HEIGHT = new Vector3(0, -15, 35);
 
+    public GameObject DefaultPositionObject;
+
+	protected override void OnStart() {
+        DefaultPositionObject = Scene.CreateObject();
+        DefaultPositionObject.WorldPosition = WorldPosition;
+        DefaultPositionObject.SetParent(Subject);
+        DefaultPositionObject.Name = "DefaultCamera";
+	}
+
 	protected override void OnUpdate() {
         if (Subject == null) return;
         Camera.FieldOfView = Preferences.FieldOfView;
@@ -36,5 +45,9 @@ public sealed class BrawlerCamera : Component {
 
     public void Rotate(Vector3 axis) {
         LocalPosition += axis;
+    }
+
+    public void ResetPosition() {
+        WorldPosition = DefaultPositionObject.WorldPosition;
     }
 }

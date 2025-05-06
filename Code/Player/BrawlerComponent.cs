@@ -4,9 +4,13 @@ public partial class BrawlerComponent : Component {
     /// Active gameplay camera
     /// </summary>
     [Property] public GameObject Camera {get; set;}
-
+    public BrawlerCamera BrawlerCamera {get; set;}
+	protected override void OnStart() {
+        BrawlerCamera = Camera.GetComponent<BrawlerCamera>();
+	}
 	protected override void OnUpdate() {
         buildInput();
+        inputActions();
 	}
 
     protected override void OnFixedUpdate() {
