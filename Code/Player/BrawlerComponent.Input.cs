@@ -26,4 +26,13 @@ public partial class BrawlerComponent : Component {
 
         Camera.GetComponent<BrawlerCamera>().Rotate(Scene.Camera.LocalRotation * new Vector3(0, AnalogLook.yaw, 0));
     }
+
+    /// <summary>
+    /// Misc controls such as resetting the cam
+    /// </summary>
+    private void miscControls() {
+        if (Input.Pressed("ResetCamera")) {
+            BrawlerCamera.ResetPosition();
+        }
+    }
 }

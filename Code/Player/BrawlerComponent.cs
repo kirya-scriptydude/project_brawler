@@ -10,7 +10,7 @@ public partial class BrawlerComponent : Component {
 	}
 	protected override void OnUpdate() {
         buildInput();
-        inputActions();
+        miscControls();
 	}
 
     protected override void OnFixedUpdate() {
