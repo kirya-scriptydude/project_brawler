@@ -16,6 +16,8 @@ public partial class BrawlerComponent : Component {
         }
 
         protected override void OnUpdate() {
+                if (Game.IsEditor) displayDebug();
+                
                 buildInput();
                 actionControls();
                 miscControls();
