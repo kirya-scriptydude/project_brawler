@@ -1,5 +1,8 @@
 public partial class BrawlerComponent : Component {
 
+    /// <summary>
+    /// Combo node that is currently active. To change it please use ActionActivate.
+    /// </summary>
     public ComboNode CurrentComboNode {get; private set;}
     [Property] public bool IsAction => CurrentComboNode.ClassName != "";
     private IBrawlerAction curAction;
@@ -14,9 +17,15 @@ public partial class BrawlerComponent : Component {
         new Fist()
     ];
 
+    /// <summary>
+    /// Default root of the combo tree.
+    /// </summary>
     public ComboNode ComboTreeRoot {get; set;} = ComboTree.Generate();
     
-    
+    /// <summary>
+    /// Activate an action using ComboNode.
+    /// </summary>
+    /// <param name="node">Node that is a part of CurrentComboNode.Children</param>
     public void ActionActivate(ComboNode node) {
         if (!CanTraverseTree) return;
 
@@ -47,6 +56,9 @@ public partial class BrawlerComponent : Component {
         }
     }
 
+    /// <summary>
+    /// Stop currently selected action, execute .OnStop() and set CurrentComboNode to root.
+    /// </summary>
     public void ActionStop() {
         if (IsAction) {
             curAction.OnStop();
@@ -66,12 +78,15 @@ public partial class BrawlerComponent : Component {
         CurrentComboNode = ComboTreeRoot;
     }
 
+    /// <summary>
+    /// .OnUpdate() for IBrawlerAction
+    /// </summary>
     private void actionUpdate() {
         if (IsAction) curAction.OnUpdate();
     }
 
     /// <summary>
-    /// Checks if ComboNode can be done, according to currently selected tree
+    /// Checks if ComboNode can be done, according to currently selected node
     /// </summary>
     private bool isNodeViable(ComboNode node) {
         foreach (ComboNode child in CurrentComboNode.Children) {
