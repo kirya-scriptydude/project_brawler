@@ -9,7 +9,8 @@ public partial class BrawlerComponent : Component {
         LockOn - {Input.Down("LockOn")};
 
         Action - {IsAction};
-        Name: {CurrentComboNode.ClassName}
+        CanTraverseTree - {CanTraverseTree}
+        Name - {CurrentComboNode.ClassName}
         {CurrentComboNode.Name}
         """, 
         10, TextFlag.LeftTop

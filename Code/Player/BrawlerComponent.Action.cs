@@ -4,6 +4,11 @@ public partial class BrawlerComponent : Component {
     [Property] public bool IsAction => CurrentComboNode.ClassName != "";
     private IBrawlerAction curAction;
 
+    /// <summary>
+    /// Current action can be moved into another one, thats next on the tree.
+    /// </summary>
+    public bool CanTraverseTree = true;
+
     public IBrawlerAction[] ActionArray {get;} = [
         new Quickstep(),
         new Fist()
@@ -12,8 +17,8 @@ public partial class BrawlerComponent : Component {
     public ComboNode ComboTreeRoot {get; set;} = ComboTree.Generate();
     
 
-    public void ActionActivate(ComboNode node, bool activateIfBusy = false) {
-        if (!activateIfBusy && IsAction) return;
+    public void ActionActivate(ComboNode node) {
+        if (!CanTraverseTree) return;
 
         ActionStop(); 
 
@@ -26,6 +31,7 @@ public partial class BrawlerComponent : Component {
                 action.OnStart();
 
                 foundAction = true;
+                CanTraverseTree = false;
                 break;
             }
         }
@@ -40,6 +46,7 @@ public partial class BrawlerComponent : Component {
         if (IsAction) {
             curAction.OnStop();
             CurrentComboNode = ComboTreeRoot;
+            CanTraverseTree = true;
         } 
     }
 
