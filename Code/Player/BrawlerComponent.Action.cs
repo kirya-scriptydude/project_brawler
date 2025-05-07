@@ -16,9 +16,14 @@ public partial class BrawlerComponent : Component {
 
     public ComboNode ComboTreeRoot {get; set;} = ComboTree.Generate();
     
-
+    
     public void ActionActivate(ComboNode node) {
         if (!CanTraverseTree) return;
+
+        if (!isNodeViable(node)) {
+            Log.Warning($"tried using {node.Name} ({node.ClassName}) but it was not found.");
+            return;
+        }
 
         ActionStop(); 
 
@@ -63,5 +68,16 @@ public partial class BrawlerComponent : Component {
 
     private void actionUpdate() {
         if (IsAction) curAction.OnUpdate();
+    }
+
+    /// <summary>
+    /// Checks if ComboNode can be done, according to currently selected tree
+    /// </summary>
+    private bool isNodeViable(ComboNode node) {
+        foreach (ComboNode child in CurrentComboNode.Children) {
+            if (node == child) return true;   
+        }
+
+        return false;
     }
 }
