@@ -10,6 +10,7 @@ public partial class BrawlerComponent : Component {
 
         Action - {IsAction};
         Name: {CurrentComboNode.ClassName}
+        {CurrentComboNode.Name}
         """, 
         10, TextFlag.LeftTop
         );
