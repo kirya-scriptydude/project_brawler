@@ -9,8 +9,11 @@ public partial class BrawlerComponent : Component {
 
     public IBrawlerAction[] ActionArray {get;} = [
         new Quickstep(),
-        new FistAttack()
+        new Fist()
     ];
+
+    public ComboNode ComboTreeRoot {get; set;} = ComboTree.Generate();
+    public ComboNode CurrentComboNode {get; private set;}
 
     public void ActionActivate(string actionName, bool activateIfBusy = false) {
         if (!activateIfBusy && IsAction) return;
@@ -50,6 +53,8 @@ public partial class BrawlerComponent : Component {
         foreach (IBrawlerAction action in ActionArray) {
             action.Player = this;
         }
+
+        CurrentComboNode = ComboTreeRoot;
     }
 
     private void actionUpdate() {

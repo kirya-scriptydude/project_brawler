@@ -16,9 +16,12 @@ public partial class BrawlerComponent : Component {
     /// </summary>
     public Vector3 MoveDirectionAngled = new(1, 0, 0);
 
-    public IReadOnlyDictionary<string, string> InputToAction {get;} = new Dictionary<string, string> {
-        {"Quickstep", "Quickstep"},
-        {"Square", "FistAttack"}
+    public IReadOnlyDictionary<ActionInputButton, string> ActionToInputName {get;} = new Dictionary<ActionInputButton, string> {
+        {ActionInputButton.None, ""},
+        {ActionInputButton.Quickstep, "Quickstep"},
+        {ActionInputButton.Fist, "Square"},
+        {ActionInputButton.Kick, "Triangle"},
+        {ActionInputButton.Grab, "Circle"}
     };
 
     private void buildInput() {
@@ -33,9 +36,9 @@ public partial class BrawlerComponent : Component {
     }
 
     private void actionControls() {
-        foreach (var keyvalue in InputToAction) {
-            if (Input.Pressed(keyvalue.Key)) {
-                ActionActivate(keyvalue.Value);
+        foreach (ComboNode node in CurrentComboNode.Children) {
+            if (Input.Down(ActionToInputName[node.Button])) {
+                ActionActivate(node.ClassName);
             }
         }
     }
