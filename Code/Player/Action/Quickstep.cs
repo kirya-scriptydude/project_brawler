@@ -3,6 +3,7 @@ public class Quickstep : IBrawlerAction {
     public string Name {get;} = "Quickstep";
 
     public float Duration {get; set;} = 0.8f;
+    public float CancelDuration {get; set;} = 0.2f;
     public float LastTime {get; set;}
 
     private Vector3 velocity = new();
