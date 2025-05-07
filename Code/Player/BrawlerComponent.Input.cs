@@ -17,7 +17,8 @@ public partial class BrawlerComponent : Component {
     public Vector3 MoveDirectionAngled = new(1, 0, 0);
 
     public IReadOnlyDictionary<string, string> InputToAction {get;} = new Dictionary<string, string> {
-        {"Quickstep", "Quickstep"}
+        {"Quickstep", "Quickstep"},
+        {"Square", "FistAttack"}
     };
 
     private void buildInput() {

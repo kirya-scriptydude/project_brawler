@@ -8,7 +8,8 @@ public partial class BrawlerComponent : Component {
     private IBrawlerAction curAction;
 
     public IBrawlerAction[] ActionArray {get;} = [
-        new Quickstep()
+        new Quickstep(),
+        new FistAttack()
     ];
 
     public void ActionActivate(string actionName, bool activateIfBusy = false) {
@@ -16,12 +17,20 @@ public partial class BrawlerComponent : Component {
 
         ActionStop(); 
 
+        bool foundAction = false;
         foreach (IBrawlerAction action in ActionArray) {
             if (action.Name == actionName) {
                 ActiveAction = action.Name;
                 curAction = action;
+
+                foundAction = true;
                 break;
             }
+        }
+
+        if (!foundAction) {
+            Log.Warning($"action {actionName} not found");
+            return;
         }
 
         curAction.OnStart();

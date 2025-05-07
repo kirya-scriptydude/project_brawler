@@ -8,6 +8,7 @@
       {
         "__type": "BrawlerComponent",
         "__guid": "21b52fbd-e57f-441e-9fad-02e63b58e706",
+        "ActiveAction": "",
         "Camera": null,
         "Controller": {
           "_type": "component",
@@ -15,6 +16,8 @@
           "go": "bf02edc5-7779-458c-81a9-54fb75e22aae",
           "component_type": "CharacterController"
         },
+        "IsAction": false,
+        "MovementEnabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -25,7 +28,7 @@
       {
         "__type": "Sandbox.CharacterController",
         "__guid": "42b63685-7333-41a5-b410-4c982f56100f",
-        "Acceleration": 10,
+        "Acceleration": 33.01,
         "Bounciness": 0.3,
         "GroundAngle": 45,
         "Height": 71.65,
