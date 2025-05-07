@@ -1,10 +1,7 @@
 public partial class BrawlerComponent : Component {
-    /// <summary>
-    /// Currently active action that character performs. "" == idle state.
-    /// Do not change by itself - use ActionActivate() instead.
-    /// </summary>
-    [Property, ReadOnly] public string ActiveAction {get; private set;} = "";
-    [Property] public bool IsAction => ActiveAction != "";
+
+    public ComboNode CurrentComboNode {get; private set;}
+    [Property] public bool IsAction => CurrentComboNode.ClassName != "";
     private IBrawlerAction curAction;
 
     public IBrawlerAction[] ActionArray {get;} = [
@@ -13,18 +10,20 @@ public partial class BrawlerComponent : Component {
     ];
 
     public ComboNode ComboTreeRoot {get; set;} = ComboTree.Generate();
-    public ComboNode CurrentComboNode {get; private set;}
+    
 
-    public void ActionActivate(string actionName, bool activateIfBusy = false) {
+    public void ActionActivate(ComboNode node, bool activateIfBusy = false) {
         if (!activateIfBusy && IsAction) return;
 
         ActionStop(); 
 
         bool foundAction = false;
         foreach (IBrawlerAction action in ActionArray) {
-            if (action.Name == actionName) {
-                ActiveAction = action.Name;
+            if (action.Name == node.ClassName) {
+                CurrentComboNode = node;
                 curAction = action;
+                
+                action.OnStart();
 
                 foundAction = true;
                 break;
@@ -32,17 +31,15 @@ public partial class BrawlerComponent : Component {
         }
 
         if (!foundAction) {
-            Log.Warning($"action {actionName} not found");
+            Log.Warning($"action {node.ClassName} not found");
             return;
         }
-
-        curAction.OnStart();
     }
 
     public void ActionStop() {
         if (IsAction) {
             curAction.OnStop();
-            ActiveAction = "";
+            CurrentComboNode = ComboTreeRoot;
         } 
     }
 

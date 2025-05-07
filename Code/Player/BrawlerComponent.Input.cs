@@ -38,7 +38,7 @@ public partial class BrawlerComponent : Component {
     private void actionControls() {
         foreach (ComboNode node in CurrentComboNode.Children) {
             if (Input.Down(ActionToInputName[node.Button])) {
-                ActionActivate(node.ClassName);
+                ActionActivate(node);
             }
         }
     }

@@ -13,7 +13,7 @@ public class ComboNode {
     /// </summary>
     public string ClassName {get;}
 
-    public ComboNode[] Children;
+    public ComboNode[] Children = {};
     public ActionInputButton Button;
 
     public ComboNode(string name, ActionInputButton input, string className) {

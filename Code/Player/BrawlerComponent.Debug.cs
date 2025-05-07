@@ -9,7 +9,7 @@ public partial class BrawlerComponent : Component {
         LockOn - {Input.Down("LockOn")};
 
         Action - {IsAction};
-        Name: {ActiveAction}
+        Name: {CurrentComboNode.ClassName}
         """, 
         10, TextFlag.LeftTop
         );
