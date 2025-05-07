@@ -42,7 +42,7 @@ public partial class BrawlerComponent : Component {
                 CurrentComboNode = node;
                 curAction = action;
                 
-                action.OnStart();
+                action.Enable();
 
                 foundAction = true;
                 CanTraverseTree = false;
@@ -82,7 +82,10 @@ public partial class BrawlerComponent : Component {
     /// .OnUpdate() for IBrawlerAction
     /// </summary>
     private void actionUpdate() {
-        if (IsAction) curAction.OnUpdate();
+        if (IsAction) {
+            curAction.OnUpdate();
+            curAction.UpdateTimer();
+        }
     }
 
     /// <summary>
