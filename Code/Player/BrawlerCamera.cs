@@ -9,9 +9,11 @@ public sealed class BrawlerCamera : Component {
 
     public static readonly int MIN_DISTANCE = 125;
     public static readonly int MAX_DISTANCE = 165;
-    public static readonly Vector3 PLR_CAM_HEIGHT = new Vector3(0, -15, 35);
+    public static readonly Vector3 PLR_CAM_HEIGHT = new Vector3(0, -15, 45);
 
     public GameObject DefaultPositionObject;
+    
+    private Vector3 rotationVelocity = new();
 
 	protected override void OnStart() {
         DefaultPositionObject = Scene.CreateObject();
@@ -28,7 +30,8 @@ public sealed class BrawlerCamera : Component {
         var to = Subject.LocalPosition + PLR_CAM_HEIGHT;
 
         //looking at
-        LocalRotation = Rotation.LookAt(Vector3.Direction(from, to));
+        var newRot = Rotation.LookAt(Vector3.Direction(from, to));
+        LocalRotation = LocalRotation.LerpTo(newRot, 0.15f);
 
         //positioning
         var push = new Vector3();
@@ -40,11 +43,13 @@ public sealed class BrawlerCamera : Component {
             push = (distance - MAX_DISTANCE) * LocalRotation.Forward;
         }
         
-        LocalPosition += push.WithZ(0);
+        var formula = LocalPosition + (rotationVelocity * LocalRotation) + push.WithZ(0);
+        LocalPosition = LocalPosition.LerpTo(formula, 0.55f);
+        rotationVelocity = Vector3.Zero;
 	}
 
     public void Rotate(Vector3 axis) {
-        LocalPosition += axis;
+        rotationVelocity = axis;
     }
 
     public void ResetPosition() {

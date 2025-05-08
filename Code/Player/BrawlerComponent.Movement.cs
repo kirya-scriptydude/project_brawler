@@ -18,14 +18,15 @@ public partial class BrawlerComponent : Component {
         //apply rotation
         if (!Input.Down("LockOn")) {
             var pos = GameObject.LocalPosition;
-            GameObject.LocalRotation = Rotation.LookAt(Vector3.Direction(pos, pos + MoveDirectionAngled.WithZ(0)));   
+            var newRot = Rotation.LookAt(Vector3.Direction(pos, pos + MoveDirectionAngled.WithZ(0))); 
+            LocalRotation = LocalRotation.LerpTo(newRot, 0.3f);
         } else {
             //locked on
             velocity /= 2;
         }
         
 
-        Controller.Velocity = velocity.WithZ(Controller.Velocity.z);
+        Controller.Velocity = Controller.Velocity.LerpTo(velocity, 0.35f).WithZ(Controller.Velocity.z);
         Controller.Move();
     }
 }
