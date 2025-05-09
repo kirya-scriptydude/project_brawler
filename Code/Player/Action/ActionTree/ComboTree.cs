@@ -29,6 +29,22 @@ public static class ComboTree {
             var fist03 = new ComboNode("fist03", ActionInputButton.Fist, "Fist");
             var fist04 = new ComboNode("fist04", ActionInputButton.Fist, "Fist");
             startList.Add(Chain([fist01, fist02, fist03, fist04]));
+
+            //im sorry
+            fist01.Children.Add(
+                new ComboNode("fist01_finisher", ActionInputButton.Kick, "Fist")
+            );
+
+            fist02.Children.Add(
+                new ComboNode("fist02_finisher", ActionInputButton.Kick, "Fist")
+            );
+
+            fist03.Children.Add(
+                new ComboNode("fist03_finisher", ActionInputButton.Kick, "Fist")
+            );
+            fist04.Children.Add(
+                new ComboNode("fist04_finisher", ActionInputButton.Kick, "Fist")
+            );
         }
 
         {
