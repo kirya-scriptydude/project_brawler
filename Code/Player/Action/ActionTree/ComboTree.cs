@@ -1,6 +1,6 @@
 public static class ComboTree {
     /// <summary>
-    /// Turn an array of nodes into a chain (linked list), where it's chaining from start to end of array. Overiddes connections if they had any.
+    /// Turn an array of nodes into a chain (linked list), where it's chaining from start to end of array.
     /// </summary>
     /// <param name="nodes">nodes to chain</param>
     /// <returns>First node of the chained list</returns>
@@ -9,7 +9,7 @@ public static class ComboTree {
             int parent = i - 1;
             if (parent < 0) break;
 
-            nodes[parent].Children = [nodes[i]];   
+            nodes[parent].Children.Add(nodes[i]);   
         }
 
         return nodes[0];
@@ -36,7 +36,7 @@ public static class ComboTree {
             startList.Add(quickstep);
         }
 
-        root.Children = startList.ToArray();
+        root.Children = startList;
         return root;
     }
 }
