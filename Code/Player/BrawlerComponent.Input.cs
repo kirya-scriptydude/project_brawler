@@ -16,6 +16,8 @@ public partial class BrawlerComponent : Component {
     /// </summary>
     public Vector3 MoveDirectionAngled = new(1, 0, 0);
 
+    public GameObject LockOnTarget {get; set;}
+
     public IReadOnlyDictionary<ActionInputButton, string> ActionToInputName {get;} = new Dictionary<ActionInputButton, string> {
         {ActionInputButton.None, ""},
         {ActionInputButton.Quickstep, "Cross"},
@@ -45,11 +47,28 @@ public partial class BrawlerComponent : Component {
     }
 
     /// <summary>
-    /// Misc controls such as resetting the cam
+    /// Misc controls such as resetting the cam, locking on
     /// </summary>
     private void miscControls() {
         if (Input.Pressed("ResetCamera")) {
             BrawlerCamera.ResetPosition();
+        }
+
+        if (Input.Pressed("LockOn")) {
+            var enemies = new SortedList<float, GameObject>();
+
+            foreach (var obj in Scene.GetAllObjects(true)) {
+                if (obj.Tags.Has("enemy")) {
+                    var distance = Vector3.DistanceBetween(obj.WorldPosition, WorldPosition);
+                    enemies.Add(distance, obj);
+                }
+            }
+
+            if (enemies.Count > 0) {
+                //pick closest enemy around
+                var closest = enemies.FirstOrDefault().Value;
+                LockOnTarget = closest;
+            }
         }
     }
 }

@@ -23,6 +23,13 @@ public partial class BrawlerComponent : Component {
         } else {
             //locked on
             velocity /= 2;
+
+            if (LockOnTarget != null) {
+                var pos = GameObject.WorldPosition;
+                var newRot = Rotation.LookAt(Vector3.Direction(pos, LockOnTarget.WorldPosition.WithZ(pos.z)));
+                LocalRotation = LocalRotation.LerpTo(newRot, 0.5f);
+            } 
+            
         }
         
 
