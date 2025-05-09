@@ -3,11 +3,25 @@ public class Fist : IBrawlerAction {
     public string Name {get;} = "Fist";
 
     public float Duration {get; set;} = 1;
-    public float CancelDuration {get; set;} = 0.7f;
+    public float CancelDuration {get; set;} = 0.35f;
     public float LastTime {get; set;}
 
-    public void OnStart() {}
-    public void OnUpdate() {}
+    private Vector3 velocity = new();
 
-    public void OnStop() {}
+    public void OnStart() {
+        Player.MovementEnabled = false;
+        //todo change magic number
+        velocity = Player.LocalRotation.Forward * 75;
+    }
+
+    public void OnUpdate() {
+        Player.Controller.Velocity = velocity;
+        velocity *= 0.91f;
+
+        Player.Controller.Move();
+    }
+
+    public void OnStop() {
+        Player.MovementEnabled = true;
+    }
 }
