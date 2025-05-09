@@ -18,7 +18,7 @@ public partial class BrawlerComponent : Component {
 
     public IReadOnlyDictionary<ActionInputButton, string> ActionToInputName {get;} = new Dictionary<ActionInputButton, string> {
         {ActionInputButton.None, ""},
-        {ActionInputButton.Quickstep, "Quickstep"},
+        {ActionInputButton.Quickstep, "Cross"},
         {ActionInputButton.Fist, "Square"},
         {ActionInputButton.Kick, "Triangle"},
         {ActionInputButton.Grab, "Circle"}
