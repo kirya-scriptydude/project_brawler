@@ -32,18 +32,18 @@ public static class ComboTree {
 
             //im sorry
             fist01.Children.Add(
-                new ComboNode("fist01_finisher", ActionInputButton.Kick, "Fist")
+                new ComboNode("fist01_finisher", ActionInputButton.Kick, "FistFinisher")
             );
 
             fist02.Children.Add(
-                new ComboNode("fist02_finisher", ActionInputButton.Kick, "Fist")
+                new ComboNode("fist02_finisher", ActionInputButton.Kick, "FistFinisher")
             );
 
             fist03.Children.Add(
-                new ComboNode("fist03_finisher", ActionInputButton.Kick, "Fist")
+                new ComboNode("fist03_finisher", ActionInputButton.Kick, "FistFinisher")
             );
             fist04.Children.Add(
-                new ComboNode("fist04_finisher", ActionInputButton.Kick, "Fist")
+                new ComboNode("fist04_finisher", ActionInputButton.Kick, "FistFinisher")
             );
         }
 

@@ -35,6 +35,6 @@ public partial class BrawlerComponent : Component {
         public Vector3 ModelAnimScale = new(1,1,1);
         private void animate() {
                 Model.LocalScale = ModelAnimScale;
-                ModelAnimScale = ModelAnimScale.LerpTo(Vector3.One, 0.45f);
+                ModelAnimScale = ModelAnimScale.LerpTo(Vector3.One, 0.15f);
         }
 }

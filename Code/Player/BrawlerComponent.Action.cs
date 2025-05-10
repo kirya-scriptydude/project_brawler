@@ -14,7 +14,8 @@ public partial class BrawlerComponent : Component {
 
     public IBrawlerAction[] ActionArray {get;} = [
         new Quickstep(),
-        new Fist()
+        new Fist(),
+        new FistFinisher()
     ];
 
     /// <summary>

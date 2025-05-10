@@ -1,15 +1,15 @@
+//todo make hitbox code reusable
 using System;
 
-public class Fist : IBrawlerAction {
-    public BrawlerComponent Player {get; set;} 
-    public string Name {get;} = "Fist";
+public class FistFinisher : IBrawlerAction {
+    public BrawlerComponent Player {get; set;}
+    public string Name {get;} = "FistFinisher";
 
-    public float Duration {get; set;} = 0.8f;
-    public float CancelDuration {get; set;} = 0.30f;
+    public float Duration {get; set;} = 1.15f;
+    public float CancelDuration {get; set;} = 0.8f;
 
-    public float HitboxDurationMin {get; set;} = 0.20f;
-    public float HitboxDurationMax {get; set;} = 0.35f;
-
+    public float HitboxDurationMin {get; set;} = 0.7f;
+    public float HitboxDurationMax {get; set;} = 0.85f;
     public float LastTime {get; set;}
 
     private Vector3 velocity = new();
@@ -42,8 +42,8 @@ public class Fist : IBrawlerAction {
                 //temporary
                 var comp = traceResult.Component.GetComponent<Rigidbody>();
                 if (comp != null) {
-                    comp.ApplyTorque(Random.Shared.VectorInSphere(10) * 2000000);
-                    comp.ApplyImpulse((Vector3.Up * 250000) + (Player.LocalRotation.Forward * 100000));
+                    comp.ApplyTorque(Random.Shared.VectorInSphere(10) * 4000000);
+                    comp.ApplyImpulse((Vector3.Up * 450000) + (Player.LocalRotation.Forward * 200000));
                 }
             }
         }
@@ -51,25 +51,24 @@ public class Fist : IBrawlerAction {
 
     public void OnStart() {
         Player.MovementEnabled = false;
-        //todo change magic number
-        velocity = Player.LocalRotation.Forward * 75;
-
-        Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
+        velocity = Player.LocalRotation.Forward * 200;
     }
 
     public void OnUpdate() {
-        Player.Controller.Velocity = velocity;
-        velocity *= 0.91f;
-        Player.Controller.Move();
-
         var time = Time.Now - LastTime;
+
         if (time > HitboxDurationMin && time < HitboxDurationMax) {
+            Player.Controller.Velocity = velocity;
+            Player.ModelAnimScale = new Vector3(1, 1, 0.5f);
+            Player.Controller.Move();
+            
             handleHitbox();
         }
+
+        
     }
 
     public void OnStop() {
-        hit = new();
         Player.MovementEnabled = true;
     }
 }
