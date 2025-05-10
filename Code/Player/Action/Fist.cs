@@ -44,6 +44,7 @@ public class Fist : IBrawlerAction {
                 if (comp != null) {
                     comp.ApplyTorque(Random.Shared.VectorInSphere(10) * 2000000);
                     comp.ApplyImpulse((Vector3.Up * 250000) + (Player.LocalRotation.Forward * 100000));
+                    Sound.Play("sounds/hit-test.sound", Player.WorldPosition);
                 }
             }
         }
