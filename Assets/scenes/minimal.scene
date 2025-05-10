@@ -403,40 +403,15 @@
           "OverrideMassCenter": false,
           "RigidbodyFlags": 0,
           "StartAsleep": false
-        },
-        {
-          "__type": "Sandbox.ManualHitbox",
-          "__guid": "9f9e4758-18e0-442b-b4c6-20cf4c3d277f",
-          "CenterA": "0,0,0",
-          "CenterB": "0,0,0",
-          "HitboxTags": "",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Radius": 10,
-          "Shape": "Box",
-          "Target": null
         }
       ],
       "Children": []
     },
     {
-      "__guid": "be737576-3096-4ae9-bca8-677f1334e037",
-      "Flags": 0,
-      "Name": "player_withcamera",
-      "Position": "-145.3743,-65.88049,4",
-      "Enabled": true,
-      "__Prefab": "prefabs/player_withcamera.prefab",
-      "__PrefabVariables": {}
-    },
-    {
-      "__guid": "ee86b6ae-956d-45aa-9f5c-da0187bd77e3",
+      "__guid": "3fe35785-1073-49ae-b378-30bf81e9ddc6",
       "Flags": 0,
       "Name": "player-brawler",
-      "Position": "-83.84724,-59.99994,0",
+      "Position": "-124.0837,-90.07422,0.01579285",
       "Enabled": true,
       "__Prefab": "prefabs/player-brawler.prefab",
       "__PrefabVariables": {}
