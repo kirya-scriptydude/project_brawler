@@ -11,6 +11,7 @@ public class Quickstep : IBrawlerAction {
     public void OnStart() {
         Player.MovementEnabled = false;
         velocity = Player.MoveDirectionAngled * BrawlerComponent.MOVESPEED * 1.5f;
+        Player.ModelAnimScale = new Vector3(1, 1, 0.1f);
     }
 
     public void OnUpdate() {
@@ -18,6 +19,7 @@ public class Quickstep : IBrawlerAction {
         velocity *= 0.91f;
 
         Player.Controller.Move();
+        Player.ModelAnimScale = new Vector3(1, 1, 0.9f);
     }
 
     public void OnStop() {

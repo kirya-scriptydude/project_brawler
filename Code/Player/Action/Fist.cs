@@ -20,6 +20,8 @@ public class Fist : IBrawlerAction {
         Player.MovementEnabled = false;
         //todo change magic number
         velocity = Player.LocalRotation.Forward * 75;
+        
+        Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
     }
 
     public void OnUpdate() {

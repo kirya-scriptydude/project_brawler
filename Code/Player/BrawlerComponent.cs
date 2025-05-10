@@ -9,6 +9,7 @@ public partial class BrawlerComponent : Component {
 
 
         [Property] public bool MovementEnabled { get; set; } = true;
+        [Property] public GameObject Model {get; set;}
 
         protected override void OnStart() {
                 initializeActions();
@@ -21,10 +22,19 @@ public partial class BrawlerComponent : Component {
                 buildInput();
                 actionControls();
                 miscControls();
+
+                animate();
         }
 
         protected override void OnFixedUpdate() {
                 if ( MovementEnabled ) move();
                 actionUpdate();
+        }
+
+        //temporary animation system lol
+        public Vector3 ModelAnimScale = new(1,1,1);
+        private void animate() {
+                Model.LocalScale = ModelAnimScale;
+                ModelAnimScale = ModelAnimScale.LerpTo(Vector3.One, 0.45f);
         }
 }

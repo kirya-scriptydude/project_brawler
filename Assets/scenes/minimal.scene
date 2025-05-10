@@ -403,6 +403,22 @@
           "OverrideMassCenter": false,
           "RigidbodyFlags": 0,
           "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.ManualHitbox",
+          "__guid": "9f9e4758-18e0-442b-b4c6-20cf4c3d277f",
+          "CenterA": "0,0,0",
+          "CenterB": "0,0,0",
+          "HitboxTags": "",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 10,
+          "Shape": "Box",
+          "Target": null
         }
       ],
       "Children": []
