@@ -16,7 +16,7 @@ public class Quickstep : IBrawlerAction {
 
     public void OnUpdate() {
         Player.Controller.Velocity = velocity;
-        velocity *= 0.91f;
+        velocity *= 0.93f;
 
         Player.Controller.Move();
         Player.ModelAnimScale = new Vector3(1, 1, 0.9f);
