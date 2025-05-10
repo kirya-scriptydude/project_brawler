@@ -408,12 +408,21 @@
       "Children": []
     },
     {
-      "__guid": "a807976e-044c-487c-a21e-eea32c4b82c3",
+      "__guid": "be737576-3096-4ae9-bca8-677f1334e037",
       "Flags": 0,
       "Name": "player_withcamera",
-      "Position": "-124.2041,-129.5571,4",
+      "Position": "-145.3743,-65.88049,4",
       "Enabled": true,
       "__Prefab": "prefabs/player_withcamera.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "ee86b6ae-956d-45aa-9f5c-da0187bd77e3",
+      "Flags": 0,
+      "Name": "player-brawler",
+      "Position": "-83.84724,-59.99994,0",
+      "Enabled": true,
+      "__Prefab": "prefabs/player-brawler.prefab",
       "__PrefabVariables": {}
     }
   ],

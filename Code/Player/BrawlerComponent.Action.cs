@@ -4,7 +4,7 @@ public partial class BrawlerComponent : Component {
     /// Combo node that is currently active. To change it please use ActionActivate.
     /// </summary>
     public ComboNode CurrentComboNode {get; private set;}
-    [Property] public bool IsAction => CurrentComboNode.ClassName != "";
+    public bool IsAction => CurrentComboNode.ClassName != "";
     private IBrawlerAction curAction;
 
     /// <summary>

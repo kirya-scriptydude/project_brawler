@@ -1,0 +1,172 @@
+{
+  "RootObject": {
+    "__guid": "1252484b-6aa5-4abd-89c4-f857fdbc5613",
+    "Flags": 0,
+    "Name": "player-brawler",
+    "Enabled": true,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "df096078-5e0e-4822-959a-7f63669a5dd1",
+        "Flags": 0,
+        "Name": "Controller",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "BrawlerComponent",
+            "__guid": "cc753a12-dd5d-40c4-8d78-e74ea00efa73",
+            "Camera": {
+              "_type": "gameobject",
+              "go": "b396c460-a714-4d91-ad78-ec9ad6959910"
+            },
+            "Controller": {
+              "_type": "component",
+              "component_id": "37598bc5-7201-4c25-aa07-b9ee5a33f232",
+              "go": "df096078-5e0e-4822-959a-7f63669a5dd1",
+              "component_type": "CharacterController"
+            },
+            "MovementEnabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "Sandbox.CharacterController",
+            "__guid": "37598bc5-7201-4c25-aa07-b9ee5a33f232",
+            "Acceleration": 10,
+            "Bounciness": 0.3,
+            "GroundAngle": 45,
+            "Height": 64,
+            "IgnoreLayers": "",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Radius": 10.24,
+            "StepHeight": 18,
+            "UseCollisionRules": false
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "db2784be-305b-45eb-8d88-b57f2f171ce9",
+            "Flags": 0,
+            "Name": "Model",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "43016bf7-cb82-4cac-9b97-5dd1bf9e3e3e",
+                "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
+                "MaterialOverride": null,
+                "Model": "models/dev/playerstart_tint.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ],
+            "Children": []
+          }
+        ]
+      },
+      {
+        "__guid": "b396c460-a714-4d91-ad78-ec9ad6959910",
+        "Flags": 0,
+        "Name": "Camera",
+        "Position": "-134.2356,0,68.23469",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.CameraComponent",
+            "__guid": "3740a1bf-6c8b-449c-bf92-97f9dd77cdee",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "FovAxis": "Horizontal",
+            "IsMainCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          },
+          {
+            "__type": "BrawlerCamera",
+            "__guid": "e4d24f6a-1269-420d-b7b4-11c7870d8cc4",
+            "Camera": {
+              "_type": "component",
+              "component_id": "3740a1bf-6c8b-449c-bf92-97f9dd77cdee",
+              "go": "b396c460-a714-4d91-ad78-ec9ad6959910",
+              "component_type": "CameraComponent"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Subject": {
+              "_type": "gameobject",
+              "go": "df096078-5e0e-4822-959a-7f63669a5dd1"
+            }
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__variables": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
