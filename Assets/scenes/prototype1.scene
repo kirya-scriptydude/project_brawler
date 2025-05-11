@@ -1,0 +1,128 @@
+{
+  "__guid": "ad7ada97-c4c3-4082-bdf7-32cfdb8c97b1",
+  "GameObjects": [
+    {
+      "__guid": "ad32774d-a86c-48d7-ac2f-42311e49a664",
+      "Flags": 0,
+      "Name": "Plane",
+      "Position": "0,0,5.291148",
+      "Scale": "-6.588513,-6.588513,-6.588513",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "521e68f7-c101-4f6d-a98b-bdc7094a6c6f",
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/plane.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "102812fc-7168-428c-ae30-5725d8bd76c5",
+          "Center": "0.0235405,0.1127357,-0.2585616",
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "Scale": "100.053,100.7922,0.4751539",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "16c4ae09-aa0a-4342-a88b-10d70bfa1986",
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "-236.3928,-33.34032,96.7862",
+      "Rotation": "0,0.3826834,0,0.9238796",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "5511d9f6-79f3-4769-941f-e4da302684db",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "ea5aec37-7bd5-4ccb-8116-ef61fdb18468",
+      "Flags": 0,
+      "Name": "player-brawler",
+      "Position": "-205.7952,-6.985016,8.57576",
+      "Enabled": true,
+      "__Prefab": "prefabs/player-brawler.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "4aea1f0a-e182-4113-bdab-a58ef1ae5fd3",
+      "Flags": 0,
+      "Name": "enemy-base",
+      "Position": "217.5573,-2.955536,8.559967",
+      "Enabled": true,
+      "__Prefab": "prefabs/enemy-base.prefab",
+      "__PrefabVariables": {}
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "TimeScale": 1,
+    "WantsSystemScene": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 2,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 2
+}

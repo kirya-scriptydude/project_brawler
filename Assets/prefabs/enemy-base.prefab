@@ -1,0 +1,105 @@
+{
+  "RootObject": {
+    "__guid": "ab75ec18-d512-4657-a40a-172226255a78",
+    "Flags": 0,
+    "Name": "enemy-base",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "EnemyComponent",
+        "__guid": "a6534f90-ea48-4b48-9517-2baa28aa79f4",
+        "Agent": {
+          "_type": "component",
+          "component_id": "0cec6ec0-e993-41dc-81b0-22a58152243d",
+          "go": "ab75ec18-d512-4657-a40a-172226255a78",
+          "component_type": "NavMeshAgent"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Player": null
+      },
+      {
+        "__type": "Sandbox.NavMeshAgent",
+        "__guid": "0cec6ec0-e993-41dc-81b0-22a58152243d",
+        "Acceleration": 300,
+        "AutoTraverseLinks": true,
+        "Height": 64,
+        "MaxSpeed": 200,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Radius": 12,
+        "Separation": 0.25,
+        "UpdatePosition": true,
+        "UpdateRotation": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "fa1722e8-7c8c-4827-a48d-fd63958348ee",
+        "Flags": 0,
+        "Name": "Model",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "1c46e5cc-6d4a-4029-9d7d-c37ee5e12c76",
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/dev/playerstart_tint.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,0,0,1"
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__variables": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
