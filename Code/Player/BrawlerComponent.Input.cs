@@ -58,6 +58,7 @@ public partial class BrawlerComponent : Component {
             var enemies = new SortedList<float, GameObject>();
 
             foreach (var obj in Scene.GetAllObjects(true)) {
+                if (!obj.IsPrefabInstanceRoot) continue;
                 if (obj.Tags.Has("enemy")) {
                     var distance = Vector3.DistanceBetween(obj.WorldPosition, WorldPosition);
                     enemies.Add(distance, obj);

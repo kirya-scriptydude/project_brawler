@@ -3,6 +3,7 @@
     "__guid": "ab75ec18-d512-4657-a40a-172226255a78",
     "Flags": 0,
     "Name": "enemy-base",
+    "Tags": "enemy",
     "Enabled": true,
     "Components": [
       {
@@ -20,7 +21,8 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Player": null
+        "Player": null,
+        "State": "Idle"
       },
       {
         "__type": "Sandbox.NavMeshAgent",
