@@ -4,7 +4,7 @@ public partial class EnemyComponent : Component {
 
     public CombatState StateCombat {get; private set;} = CombatState.Neutral;
 
-    private float sidestep = 1f;
+    private float sidestep = 0f;
     private float lastChangedSidestep = Time.Now;
 
     public static readonly float CLOSE_QUARTERS_DISTANCE = 150f;
