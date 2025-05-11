@@ -1,7 +1,7 @@
 using System;
 
 public class Fist : IBrawlerAction {
-    public BrawlerComponent Player {get; set;} 
+    public IBrawler Brawler {get; set;} 
     public string Name {get;} = "Fist";
 
     public float Duration {get; set;} = 0.8f;
@@ -14,7 +14,8 @@ public class Fist : IBrawlerAction {
 
     private Vector3 velocity = new();
     private List<Hitbox> hit = new();
-
+    private BrawlerComponent Player => Brawler.Object.GetComponent<BrawlerComponent>();
+    
     private void handleHitbox() {
         var from = Player.WorldPosition + Vector3.Up * 35;
         var to = from + Player.LocalRotation.Forward * 38;

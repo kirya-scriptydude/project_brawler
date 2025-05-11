@@ -1,7 +1,5 @@
-using System.Runtime.Serialization.Formatters;
-
 public interface IBrawlerAction {
-    public BrawlerComponent Player {get; set;}
+    public IBrawler Brawler {get; set;}
     public string Name {get;}
 
     /// <summary>
@@ -24,11 +22,11 @@ public interface IBrawlerAction {
         
         var time = Time.Now - LastTime;
 
-        if (CancelDuration >= 0 && Player.CanTraverseTree == false) {
-            if (time > CancelDuration) Player.CanTraverseTree = true;
+        if (CancelDuration >= 0 && Brawler.CanTraverseTree == false) {
+            if (time > CancelDuration) Brawler.CanTraverseTree = true;
         }
 
-        if (time > Duration) Player.ActionStop();
+        if (time > Duration) Brawler.StopAction();
     }
 
     public void OnStart();

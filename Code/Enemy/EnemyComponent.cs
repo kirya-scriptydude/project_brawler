@@ -2,7 +2,11 @@
 /// Base component for enemies
 /// </summary>
 [Group("Project Brawler")]
-public partial class EnemyComponent : Component {
+public partial class EnemyComponent : Component, IBrawler {
+
+    public GameObject Object => GameObject;
+    public bool MovementEnabled {get; set;} = true;
+    public bool CanTraverseTree {get; set;} = true;
 
     [Property, RequireComponent] public NavMeshAgent Agent {get; set;}
     [Property, ReadOnly] public BrawlerComponent Player {get; set;}

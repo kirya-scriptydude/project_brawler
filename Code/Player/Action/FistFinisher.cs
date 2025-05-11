@@ -2,7 +2,7 @@
 using System;
 
 public class FistFinisher : IBrawlerAction {
-    public BrawlerComponent Player {get; set;}
+    public IBrawler Brawler {get; set;}
     public string Name {get;} = "FistFinisher";
 
     public float Duration {get; set;} = 1.15f;
@@ -14,6 +14,7 @@ public class FistFinisher : IBrawlerAction {
 
     private Vector3 velocity = new();
     private List<Hitbox> hit = new();
+    private BrawlerComponent Player => Brawler.Object.GetComponent<BrawlerComponent>();
 
     private void handleHitbox() {
         var from = Player.WorldPosition + Vector3.Up * 35;

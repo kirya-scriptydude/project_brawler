@@ -52,6 +52,10 @@ public partial class EnemyComponent : Component {
         }
     }
 
+    public void StopAction() {}
+    public void SetVelocity(Vector3 velocity) => Agent.Velocity = velocity;
+    public Vector3 GetWishVelocity() => Agent.WishVelocity;
+
 }
 
 public enum CombatState {

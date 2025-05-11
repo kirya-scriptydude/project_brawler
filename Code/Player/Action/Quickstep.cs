@@ -1,5 +1,5 @@
 public class Quickstep : IBrawlerAction {
-    public BrawlerComponent Player {get; set;}
+    public IBrawler Brawler {get; set;}
     public string Name {get;} = "Quickstep";
 
     public float Duration {get; set;} = 0.8f;
@@ -7,22 +7,33 @@ public class Quickstep : IBrawlerAction {
     public float LastTime {get; set;}
 
     private Vector3 velocity = new();
+    private BrawlerComponent Player;
 
     public void OnStart() {
-        Player.MovementEnabled = false;
-        velocity = Player.MoveDirectionAngled * BrawlerComponent.MOVESPEED * 1.5f;
-        Player.ModelAnimScale = new Vector3(1, 1, 0.1f);
+        Player = Brawler.Object.GetComponent<BrawlerComponent>();
+        velocity = Brawler.GetWishVelocity() * BrawlerComponent.MOVESPEED * 1.5f;
+
+        if (Player != null) {
+            Player.ModelAnimScale = new Vector3(1, 1, 0.1f);
+            Player.MovementEnabled = false;
+        }
+
     }
 
     public void OnUpdate() {
-        Player.Controller.Velocity = velocity;
+        Brawler.SetVelocity(velocity);
         velocity *= 0.93f;
 
-        Player.Controller.Move();
-        Player.ModelAnimScale = new Vector3(1, 1, 0.9f);
+        //Player.Controller.Move();
+        if (Player != null) {
+            Player.ModelAnimScale = new Vector3(1, 1, 0.9f);
+        }
+        
     }
 
     public void OnStop() {
-        Player.MovementEnabled = true;
+        if (Player != null) {
+            Player.MovementEnabled = true;
+        }
     }
 }

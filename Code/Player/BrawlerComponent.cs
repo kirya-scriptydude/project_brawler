@@ -1,5 +1,6 @@
 [Title( "Brawler Player" ), Group( "Project Brawler" ), Description( "Yakuza-like player controller" )]
-public partial class BrawlerComponent : Component {
+public partial class BrawlerComponent : Component, IBrawler {
+        public GameObject Object => GameObject;
         /// <summary>
         /// Active gameplay camera
         /// </summary>
@@ -30,6 +31,16 @@ public partial class BrawlerComponent : Component {
                 if ( MovementEnabled ) move();
                 actionUpdate();
         }
+
+        public void SetVelocity(Vector3 velocity) {
+                Controller.Velocity = velocity;
+                Controller.Move();
+        }
+        
+        public Vector3 GetWishVelocity() {
+                return MoveDirectionAngled;
+        }
+        
 
         //temporary animation system lol
         public Vector3 ModelAnimScale = new(1,1,1);
