@@ -127,12 +127,9 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     public Vector3 GetWishVelocity() {
+        var Y = Random.Shared.Int(-1, 1);
         var X = Random.Shared.Int(-1, 1);
-        var Y = 0;
-        if (X == 0) {
-            Y = -1;
-        }
-        return new Vector3(X, Y, 0);
+        return new Vector3(X, Y, 0) * LocalRotation;
     }
 
     public void StopAction() {
