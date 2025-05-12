@@ -29,6 +29,14 @@ public interface IBrawlerAction {
         if (time > Duration) Brawler.StopAction();
     }
 
+    /// <summary>
+    /// NPC use condition. Defaults to false. Override to allow for NPC's to use it.
+    /// </summary>
+    /// <returns></returns>
+    public bool NonPlayableCondition() {
+        return false;
+    }
+
     public void OnStart();
     public void OnUpdate();
     public void OnStop();
