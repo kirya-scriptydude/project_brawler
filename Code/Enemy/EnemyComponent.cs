@@ -49,13 +49,21 @@ public partial class EnemyComponent : Component, IBrawler {
                 stateChase();
                 break;
             case EnemyState.Combat:
-                stateCombat();
                 break;
             default:
                 break;
         }
 	}
 
+	public void SetVelocity( Vector3 velocity ) {
+	}
+
+	public Vector3 GetWishVelocity() {
+		return new Vector3();
+	}
+
+	public void StopAction() {
+	}
 }
 
 public enum EnemyState {
