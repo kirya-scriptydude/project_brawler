@@ -18,9 +18,9 @@
           "go": "ab75ec18-d512-4657-a40a-172226255a78",
           "component_type": "NavMeshAgent"
         },
-        "Aggression": 1,
+        "Aggression": 2,
         "ChainQuickstep": 0,
-        "Evasion": 1,
+        "Evasion": 5,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -29,7 +29,8 @@
         "OnComponentUpdate": null,
         "Player": null,
         "QuickstepInNeutral": false,
-        "State": "Idle"
+        "State": "Idle",
+        "WaitWeightFactor": 0
       },
       {
         "__type": "Sandbox.NavMeshAgent",

@@ -1,3 +1,5 @@
+using System;
+
 /// <summary>
 /// Base component for enemies
 /// </summary>
@@ -31,11 +33,16 @@ public partial class EnemyComponent : Component, IBrawler {
     public List<string> ActionList { get; set; } = new() {
         "Quickstep"
     };
-
     /// <summary>
     /// Premade array with all the actions mentioned in ActionList.
     /// </summary>
     private IBrawlerAction[] actionClassArray;
+
+    /// <summary>
+    /// This number rises up with time, clamping at a certain point. The higher the float, the more likely AI to attack.
+    /// Updates on EnemyState.Combat
+    /// </summary>
+    [Property, ReadOnly, Group("Behaviour")] public float WaitWeightFactor {get; private set;}
 
     public static readonly float CHASE_DISTANCE = 250;
 
@@ -55,6 +62,8 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     private void stateCombat() {
+        WaitWeightFactor = Math.Clamp(WaitWeightFactor + 0.005f, 0.5f, 5);
+
         if (DistanceToPlayer > CHASE_DISTANCE) {
             State = EnemyState.Chase;
         }
@@ -69,6 +78,9 @@ public partial class EnemyComponent : Component, IBrawler {
                     CurrentAction = action.Name;
                     curAction = action;
                     action.OnStart();
+                    
+                    //reset wait factor
+                    WaitWeightFactor = 0.7f;
                     break;
                 }
             }
@@ -111,10 +123,16 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     public void SetVelocity(Vector3 velocity) {
+        Agent.Velocity = velocity;
     }
 
     public Vector3 GetWishVelocity() {
-        return new Vector3();
+        var X = Random.Shared.Int(-1, 1);
+        var Y = 0;
+        if (X == 0) {
+            Y = -1;
+        }
+        return new Vector3(X, Y, 0);
     }
 
     public void StopAction() {
