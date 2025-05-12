@@ -33,7 +33,7 @@ public interface IBrawlerAction {
     /// NPC use condition. Defaults to false. Override to allow for NPC's to use it.
     /// </summary>
     /// <returns></returns>
-    public bool NonPlayableCondition() {
+    public bool NonPlayableCondition(EnemyComponent npc) {
         return false;
     }
 

@@ -9,12 +9,18 @@
       {
         "__type": "EnemyComponent",
         "__guid": "a6534f90-ea48-4b48-9517-2baa28aa79f4",
+        "ActionList": [
+          "Quickstep"
+        ],
         "Agent": {
           "_type": "component",
           "component_id": "0cec6ec0-e993-41dc-81b0-22a58152243d",
           "go": "ab75ec18-d512-4657-a40a-172226255a78",
           "component_type": "NavMeshAgent"
         },
+        "Aggression": 1,
+        "ChainQuickstep": 0,
+        "Evasion": 1,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -22,12 +28,13 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "Player": null,
+        "QuickstepInNeutral": false,
         "State": "Idle"
       },
       {
         "__type": "Sandbox.NavMeshAgent",
         "__guid": "0cec6ec0-e993-41dc-81b0-22a58152243d",
-        "Acceleration": 300,
+        "Acceleration": 600,
         "AutoTraverseLinks": true,
         "Height": 64,
         "MaxSpeed": 200,

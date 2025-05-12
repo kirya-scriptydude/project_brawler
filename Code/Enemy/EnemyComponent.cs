@@ -50,6 +50,7 @@ public partial class EnemyComponent : Component, IBrawler {
 
         if (DistanceToPlayer < CHASE_DISTANCE) {
             State = EnemyState.Combat;
+            Agent.Stop();
         }
     }
 
@@ -57,14 +58,14 @@ public partial class EnemyComponent : Component, IBrawler {
         if (DistanceToPlayer > CHASE_DISTANCE) {
             State = EnemyState.Chase;
         }
-        
+
         if (IsAction) {
             curAction.UpdateTimer();
             curAction.OnUpdate();
         } else {
             //idle
             foreach (var action in actionClassArray) {
-                if (action.NonPlayableCondition()) {
+                if (action.NonPlayableCondition(this)) {
                     CurrentAction = action.Name;
                     curAction = action;
                     action.OnStart();

@@ -66,6 +66,18 @@ public partial class BrawlerComponent : Component {
     }
 
     /// <summary>
+    /// Is player perfoming an attack (not a dash, not a block, honest to god attack)
+    /// </summary>
+    /// <returns></returns>
+    public bool IsPerfomingAttack() {
+        if (CurrentComboNode.Button == ActionInputButton.Fist) return true;
+        if (CurrentComboNode.Button == ActionInputButton.Kick) return true;
+        if (CurrentComboNode.Button == ActionInputButton.Grab) return true;
+
+        return false;
+    }
+
+    /// <summary>
     /// set player for every action
     /// </summary>
     private void initializeActions() {
