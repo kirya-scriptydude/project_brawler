@@ -24,7 +24,7 @@ public partial class BrawlerComponent : Component, IBrawler {
                 actionControls();
                 miscControls();
 
-                animate();
+                //animate();
         }
 
         protected override void OnFixedUpdate() {

@@ -97,6 +97,7 @@
       "Flags": 0,
       "Name": "enemy-base",
       "Position": "217.5573,-2.955536,8.559967",
+      "Tags": "enemy",
       "Enabled": true,
       "__Prefab": "prefabs/enemy-base.prefab",
       "__PrefabVariables": {}

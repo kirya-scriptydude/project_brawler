@@ -82,6 +82,7 @@
             "__guid": "db2784be-305b-45eb-8d88-b57f2f171ce9",
             "Flags": 0,
             "Name": "Model",
+            "Scale": "3.5,3.5,3.5",
             "Enabled": true,
             "Components": [
               {
@@ -91,7 +92,7 @@
                 "CreateAttachments": false,
                 "MaterialGroup": null,
                 "MaterialOverride": null,
-                "Model": "models/dev/playerstart_tint.vmdl",
+                "Model": "models/r6-basic.vmdl",
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
                 "OnComponentEnabled": null,
