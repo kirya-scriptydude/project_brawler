@@ -23,8 +23,6 @@ public partial class BrawlerComponent : Component, IBrawler {
                 buildInput();
                 actionControls();
                 miscControls();
-
-                //animate();
         }
 
         protected override void OnFixedUpdate() {
@@ -39,13 +37,5 @@ public partial class BrawlerComponent : Component, IBrawler {
         
         public Vector3 GetWishVelocity() {
                 return MoveDirectionAngled;
-        }
-        
-
-        //temporary animation system lol
-        public Vector3 ModelAnimScale = new(1,1,1);
-        private void animate() {
-                Model.LocalScale = ModelAnimScale;
-                ModelAnimScale = ModelAnimScale.LerpTo(Vector3.One, 0.15f);
         }
 }

@@ -16,7 +16,7 @@ public class Quickstep : IBrawlerAction {
         velocity = Brawler.GetWishVelocity() * BrawlerComponent.MOVESPEED * 1.5f;
 
         if (Player != null) {
-            Player.ModelAnimScale = new Vector3(1, 1, 0.1f);
+            //Player.ModelAnimScale = new Vector3(1, 1, 0.1f);
             Player.MovementEnabled = false;
         }
 
@@ -28,7 +28,7 @@ public class Quickstep : IBrawlerAction {
 
         //Player.Controller.Move();
         if (Player != null) {
-            Player.ModelAnimScale = new Vector3(1, 1, 0.9f);
+           //Player.ModelAnimScale = new Vector3(1, 1, 0.9f);
         }
         
     }

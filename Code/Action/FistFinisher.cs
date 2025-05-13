@@ -60,7 +60,7 @@ public class FistFinisher : IBrawlerAction {
 
         if (time > HitboxDurationMin && time < HitboxDurationMax) {
             Player.Controller.Velocity = velocity;
-            Player.ModelAnimScale = new Vector3(1, 1, 0.5f);
+            //Player.ModelAnimScale = new Vector3(1, 1, 0.5f);
             Player.Controller.Move();
             
             handleHitbox();
