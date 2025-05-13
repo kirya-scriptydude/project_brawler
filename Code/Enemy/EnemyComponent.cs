@@ -7,6 +7,8 @@ using System;
 public partial class EnemyComponent : Component, IBrawler {
 
     public GameObject Object => GameObject;
+    [Property] public SkinnedModelRenderer Model {get; set;}
+    
     public bool MovementEnabled { get; set; } = true;
     public bool CanTraverseTree { get; set; } = true;
 

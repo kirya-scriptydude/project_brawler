@@ -64,10 +64,11 @@ public class Fist : IBrawlerAction {
         velocity *= 0.91f;
         Player.Controller.Move();
 
-        var time = Time.Now - LastTime;
-        if (time > HitboxDurationMin && time < HitboxDurationMax) {
-            handleHitbox();
-        }
+        Brawler.Model.Parameters.Set("b_isAttacking", true);
+        //var time = Time.Now - LastTime;
+        //if (time > HitboxDurationMin && time < HitboxDurationMax) {
+        //    handleHitbox();
+        //}
     }
 
     public void OnStop() {

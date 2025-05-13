@@ -3,6 +3,7 @@
 /// </summary>
 public interface IBrawler {
     public GameObject Object {get;}
+    public SkinnedModelRenderer Model {get; set;}
 
 
     public bool MovementEnabled {get; set;}

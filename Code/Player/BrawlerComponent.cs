@@ -10,10 +10,12 @@ public partial class BrawlerComponent : Component, IBrawler {
 
 
         [Property] public bool MovementEnabled { get; set; } = true;
-        [Property] public GameObject Model {get; set;}
+        [Property] public SkinnedModelRenderer Model {get; set;}
 
         protected override void OnStart() {
                 initializeActions();
+                Model.OnAnimTagEvent += handleAnimationEvents;
+                
                 BrawlerCamera = Camera.GetComponent<BrawlerCamera>();
         }
 
@@ -22,6 +24,7 @@ public partial class BrawlerComponent : Component, IBrawler {
                 
                 buildInput();
                 actionControls();
+                updateAnimgraph();
                 miscControls();
         }
 

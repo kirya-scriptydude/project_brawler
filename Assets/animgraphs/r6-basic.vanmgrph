@@ -173,7 +173,7 @@
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
 							m_bIsRootMotionExclusive = false
-							m_bAlwaysEvaluate = false
+							m_bAlwaysEvaluate = true
 						},
 						{
 							_class = "CAnimState"
