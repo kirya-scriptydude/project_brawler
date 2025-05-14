@@ -1,27 +1,28 @@
-[Title( "Brawler Player" ), Group( "Project Brawler" ), Description( "Yakuza-like player controller" )]
+[Title("Brawler Player"), Group("Project Brawler"), Description("Yakuza-like player controller")]
 public partial class BrawlerComponent : Component, IBrawler {
         public GameObject Object => GameObject;
         /// <summary>
         /// Active gameplay camera
         /// </summary>
         [Property] public GameObject Camera { get; set; }
+        [Property] public HitboxHandler HitboxHandler { get; set; }
 
         public BrawlerCamera BrawlerCamera { get; set; }
 
 
         [Property] public bool MovementEnabled { get; set; } = true;
-        [Property] public SkinnedModelRenderer Model {get; set;}
+        [Property] public SkinnedModelRenderer Model { get; set; }
 
         protected override void OnStart() {
                 initializeActions();
                 Model.OnAnimTagEvent += handleAnimationEvents;
-                
+
                 BrawlerCamera = Camera.GetComponent<BrawlerCamera>();
         }
 
         protected override void OnUpdate() {
                 if (Game.IsEditor) displayDebug();
-                
+
                 buildInput();
                 actionControls();
                 updateAnimgraph();
@@ -29,7 +30,7 @@ public partial class BrawlerComponent : Component, IBrawler {
         }
 
         protected override void OnFixedUpdate() {
-                if ( MovementEnabled ) move();
+                if (MovementEnabled) move();
                 actionUpdate();
         }
 
@@ -37,7 +38,7 @@ public partial class BrawlerComponent : Component, IBrawler {
                 Controller.Velocity = velocity;
                 Controller.Move();
         }
-        
+
         public Vector3 GetWishVelocity() {
                 return MoveDirectionAngled;
         }

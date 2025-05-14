@@ -25,6 +25,12 @@
               "go": "df096078-5e0e-4822-959a-7f63669a5dd1",
               "component_type": "CharacterController"
             },
+            "HitboxHandler": {
+              "_type": "component",
+              "component_id": "c1ee44f4-8ac1-472f-a76a-6cafd98adebd",
+              "go": "df096078-5e0e-4822-959a-7f63669a5dd1",
+              "component_type": "HitboxHandler"
+            },
             "Model": {
               "_type": "component",
               "component_id": "58df987f-3b5a-4c38-95f2-b85a34495840",
@@ -77,6 +83,17 @@
             "Static": false,
             "Surface": null,
             "SurfaceVelocity": "0,0,0"
+          },
+          {
+            "__type": "HitboxHandler",
+            "__guid": "c1ee44f4-8ac1-472f-a76a-6cafd98adebd",
+            "HitboxActive": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           }
         ],
         "Children": [
