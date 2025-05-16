@@ -22,10 +22,10 @@ public class HitboxHandler : Component {
             .RunAll();
         
         
-        if (Game.IsEditor) {
+        //if (Game.IsEditor) {
             DebugOverlay.Sphere(new Sphere(ray.Position, hitbox.Radius), default, 0.5f);
             DebugOverlay.Sphere(new Sphere(ray.Position + ray.Forward * hitbox.Length, hitbox.Radius), Color.Red, 0.5f);
-        }
+        //}
 
         foreach (var traceResult in traces) {
             if (!traceResult.Hit) return;
