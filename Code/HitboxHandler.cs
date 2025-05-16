@@ -44,7 +44,6 @@ public class HitboxHandler : Component {
         }
     }
 
-    //todo damage stun etc etc all that number stuff
     private void tryDamage(DamageInfo dmg, Hitbox hitbox) {
         var brawler = hitbox.GameObject.Components.Get<IBrawler>();
         if(brawler == null) return;

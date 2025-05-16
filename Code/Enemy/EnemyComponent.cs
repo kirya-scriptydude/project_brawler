@@ -14,6 +14,7 @@ public partial class EnemyComponent : Component, IBrawler {
 
     public BrawlerHealth Health {get; set;} = new();
     public InfoEntry MoveInfoEntry {get; set;} = InfoEntry.Default;
+    public HitboxHandler HitboxHandler { get; set; }
 
     [Property, RequireComponent] public NavMeshAgent Agent { get; set; }
     [Property, ReadOnly] public BrawlerComponent Player { get; set; }
@@ -105,6 +106,10 @@ public partial class EnemyComponent : Component, IBrawler {
 
         actionClassArray = actionArr.ToArray();
         Player = Scene.GetComponentInChildren<BrawlerComponent>();
+
+        Model.OnAnimTagEvent += delegate (SceneModel.AnimTagEvent e) {
+            IBrawler.HookAnimgraphEvent(this, e);
+        };
     }
 
     protected override void OnFixedUpdate() {

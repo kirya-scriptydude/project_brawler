@@ -21,7 +21,12 @@
         "Aggression": 2,
         "ChainQuickstep": 0,
         "Evasion": 5,
-        "Model": null,
+        "Model": {
+          "_type": "component",
+          "component_id": "54254bfd-ac20-4468-a60c-e1ebed1962eb",
+          "go": "fa1722e8-7c8c-4827-a48d-fd63958348ee",
+          "component_type": "SkinnedModelRenderer"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -73,22 +78,35 @@
         "__guid": "fa1722e8-7c8c-4827-a48d-fd63958348ee",
         "Flags": 0,
         "Name": "Model",
+        "Scale": "3,3,3",
         "Enabled": true,
         "Components": [
           {
-            "__type": "Sandbox.ModelRenderer",
-            "__guid": "1c46e5cc-6d4a-4029-9d7d-c37ee5e12c76",
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "54254bfd-ac20-4468-a60c-e1ebed1962eb",
+            "AnimationGraph": "animgraphs/r6-basic.vanmgrph",
             "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
             "CreateAttachments": false,
+            "CreateBoneObjects": false,
             "MaterialGroup": null,
             "MaterialOverride": null,
-            "Model": "models/dev/playerstart_tint.vmdl",
+            "Model": "models/r6-basic.vmdl",
+            "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "PlaybackRate": 1,
             "RenderOptions": {
               "GameLayer": true,
               "OverlayLayer": false,
@@ -96,7 +114,12 @@
               "AfterUILayer": false
             },
             "RenderType": "On",
-            "Tint": "1,0,0,1"
+            "Sequence": {
+              "Name": null,
+              "Looping": true
+            },
+            "Tint": "1,0.05581,0.05581,1",
+            "UseAnimGraph": true
           }
         ],
         "Children": []
