@@ -12,8 +12,8 @@ public partial class BrawlerComponent : Component, IBrawler {
         if (tagEvent.Name == "DamageFrame") {
             var isEndFrame = tagEvent.Status == SceneModel.AnimTagStatus.End;
             HitboxHandler.Cast(
-                ActionInfo.GetDamage(ActionInfo.InfoEntry.Default),
-                ActionInfo.GetHitbox(ActionInfo.InfoEntry.Default),
+                ActionInfo.GetDamage(MoveInfoEntry),
+                ActionInfo.GetHitbox(MoveInfoEntry),
                 isEndFrame
             );
         }

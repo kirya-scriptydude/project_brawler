@@ -3,7 +3,7 @@
     "__guid": "ab75ec18-d512-4657-a40a-172226255a78",
     "Flags": 0,
     "Name": "enemy-base",
-    "Tags": "enemy",
+    "Tags": "brawler",
     "Enabled": true,
     "Components": [
       {
@@ -21,6 +21,7 @@
         "Aggression": 2,
         "ChainQuickstep": 0,
         "Evasion": 5,
+        "Model": null,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -49,6 +50,22 @@
         "Separation": 0.25,
         "UpdatePosition": true,
         "UpdateRotation": false
+      },
+      {
+        "__type": "Sandbox.ManualHitbox",
+        "__guid": "509b5e8a-c94c-4604-813c-8c83e298e31b",
+        "CenterA": "0,0,19.70002",
+        "CenterB": "0,0,56.99992",
+        "HitboxTags": "",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Radius": 16.600002,
+        "Shape": "Capsule",
+        "Target": null
       }
     ],
     "Children": [

@@ -16,7 +16,7 @@ public class HitboxHandler : Component {
 
         var traces = Scene.Trace
             .Sphere(hitbox.Radius, ray, hitbox.Length)
-            .WithTag("enemy")
+            .WithTag("brawler")
             .IgnoreGameObjectHierarchy(GameObject)
             .UseHitboxes()
             .RunAll();
@@ -28,22 +28,28 @@ public class HitboxHandler : Component {
         //}
 
         foreach (var traceResult in traces) {
-            if (!traceResult.Hit) return;
-            if (traceResult.Hitbox == null) return;
-            if (traceResult.Hitbox.GameObject == null) return;
-            if (hit.Contains(traceResult.Hitbox)) return;
+            if (!traceResult.Hit) continue;
+            if (traceResult.Hitbox == null) continue;
+            if (traceResult.Hitbox.GameObject == null) continue;
+            if (hit.Contains(traceResult.Hitbox)) continue;
 
             if (!hitbox.MultiHit) hit.Add(traceResult.Hitbox);
-            tryDamage(dmg);
+            tryDamage(dmg, traceResult.Hitbox);
+
+            hit.Add(traceResult.Hitbox);
         }
 
         if (endFrame) {
             hit = new();
         }
+        Log.Info(endFrame);
     }
 
     //todo damage stun etc etc all that number stuff
-    private void tryDamage(DamageInfo dmg) {
+    private void tryDamage(DamageInfo dmg, Hitbox hitbox) {
+        var brawler = hitbox.GameObject.Components.Get<IBrawler>();
+        if(brawler == null) return;
 
+        brawler.Health.Inflict(dmg.Damage);
     }
 }

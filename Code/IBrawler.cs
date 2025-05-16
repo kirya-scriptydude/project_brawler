@@ -5,6 +5,9 @@ public interface IBrawler {
     public GameObject Object {get;}
     public SkinnedModelRenderer Model {get; set;}
 
+    public BrawlerHealth Health {get; set;}
+    public InfoEntry MoveInfoEntry {get; set;}
+
 
     public bool MovementEnabled {get; set;}
     /// <summary>

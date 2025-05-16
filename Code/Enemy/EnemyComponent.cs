@@ -12,6 +12,9 @@ public partial class EnemyComponent : Component, IBrawler {
     public bool MovementEnabled { get; set; } = true;
     public bool CanTraverseTree { get; set; } = true;
 
+    public BrawlerHealth Health {get; set;} = new();
+    public InfoEntry MoveInfoEntry {get; set;} = InfoEntry.Default;
+
     [Property, RequireComponent] public NavMeshAgent Agent { get; set; }
     [Property, ReadOnly] public BrawlerComponent Player { get; set; }
 
@@ -102,9 +105,17 @@ public partial class EnemyComponent : Component, IBrawler {
 
         actionClassArray = actionArr.ToArray();
         Player = Scene.GetComponentInChildren<BrawlerComponent>();
+
+        //debug
+        Health.HP = 1;
     }
 
     protected override void OnFixedUpdate() {
+        if (Health.Dead) {
+            GameObject.Destroy();
+            return;
+        }
+
         if (StareAtPlayer) {
             LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, Player.WorldPosition));
         }

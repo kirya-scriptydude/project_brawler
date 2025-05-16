@@ -93,11 +93,11 @@
       "__PrefabVariables": {}
     },
     {
-      "__guid": "4aea1f0a-e182-4113-bdab-a58ef1ae5fd3",
+      "__guid": "85cf35a7-f84a-4685-81e8-299ee56095b1",
       "Flags": 0,
       "Name": "enemy-base",
-      "Position": "217.5573,-2.955536,8.559967",
-      "Tags": "enemy",
+      "Position": "134.1298,4.676529,8.559952",
+      "Tags": "brawler,enemy",
       "Enabled": true,
       "__Prefab": "prefabs/enemy-base.prefab",
       "__PrefabVariables": {}
