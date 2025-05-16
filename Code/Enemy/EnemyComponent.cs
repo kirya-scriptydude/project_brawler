@@ -105,9 +105,6 @@ public partial class EnemyComponent : Component, IBrawler {
 
         actionClassArray = actionArr.ToArray();
         Player = Scene.GetComponentInChildren<BrawlerComponent>();
-
-        //debug
-        Health.HP = 1;
     }
 
     protected override void OnFixedUpdate() {

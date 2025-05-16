@@ -42,7 +42,6 @@ public class HitboxHandler : Component {
         if (endFrame) {
             hit = new();
         }
-        Log.Info(endFrame);
     }
 
     //todo damage stun etc etc all that number stuff

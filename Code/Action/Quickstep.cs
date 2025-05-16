@@ -48,9 +48,6 @@ public class Quickstep : IBrawlerAction {
         weight *= npc.WaitWeightFactor;
         weight += npc.Evasion * 50;
 
-        if (weight > 1000) {
-            Log.Info($"*** DASHED ({weight}) ***");
-        }
         return weight >= 1000;
     }
 }
