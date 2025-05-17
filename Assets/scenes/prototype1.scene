@@ -60,9 +60,9 @@
       "__guid": "16c4ae09-aa0a-4342-a88b-10d70bfa1986",
       "Flags": 0,
       "Name": "Sun",
-      "Position": "-236.3928,-33.34032,96.7862",
-      "Rotation": "0,0.3826834,0,0.9238796",
-      "Tags": "light_directional,light",
+      "Position": "-29.56001,-33.34032,135.8921",
+      "Rotation": "0,0.7089553,0,0.7052534",
+      "Tags": "light_directional,light,light_point",
       "Enabled": true,
       "Components": [
         {
@@ -77,8 +77,24 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Shadows": true,
+          "Shadows": false,
           "SkyColor": "0,0,0,0"
+        },
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "9e4396a4-e802-464a-843f-38bf8125afeb",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 400,
+          "Shadows": false
         }
       ],
       "Children": []

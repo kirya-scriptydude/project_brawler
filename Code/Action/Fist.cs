@@ -21,7 +21,7 @@ public class Fist : IBrawlerAction {
         velocity = Player.LocalRotation.Forward * 75;
         
         Brawler.MoveInfoEntry = InfoEntry.FistLight;
-        Brawler.Model.Parameters.Set("b_isAttacking", true);
+        Brawler.Attack(AnimgraphAttackType.Fist);
 
         //Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
     }
