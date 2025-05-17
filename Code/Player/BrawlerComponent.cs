@@ -8,7 +8,7 @@ public partial class BrawlerComponent : Component, IBrawler {
         [Property] public HitboxHandler HitboxHandler { get; set; }
 
         public BrawlerHealth Health {get; set;} = new();
-        public InfoEntry MoveInfoEntry {get; set;} = InfoEntry.Default;
+        public AttackType MoveAttackType {get; set;}
 
         public BrawlerCamera BrawlerCamera { get; set; }
 

@@ -7,7 +7,7 @@ public interface IBrawler {
     public HitboxHandler HitboxHandler { get; set; }
 
     public BrawlerHealth Health { get; set; }
-    public InfoEntry MoveInfoEntry { get; set; }
+    public AttackType MoveAttackType { get; set; }
 
 
     public bool MovementEnabled { get; set; }
@@ -32,15 +32,16 @@ public interface IBrawler {
         if (tagEvent.Name == "DamageFrame") {
             var isEndFrame = tagEvent.Status == SceneModel.AnimTagStatus.End;
             brawler.HitboxHandler.Cast(
-                ActionInfo.GetDamage(brawler.MoveInfoEntry),
-                ActionInfo.GetHitbox(brawler.MoveInfoEntry),
+                ActionInfo.GetDamage(brawler.MoveAttackType),
+                ActionInfo.GetHitbox(brawler.MoveAttackType),
                 isEndFrame
             );
         }
     }
 
-    public void Attack(AnimgraphAttackType attack) {
+    public void Attack(AttackType attack) {
         Model.Parameters.Set("attackType", (int)attack);
         Model.Parameters.Set("b_isAttacking", true);
+        MoveAttackType = attack;
     }
 }
