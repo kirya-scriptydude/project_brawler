@@ -14,7 +14,7 @@ public partial class EnemyComponent : Component, IBrawler {
 
     public BrawlerHealth Health {get; set;} = new();
     public AttackType MoveAttackType {get; set;}
-    public HitboxHandler HitboxHandler { get; set; }
+    [Property] public HitboxHandler HitboxHandler { get; set; }
 
     [Property, RequireComponent] public NavMeshAgent Agent { get; set; }
     [Property, ReadOnly] public BrawlerComponent Player { get; set; }
@@ -27,7 +27,8 @@ public partial class EnemyComponent : Component, IBrawler {
     private IBrawlerAction curAction;
 
     public IReadOnlyList<IBrawlerAction> AllAvailableActions { get; } = new List<IBrawlerAction>() {
-        new Quickstep()
+        new Quickstep(),
+        new FistFinisher()
     };
 
     [Property, ReadOnly, Group("Behaviour")] public EnemyState State { get; private set; } = EnemyState.Idle;

@@ -57,6 +57,62 @@
       "Children": []
     },
     {
+      "__guid": "02fc0178-b7e5-4023-bcab-bbaa4bf2b231",
+      "Flags": 0,
+      "Name": "Plane (1)",
+      "Position": "50.60229,-387.1499,48.28401",
+      "Rotation": "-0.7071067,0,0,0.7071068",
+      "Scale": "-6.588513,-6.588513,-6.588513",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8422ebca-17ad-4698-aeb2-27ea9fa90000",
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/plane.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "1bbd9722-3eac-40bc-80d0-5f3d7926caf6",
+          "Center": "0.0235405,0.1127357,-0.2585616",
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "Scale": "100.053,100.7922,0.4751539",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "16c4ae09-aa0a-4342-a88b-10d70bfa1986",
       "Flags": 0,
       "Name": "Sun",

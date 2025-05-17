@@ -1,16 +1,16 @@
 using System;
 
 public class Fist : IBrawlerAction {
-    public IBrawler Brawler {get; set;} 
-    public string Name {get;} = "Fist";
+    public IBrawler Brawler { get; set; }
+    public string Name { get; } = "Fist";
 
-    public float Duration {get; set;} = 0.8f;
-    public float CancelDuration {get; set;} = 0.30f;
+    public float Duration { get; set; } = 0.8f;
+    public float CancelDuration { get; set; } = 0.30f;
 
-    public float HitboxDurationMin {get; set;} = 0.20f;
-    public float HitboxDurationMax {get; set;} = 0.35f;
+    public float HitboxDurationMin { get; set; } = 0.20f;
+    public float HitboxDurationMax { get; set; } = 0.35f;
 
-    public float LastTime {get; set;}
+    public float LastTime { get; set; }
 
     private Vector3 velocity = new();
     private BrawlerComponent Player => Brawler.Object.GetComponent<BrawlerComponent>();
@@ -19,7 +19,7 @@ public class Fist : IBrawlerAction {
         Player.MovementEnabled = false;
         //todo change magic number
         velocity = Player.LocalRotation.Forward * 75;
-        
+
         Brawler.Attack(AttackType.Fist);
 
         //Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);

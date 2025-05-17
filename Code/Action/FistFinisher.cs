@@ -1,16 +1,16 @@
 using System;
 
 public class FistFinisher : IBrawlerAction {
-    public IBrawler Brawler {get; set;} 
-    public string Name {get;} = "FistFinisher";
+    public IBrawler Brawler { get; set; }
+    public string Name { get; } = "FistFinisher";
 
-    public float Duration {get; set;} = 0.8f;
-    public float CancelDuration {get; set;} = 0.30f;
+    public float Duration { get; set; } = 0.8f;
+    public float CancelDuration { get; set; } = 0.30f;
 
-    public float HitboxDurationMin {get; set;} = 0.20f;
-    public float HitboxDurationMax {get; set;} = 0.35f;
+    public float HitboxDurationMin { get; set; } = 0.20f;
+    public float HitboxDurationMax { get; set; } = 0.35f;
 
-    public float LastTime {get; set;}
+    public float LastTime { get; set; }
 
     private Vector3 velocity = new();
 
@@ -18,7 +18,7 @@ public class FistFinisher : IBrawlerAction {
         Brawler.MovementEnabled = false;
         //todo change magic number
         velocity = Brawler.Object.LocalRotation.Forward * 75;
-        
+
         Brawler.Attack(AttackType.FistFinisher);
         //Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
     }
@@ -35,5 +35,17 @@ public class FistFinisher : IBrawlerAction {
 
     public void OnStop() {
         Brawler.MovementEnabled = true;
+    }
+    
+    public bool NonPlayableCondition(EnemyComponent npc) {
+        float weight = 0;
+
+        if (!npc.Player.IsPerfomingAttack()) weight += 150;
+        if (npc.DistanceToPlayer < 50) weight += 250;
+
+        weight *= npc.WaitWeightFactor;
+        weight += npc.Aggression * 50;
+
+        return weight >= 1000;
     }
 }

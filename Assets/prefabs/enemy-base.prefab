@@ -10,7 +10,8 @@
         "__type": "EnemyComponent",
         "__guid": "a6534f90-ea48-4b48-9517-2baa28aa79f4",
         "ActionList": [
-          "Quickstep"
+          "Quickstep",
+          "FistFinisher"
         ],
         "Agent": {
           "_type": "component",
@@ -18,9 +19,15 @@
           "go": "ab75ec18-d512-4657-a40a-172226255a78",
           "component_type": "NavMeshAgent"
         },
-        "Aggression": 2,
+        "Aggression": 12,
         "ChainQuickstep": 0,
         "Evasion": 5,
+        "HitboxHandler": {
+          "_type": "component",
+          "component_id": "4ef886ed-71c2-423a-ab06-a3b83b0897cc",
+          "go": "ab75ec18-d512-4657-a40a-172226255a78",
+          "component_type": "HitboxHandler"
+        },
         "Model": {
           "_type": "component",
           "component_id": "54254bfd-ac20-4468-a60c-e1ebed1962eb",
@@ -71,6 +78,17 @@
         "Radius": 16.600002,
         "Shape": "Capsule",
         "Target": null
+      },
+      {
+        "__type": "HitboxHandler",
+        "__guid": "4ef886ed-71c2-423a-ab06-a3b83b0897cc",
+        "HitboxActive": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
