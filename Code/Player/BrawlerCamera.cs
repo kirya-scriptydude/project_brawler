@@ -11,48 +11,60 @@ public sealed class BrawlerCamera : Component {
     public static readonly int MAX_DISTANCE = 165;
     public static readonly Vector3 PLR_CAM_HEIGHT = new Vector3(0, -15, 65);
 
-    public GameObject DefaultPositionObject;
+    public GameObject CamPositionObject;
+    private GameObject neck;
     
-    private Vector3 rotationVelocity = new();
+    private Angles rotationVelocity = new();
 
 	protected override void OnStart() {
-        DefaultPositionObject = Scene.CreateObject();
-        DefaultPositionObject.WorldPosition = WorldPosition;
-        DefaultPositionObject.SetParent(Subject);
-        DefaultPositionObject.Name = "DefaultCamera";
+        neck = Scene.CreateObject();
+        neck.LocalPosition = Vector3.Zero;
+
+        CamPositionObject = Scene.CreateObject();
+        CamPositionObject.WorldPosition = WorldPosition;
+        CamPositionObject.SetParent(neck);
+        CamPositionObject.Name = "DefaultCamera";
 	}
 
-	protected override void OnUpdate() {
-        if (Subject == null) return;
+    protected override void OnUpdate() {
         Camera.FieldOfView = Preferences.FieldOfView;
+        neck.WorldPosition = Subject.WorldPosition + Vector3.Up * 35;
 
-        var from = LocalPosition;
-        var to = Subject.LocalPosition + PLR_CAM_HEIGHT;
+        //build rotationVelocity
+        var look = Input.AnalogLook;
+        rotationVelocity = new Angles(
+            Math.Clamp(rotationVelocity.pitch + look.pitch, -5, 5),
+            rotationVelocity.yaw + look.yaw,
+            0
+        );
 
-        //looking at
-        var newRot = Rotation.LookAt(Vector3.Direction(from, to));
-        LocalRotation = LocalRotation.LerpTo(newRot, 0.15f);
+        neck.LocalRotation = rotationVelocity.ToRotation();
 
-        //positioning
-        var push = new Vector3();
-        var distance = Vector3.DistanceBetween(from, to);
-        if (distance < MIN_DISTANCE) {
-            push = (distance - MIN_DISTANCE) * LocalRotation.Forward;
+        //raycast from neck to camPosObject. If it hits, camera bumps into smthing
+        var trace = Scene.Trace
+            .Ray(neck.WorldPosition, CamPositionObject.WorldPosition)
+            .IgnoreGameObjectHierarchy(Subject)
+            .WithoutTags(["enemy"])
+            .UseHitPosition()
+            .Run();
+
+        if (trace.Hit) {
+            WorldPosition = trace.HitPosition;
+            Log.Info(trace.HitPosition);
+        } else {
+            WorldPosition = WorldPosition.LerpTo(CamPositionObject.WorldPosition, 0.35f);
         }
-        if (distance > MAX_DISTANCE) {
-            push = (distance - MAX_DISTANCE) * LocalRotation.Forward;
-        }
-        
-        var formula = LocalPosition + (rotationVelocity * LocalRotation) + push.WithZ(0);
-        LocalPosition = LocalPosition.LerpTo(formula, 0.55f);
-        rotationVelocity = Vector3.Zero;
+
+        //lookat
+        LocalRotation = Rotation.LookAt(Vector3.Direction(
+            WorldPosition,
+            Subject.WorldPosition + PLR_CAM_HEIGHT
+        ));
+
 	}
-
-    public void Rotate(Vector3 axis) {
-        rotationVelocity = axis;
-    }
 
     public void ResetPosition() {
-        WorldPosition = DefaultPositionObject.WorldPosition;
+        //WorldPosition = DefaultPositionObject.WorldPosition;
+        rotationVelocity = new Angles() * Subject.LocalRotation;
     }
 }

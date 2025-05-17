@@ -33,9 +33,6 @@ public partial class BrawlerComponent : Component {
         } 
 
         AnalogMoveAngled = AnalogMove * Scene.Camera.LocalRotation;
-
-        //camera :)
-        Camera.GetComponent<BrawlerCamera>().Rotate(new Vector3(0, AnalogLook.yaw, 0));
     }
 
     private void actionControls() {
