@@ -51,6 +51,8 @@ public partial class EnemyComponent : Component, IBrawler {
     /// </summary>
     [Property, ReadOnly, Group("Behaviour")] public float WaitWeightFactor {get; private set;}
 
+    public static readonly int PUSH_DISTANCE = 40;
+
     public static readonly float CHASE_DISTANCE = 250;
 
     private void stateIdle() {
@@ -121,6 +123,11 @@ public partial class EnemyComponent : Component, IBrawler {
 
         if (StareAtPlayer) {
             LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, Player.WorldPosition.WithZ(WorldPosition.z)));
+        }
+
+        //player too close, push npc
+        if (DistanceToPlayer < PUSH_DISTANCE) {
+            Agent.SetAgentPosition(LocalPosition + Vector3.Direction(Player.WorldPosition, WorldPosition)* 10);
         }
 
         switch (State) {

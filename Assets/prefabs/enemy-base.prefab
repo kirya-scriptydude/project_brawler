@@ -58,7 +58,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Radius": 12,
+        "Radius": 20.399998,
         "Separation": 0.25,
         "UpdatePosition": true,
         "UpdateRotation": false
