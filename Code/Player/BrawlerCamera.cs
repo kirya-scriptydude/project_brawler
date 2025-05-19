@@ -61,6 +61,10 @@ public sealed class BrawlerCamera : Component {
             Subject.WorldPosition + PLR_CAM_HEIGHT
         ));
 
+        //lerp camera pitch parameter to zero
+
+        rotationVelocity = rotationVelocity.LerpTo(rotationVelocity.WithPitch(0), 0.2f);
+
 	}
 
     public void ResetPosition() {
