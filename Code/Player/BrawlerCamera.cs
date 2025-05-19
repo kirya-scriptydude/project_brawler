@@ -50,7 +50,6 @@ public sealed class BrawlerCamera : Component {
 
         if (trace.Hit) {
             WorldPosition = trace.HitPosition;
-            Log.Info(trace.HitPosition);
         } else {
             WorldPosition = WorldPosition.LerpTo(CamPositionObject.WorldPosition, 0.35f);
         }
