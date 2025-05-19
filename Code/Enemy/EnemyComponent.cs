@@ -120,7 +120,7 @@ public partial class EnemyComponent : Component, IBrawler {
         }
 
         if (StareAtPlayer) {
-            LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, Player.WorldPosition));
+            LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, Player.WorldPosition.WithZ(WorldPosition.z)));
         }
 
         switch (State) {
