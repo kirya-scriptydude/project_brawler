@@ -4,39 +4,29 @@ public class Quickstep : IBrawlerAction {
     public IBrawler Brawler {get; set;}
     public string Name {get;} = "Quickstep";
 
-    public float Duration {get; set;} = 0.8f;
+    public float Duration {get; set;} = 0.7f;
     public float CancelDuration {get; set;} = 0.2f;
     public float LastTime {get; set;}
 
-    private Vector3 velocity = new();
-    private BrawlerComponent Player;
+    private float velocity = new();
+    private Vector3 wishVelocity = new();
 
     public void OnStart() {
-        Player = Brawler.Object.GetComponent<BrawlerComponent>();
-        velocity = Brawler.GetWishVelocity() * BrawlerComponent.MOVESPEED * 1.5f;
+        Brawler.MovementEnabled = false;
 
-        if (Player != null) {
-            //Player.ModelAnimScale = new Vector3(1, 1, 0.1f);
-            Player.MovementEnabled = false;
-        }
-
+        velocity = BrawlerComponent.MOVESPEED * 2.5f;
+        wishVelocity = Brawler.GetWishVelocity().Normal;
     }
 
     public void OnUpdate() {
-        Brawler.SetVelocity(velocity);
-        velocity *= 0.93f;
+        var vel = wishVelocity * velocity;
 
-        //Player.Controller.Move();
-        if (Player != null) {
-           //Player.ModelAnimScale = new Vector3(1, 1, 0.9f);
-        }
-        
+        Brawler.SetVelocity(vel);
+        velocity *= 0.80f;
     }
 
     public void OnStop() {
-        if (Player != null) {
-            Player.MovementEnabled = true;
-        }
+        Brawler.MovementEnabled = true;
     }
 
     public bool NonPlayableCondition(EnemyComponent npc) {
