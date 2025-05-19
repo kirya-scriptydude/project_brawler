@@ -1,6 +1,6 @@
 public partial class BrawlerComponent : Component {
 
-    public Vector3 AnalogMove => Input.AnalogMove;
+    public Vector3 AnalogMove { get; set; } = new();
     public Angles AnalogLook => Input.AnalogLook;
 
     /// <summary>
@@ -27,10 +27,13 @@ public partial class BrawlerComponent : Component {
     };
 
     private void buildInput() {
+        AnalogMove = Input.AnalogMove;
+        if (AnalogMove.Length > 1) AnalogMove = AnalogMove.ClampLength(1);
+
         if (AnalogMove.Length != 0) {
             MoveDirection = AnalogMove;
             MoveDirectionAngled = AnalogMove * Scene.Camera.LocalRotation;
-        } 
+        }
 
         AnalogMoveAngled = AnalogMove * Scene.Camera.LocalRotation;
     }

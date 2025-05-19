@@ -6,7 +6,11 @@ public partial class BrawlerComponent : Component {
     public static readonly int GRAVITY_FORCE = -8;
 
     private void move() {
-        var velocity = AnalogMoveAngled.Normal * MOVESPEED;
+        var velocity = new Vector3();
+        
+        //apply movementspeed
+        if (AnalogMoveAngled.Length > 0.3) velocity = AnalogMoveAngled * MOVESPEED;
+        
 
         if (!Controller.IsOnGround) {
             Controller.Velocity += new Vector3(0, 0, GRAVITY_FORCE);
