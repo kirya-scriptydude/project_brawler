@@ -70,6 +70,8 @@ public partial class BrawlerComponent : Component {
                 var closest = enemies.FirstOrDefault().Value;
                 LockOnTarget = closest;
             }
+        } else if (Input.Released("LockOn")) {
+            MoveDirectionAngled = LocalRotation.Forward;
         }
     }
 }
