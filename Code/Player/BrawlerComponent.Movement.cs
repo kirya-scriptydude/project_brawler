@@ -45,6 +45,6 @@ public partial class BrawlerComponent : Component {
         if (AnalogMove.Length > 0 && Controller.Velocity.Length > 0) {
             Model.Parameters.Set("b_walking", true);
             Model.Parameters.Set("walkingVelocity", Controller.Velocity.Length / 50);
-        }
+        } else Model.Parameters.Set("b_walking", false);
     }
 }
