@@ -30,13 +30,13 @@ public partial class BrawlerComponent : Component, IBrawler {
 
                 buildInput();
                 actionControls();
-                updateAnimgraph();
                 miscControls();
+
+                moveAnimate();
         }
 
         protected override void OnFixedUpdate() {
                 if (MovementEnabled) move();
-                moveAnimate();
                 moveRotation();
                 actionUpdate();
         }

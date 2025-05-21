@@ -1,3 +1,5 @@
+using System;
+
 /// <summary>
 /// base interface for those who can use actions (IBrawlerAction) Players and NPC's alike.
 /// </summary>
@@ -34,11 +36,15 @@ public interface IBrawler {
             brawler.HitboxHandler.Cast(
                 ActionInfo.GetDamage(brawler.MoveAttackType),
                 ActionInfo.GetHitbox(brawler.MoveAttackType),
-                true
+                Math.Clamp(tagEvent.Int, 1, 256)
             );
         }
     }
 
+    /// <summary>
+    /// set animgraph parameters and MoveAttackType according to AttackType provided
+    /// </summary>
+    /// <param name="attack">desired attack</param>
     public void Attack(AttackType attack) {
         Model.Parameters.Set("action", (int)attack);
         Model.Parameters.Set("b_action", true);

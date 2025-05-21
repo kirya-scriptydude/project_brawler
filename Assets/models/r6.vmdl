@@ -137,7 +137,7 @@
 										event_keys = 
 										{
 											TypeName = "DamageFrames"
-											Int = 0
+											Int = 3
 											Float = 0.0
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""
@@ -176,7 +176,7 @@
 										event_keys = 
 										{
 											TypeName = "DamageFrames"
-											Int = 0
+											Int = 3
 											Float = 0.0
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""
@@ -215,7 +215,7 @@
 										event_keys = 
 										{
 											TypeName = "DamageFrames"
-											Int = 0
+											Int = 3
 											Float = 0.0
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""
@@ -254,7 +254,7 @@
 										event_keys = 
 										{
 											TypeName = "DamageFrames"
-											Int = 0
+											Int = 3
 											Float = 0.0
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""
@@ -293,7 +293,7 @@
 										event_keys = 
 										{
 											TypeName = "DamageFrames"
-											Int = 0
+											Int = 3
 											Float = 0.0
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""

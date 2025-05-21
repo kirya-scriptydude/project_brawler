@@ -3,28 +3,48 @@
 /// </summary>
 [Group("Project Brawler")]
 public class HitboxHandler : Component {
-    [Property, ReadOnly] public bool HitboxActive {get; set;}
+    [Property, ReadOnly] public bool HitboxActive { get; set; }
 
     private List<Hitbox> hit = new();
+    private int durationLeft = 0;
+
+    private DamageInfo damageInfo;
+    private HitboxInfo hitboxInfo;
 
     /// <summary>
     /// Activate hitbox. If end frame is true, reset the hit list after that iteration.
     /// </summary>
-    public void Cast(DamageInfo dmg, HitboxInfo hitbox, bool endFrame = false) {
-        var pos = WorldPosition + (hitbox.Offset * LocalRotation);
+    public void Cast(DamageInfo dmg, HitboxInfo hitbox, int lengthFrames) {
+        damageInfo = dmg;
+        hitboxInfo = hitbox;
+        durationLeft = lengthFrames;
+    }
+
+    private void tryDamage(DamageInfo dmg, Hitbox hitbox) {
+        var brawler = hitbox.GameObject.Components.Get<IBrawler>();
+        if (brawler == null) return;
+
+        brawler.Health.Inflict(dmg.Damage);
+    }
+
+    protected override void OnFixedUpdate() {
+        if (durationLeft <= 0) return;
+        
+
+        var pos = WorldPosition + (hitboxInfo.Offset * LocalRotation);
         var ray = new Ray(pos, LocalRotation.Forward);
 
         var traces = Scene.Trace
-            .Sphere(hitbox.Radius, ray, hitbox.Length)
+            .Sphere(hitboxInfo.Radius, ray, hitboxInfo.Length)
             .WithTag("brawler")
             .IgnoreGameObjectHierarchy(GameObject)
             .UseHitboxes()
             .RunAll();
-        
-        
+
+
         //if (Game.IsEditor) {
-            DebugOverlay.Sphere(new Sphere(ray.Position, hitbox.Radius), default, 0.5f);
-            DebugOverlay.Sphere(new Sphere(ray.Position + ray.Forward * hitbox.Length, hitbox.Radius), Color.Red, 0.5f);
+        DebugOverlay.Sphere(new Sphere(ray.Position, hitboxInfo.Radius), default, 0.5f);
+        DebugOverlay.Sphere(new Sphere(ray.Position + ray.Forward * hitboxInfo.Length, hitboxInfo.Radius), Color.Red, 0.5f);
         //}
 
         foreach (var traceResult in traces) {
@@ -33,21 +53,15 @@ public class HitboxHandler : Component {
             if (traceResult.Hitbox.GameObject == null) continue;
             if (hit.Contains(traceResult.Hitbox)) continue;
 
-            if (!hitbox.MultiHit) hit.Add(traceResult.Hitbox);
-            tryDamage(dmg, traceResult.Hitbox);
+            if (!hitboxInfo.MultiHit) hit.Add(traceResult.Hitbox);
+            tryDamage(damageInfo, traceResult.Hitbox);
 
             hit.Add(traceResult.Hitbox);
         }
 
-        if (endFrame) {
+        durationLeft--;
+        if (durationLeft <= 0) {
             hit = new();
         }
-    }
-
-    private void tryDamage(DamageInfo dmg, Hitbox hitbox) {
-        var brawler = hitbox.GameObject.Components.Get<IBrawler>();
-        if(brawler == null) return;
-
-        brawler.Health.Inflict(dmg.Damage);
-    }
+	}
 }
