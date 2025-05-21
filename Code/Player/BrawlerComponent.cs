@@ -36,6 +36,7 @@ public partial class BrawlerComponent : Component, IBrawler {
 
         protected override void OnFixedUpdate() {
                 if (MovementEnabled) move();
+                moveAnimate();
                 moveRotation();
                 actionUpdate();
         }

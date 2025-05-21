@@ -40,4 +40,11 @@ public partial class BrawlerComponent : Component {
             }
         }
     }
+
+    private void moveAnimate() {
+        if (AnalogMove.Length > 0 && Controller.Velocity.Length > 0) {
+            Model.Parameters.Set("b_walking", true);
+            Model.Parameters.Set("walkingVelocity", Controller.Velocity.Length / 100);
+        }
+    }
 }
