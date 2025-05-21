@@ -117,8 +117,210 @@
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
-						take = 7
+						take = 9
 						reverse = false
+					},
+					{
+						_class = "Folder"
+						name = "attack"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "generic_combo1"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 4
+										event_keys = 
+										{
+											TypeName = "DamageFrames"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								disable_interpolation = false
+								enable_scale = false
+								source_filename = "models/r6.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 3
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "generic_combo2"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 4
+										event_keys = 
+										{
+											TypeName = "DamageFrames"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								disable_interpolation = false
+								enable_scale = false
+								source_filename = "models/r6.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 4
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "generic_combo3"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 4
+										event_keys = 
+										{
+											TypeName = "DamageFrames"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								disable_interpolation = false
+								enable_scale = false
+								source_filename = "models/r6.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 5
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "generic_combo4"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 4
+										event_keys = 
+										{
+											TypeName = "DamageFrames"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								disable_interpolation = false
+								enable_scale = false
+								source_filename = "models/r6.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 6
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "generic_combo_finisher"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 19
+										event_keys = 
+										{
+											TypeName = "DamageFrames"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								disable_interpolation = false
+								enable_scale = false
+								source_filename = "models/r6.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 7
+								reverse = false
+							},
+						]
 					},
 				]
 				default_root_bone_name = ""

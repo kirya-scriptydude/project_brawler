@@ -18,7 +18,7 @@ public partial class BrawlerComponent : Component, IBrawler {
 
         protected override void OnStart() {
                 initializeActions();
-                Model.OnAnimTagEvent += delegate (SceneModel.AnimTagEvent e) {
+                Model.OnGenericEvent += delegate (SceneModel.GenericEvent e) {
                         IBrawler.HookAnimgraphEvent(this, e);
                 };
 

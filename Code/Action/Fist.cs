@@ -1,5 +1,3 @@
-using System;
-
 public class Fist : IBrawlerAction {
     public IBrawler Brawler { get; set; }
     public string Name { get; } = "Fist";
@@ -14,6 +12,7 @@ public class Fist : IBrawlerAction {
 
     private Vector3 velocity = new();
     private BrawlerComponent Player => Brawler.Object.GetComponent<BrawlerComponent>();
+    int combo = 1;
 
     public void OnStart() {
         Player.MovementEnabled = false;
@@ -21,6 +20,7 @@ public class Fist : IBrawlerAction {
         velocity = Player.LocalRotation.Forward * 75;
 
         Brawler.Attack(AttackType.Fist);
+        Brawler.Model.Parameters.Set("fist_combo", combo);
 
         //Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
     }
@@ -38,5 +38,9 @@ public class Fist : IBrawlerAction {
 
     public void OnStop() {
         Player.MovementEnabled = true;
+
+        if (Time.Now - LastTime < Duration) {
+            combo++;
+        } else combo = 1;
     }
 }

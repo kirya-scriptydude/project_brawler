@@ -110,7 +110,7 @@ public partial class EnemyComponent : Component, IBrawler {
         actionClassArray = actionArr.ToArray();
         Player = Scene.GetComponentInChildren<BrawlerComponent>();
 
-        Model.OnAnimTagEvent += delegate (SceneModel.AnimTagEvent e) {
+        Model.OnGenericEvent += delegate (SceneModel.GenericEvent e) {
             IBrawler.HookAnimgraphEvent(this, e);
         };
     }

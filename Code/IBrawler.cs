@@ -23,25 +23,25 @@ public interface IBrawler {
     public Vector3 GetWishVelocity();
     public void StopAction();
 
-    public static void HookAnimgraphEvent(IBrawler brawler, SceneModel.AnimTagEvent tagEvent) {
+    public static void HookAnimgraphEvent(IBrawler brawler, SceneModel.GenericEvent tagEvent) {
         if (brawler.HitboxHandler == null) {
             Log.Warning($"HitboxHandler on {brawler.Object} is not found");
             return;
         }
 
-        if (tagEvent.Name == "DamageFrame") {
-            var isEndFrame = tagEvent.Status == SceneModel.AnimTagStatus.End;
+        Log.Info(tagEvent.Type);
+        if (tagEvent.Type == "DamageFrames") {
             brawler.HitboxHandler.Cast(
                 ActionInfo.GetDamage(brawler.MoveAttackType),
                 ActionInfo.GetHitbox(brawler.MoveAttackType),
-                isEndFrame
+                true
             );
         }
     }
 
     public void Attack(AttackType attack) {
-        Model.Parameters.Set("attackType", (int)attack);
-        Model.Parameters.Set("b_isAttacking", true);
+        Model.Parameters.Set("action", (int)attack);
+        Model.Parameters.Set("b_action", true);
         MoveAttackType = attack;
     }
 }
