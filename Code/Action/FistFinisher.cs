@@ -7,9 +7,6 @@ public class FistFinisher : IBrawlerAction {
     public float Duration { get; set; } = 1.35f;
     public float CancelDuration { get; set; } = 1f;
 
-    public float HitboxDurationMin { get; set; } = 0.20f;
-    public float HitboxDurationMax { get; set; } = 0.35f;
-
     public float LastTime { get; set; }
 
     private Vector3 velocity = new();
@@ -24,13 +21,14 @@ public class FistFinisher : IBrawlerAction {
     }
 
     public void OnUpdate() {
-        velocity *= 0.91f;
+        velocity *= 0.95f;
         Brawler.SetVelocity(velocity);
 
-        //var time = Time.Now - LastTime;
-        //if (time > HitboxDurationMin && time < HitboxDurationMax) {
-        //    handleHitbox();
-        //}
+        var time = Time.Now - LastTime;
+        var timeFrame = Duration / 3;
+        if (time > timeFrame && time < CancelDuration / 2) {
+            velocity = Brawler.Object.LocalRotation.Forward * 200;
+        }
     }
 
     public void OnStop() {
