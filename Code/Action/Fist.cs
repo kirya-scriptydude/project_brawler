@@ -14,6 +14,8 @@ public class Fist : IBrawlerAction {
     private BrawlerComponent Player => Brawler.Object.GetComponent<BrawlerComponent>();
     int combo = 1;
 
+    public static readonly int MAX_COMBO_AMOUNT = 4;
+
     public void OnStart() {
         Player.MovementEnabled = false;
         //todo change magic number
@@ -41,6 +43,7 @@ public class Fist : IBrawlerAction {
 
         if (Time.Now - LastTime < Duration) {
             combo++;
+            if (combo > MAX_COMBO_AMOUNT) combo = 1;
         } else combo = 1;
     }
 }
