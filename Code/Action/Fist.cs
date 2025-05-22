@@ -12,10 +12,8 @@ public class Fist : IBrawlerAction {
 
     private Vector3 velocity = new();
     private BrawlerComponent Player => Brawler.Object.GetComponent<BrawlerComponent>();
-    int combo = 1;
 
     public static readonly int MAX_COMBO_AMOUNT = 4;
-    private float lastTimeEnded = Time.Now;
 
     public void OnStart() {
         Player.MovementEnabled = false;
@@ -37,6 +35,5 @@ public class Fist : IBrawlerAction {
 
     public void OnStop() {
         Player.MovementEnabled = true;
-        lastTimeEnded = Time.Now;
     }
 }
