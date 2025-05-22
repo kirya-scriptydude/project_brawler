@@ -293,7 +293,7 @@
 										event_keys = 
 										{
 											TypeName = "DamageFrames"
-											Int = 10
+											Int = 5
 											Float = 0.0
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""
