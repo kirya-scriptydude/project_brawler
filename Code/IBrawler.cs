@@ -30,8 +30,7 @@ public interface IBrawler {
             Log.Warning($"HitboxHandler on {brawler.Object} is not found");
             return;
         }
-
-        Log.Info(tagEvent.Type);
+        
         if (tagEvent.Type == "DamageFrames") {
             brawler.HitboxHandler.Cast(
                 ActionInfo.GetDamage(brawler.MoveAttackType),

@@ -31,11 +31,6 @@ public class Fist : IBrawlerAction {
         Player.Controller.Velocity = velocity;
         velocity *= 0.92f;
         Player.Controller.Move();
-
-        //var time = Time.Now - LastTime;
-        //if (time > HitboxDurationMin && time < HitboxDurationMax) {
-        //    handleHitbox();
-        //}
     }
 
     public void OnStop() {
