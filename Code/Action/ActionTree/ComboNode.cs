@@ -16,6 +16,11 @@ public class ComboNode {
     public List<ComboNode> Children = new();
     public ActionInputButton Button;
 
+    /// <summary>
+    /// Indicates what level this node is on. It's 0 if root.
+    /// </summary>
+    public int TreeLevel { get; set; } = 0;
+
     public ComboNode(string name, ActionInputButton input, string className) {
         Name = name;
         Button = input;

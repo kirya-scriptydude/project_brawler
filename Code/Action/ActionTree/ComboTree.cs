@@ -9,7 +9,8 @@ public static class ComboTree {
             int parent = i - 1;
             if (parent < 0) break;
 
-            nodes[parent].Children.Add(nodes[i]);   
+            nodes[parent].Children.Add(nodes[i]);
+            nodes[i].TreeLevel = i; 
         }
 
         return nodes[0];
@@ -20,7 +21,6 @@ public static class ComboTree {
     /// </summary>
     /// <returns>Root node</returns>
     public static ComboNode Generate() {
-        var startList = new List<ComboNode>();
         var root = new ComboNode("root", ActionInputButton.None, "");
 
         {
@@ -28,7 +28,7 @@ public static class ComboTree {
             var fist02 = new ComboNode("fist02", ActionInputButton.Fist, "Fist");
             var fist03 = new ComboNode("fist03", ActionInputButton.Fist, "Fist");
             var fist04 = new ComboNode("fist04", ActionInputButton.Fist, "Fist");
-            startList.Add(Chain([fist01, fist02, fist03, fist04]));
+            Chain([root, fist01, fist02, fist03, fist04]);
 
             //im sorry
             fist01.Children.Add(
@@ -49,10 +49,8 @@ public static class ComboTree {
 
         {
             var quickstep = new ComboNode("quickstep", ActionInputButton.Quickstep, "Quickstep");
-            startList.Add(quickstep);
+            root.Children.Add(quickstep);
         }
-
-        root.Children = startList;
         return root;
     }
 }

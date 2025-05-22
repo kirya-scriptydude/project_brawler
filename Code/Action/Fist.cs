@@ -15,16 +15,18 @@ public class Fist : IBrawlerAction {
     int combo = 1;
 
     public static readonly int MAX_COMBO_AMOUNT = 4;
+    private float lastTimeEnded = Time.Now;
 
     public void OnStart() {
         Player.MovementEnabled = false;
         //todo change magic number
         velocity = Player.LocalRotation.Forward * 135;
 
+        if (Player != null) {
+            Brawler.Model.Parameters.Set("fist_combo", Player.CurrentComboNode.TreeLevel);
+        }
+        
         Brawler.Attack(AttackType.Fist);
-        Brawler.Model.Parameters.Set("fist_combo", combo);
-
-        //Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
     }
 
     public void OnUpdate() {
@@ -35,10 +37,6 @@ public class Fist : IBrawlerAction {
 
     public void OnStop() {
         Player.MovementEnabled = true;
-
-        if (Time.Now - LastTime < Duration) {
-            combo++;
-            if (combo > MAX_COMBO_AMOUNT) combo = 1;
-        } else combo = 1;
+        lastTimeEnded = Time.Now;
     }
 }
