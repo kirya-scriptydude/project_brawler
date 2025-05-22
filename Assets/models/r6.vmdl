@@ -289,11 +289,11 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 19
+										event_frame = 17
 										event_keys = 
 										{
 											TypeName = "DamageFrames"
-											Int = 3
+											Int = 10
 											Float = 0.0
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""

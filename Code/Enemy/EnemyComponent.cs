@@ -27,7 +27,7 @@ public partial class EnemyComponent : Component, IBrawler {
     
 
     /// <summary>
-    /// This number rises up with time, clamping at a certain point. The higher the float, the more likely AI to attack.
+    /// This number rises up with time, clamping at a certain point. The higher the float, the more likely AI to act.
     /// Updates on EnemyState.Combat
     /// </summary>
     [Property, ReadOnly, Group("Behaviour")] public float WaitWeightFactor {get; private set;}
