@@ -24,7 +24,7 @@ public class HitboxHandler : Component {
         var brawler = hitbox.GameObject.Components.Get<IBrawler>();
         if (brawler == null) return;
 
-        brawler.Health.Inflict(dmg.Damage);
+        //brawler.Health.Inflict(dmg.Damage);
     }
 
     protected override void OnFixedUpdate() {

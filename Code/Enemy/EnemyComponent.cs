@@ -12,7 +12,6 @@ public partial class EnemyComponent : Component, IBrawler {
     public bool MovementEnabled { get; set; } = true;
     public bool CanTraverseTree { get; set; } = true;
 
-    public BrawlerHealth Health {get; set;} = new();
     public AttackType MoveAttackType {get; set;}
     [Property] public HitboxHandler HitboxHandler { get; set; }
 
@@ -72,10 +71,10 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     protected override void OnFixedUpdate() {
-        if (Health.Dead) {
-            GameObject.Destroy();
-            return;
-        }
+        //if (Health.Dead) {
+        //    GameObject.Destroy();
+        //    return;
+        //}
 
         if (StareAtPlayer) {
             LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, Player.WorldPosition.WithZ(WorldPosition.z)));

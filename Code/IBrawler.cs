@@ -8,7 +8,6 @@ public interface IBrawler {
     public SkinnedModelRenderer Model { get; set; }
     public HitboxHandler HitboxHandler { get; set; }
 
-    public BrawlerHealth Health { get; set; }
     public AttackType MoveAttackType { get; set; }
 
 
