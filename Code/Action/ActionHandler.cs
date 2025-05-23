@@ -27,6 +27,8 @@ public class ActionHandler : Component {
 
 
     protected override void OnStart() {
+        Brawler = GameObject.GetComponent<IBrawler>();
+        
         Root = ComboTree.Generate();
         CurrentNode = Root;
     }
