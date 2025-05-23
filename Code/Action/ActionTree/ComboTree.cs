@@ -10,7 +10,7 @@ public static class ComboTree {
             if (parent < 0) break;
 
             nodes[parent].Children.Add(nodes[i]);
-            nodes[i].TreeLevel = i; 
+            nodes[i].TreeLevel = i;
         }
 
         return nodes[0];
@@ -51,6 +51,11 @@ public static class ComboTree {
             var quickstep = new ComboNode("quickstep", ActionInputButton.Quickstep, "Quickstep");
             root.Children.Add(quickstep);
         }
+        return root;
+    }
+
+    public static ComboNode GenerateNPC() {
+        var root = new ComboNode("root", ActionInputButton.None, "");
         return root;
     }
 }

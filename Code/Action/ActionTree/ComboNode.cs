@@ -1,3 +1,5 @@
+using System;
+
 public enum ActionInputButton {
     None,
     Quickstep,
@@ -20,6 +22,13 @@ public class ComboNode {
     /// Indicates what level this node is on. It's 0 if root.
     /// </summary>
     public int TreeLevel { get; set; } = 0;
+
+    /// <summary>
+    /// Function that is used by NPC's to determine if they should use this node.
+    /// </summary>
+    public Func<bool, bool> NonPlayableCondition = delegate (bool real) {
+        return false;
+    };
 
     public ComboNode(string name, ActionInputButton input, string className) {
         Name = name;
