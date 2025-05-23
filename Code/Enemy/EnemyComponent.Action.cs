@@ -37,23 +37,28 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     private void updateActions() {
+        if (HurtboxHandler.Hitstun) {
+            if (IsAction) StopAction();
+            return; 
+        }
+        
         if (IsAction) {
-            curAction.UpdateTimer();
-            curAction.OnUpdate();
-        } else {
-            //idle
-            foreach (var action in actionClassArray) {
-                if (action.NonPlayableCondition(this)) {
-                    CurrentAction = action.Name;
-                    curAction = action;
-                    action.OnStart();
+                curAction.UpdateTimer();
+                curAction.OnUpdate();
+            } else {
+                //idle
+                foreach (var action in actionClassArray) {
+                    if (action.NonPlayableCondition(this)) {
+                        CurrentAction = action.Name;
+                        curAction = action;
+                        action.OnStart();
 
-                    //reset wait factor
-                    WaitWeightFactor = 0.7f;
-                    break;
+                        //reset wait factor
+                        WaitWeightFactor = 0.7f;
+                        break;
+                    }
                 }
             }
-        }
     }
     
 

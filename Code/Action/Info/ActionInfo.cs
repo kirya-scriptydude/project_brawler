@@ -10,8 +10,10 @@ public static class ActionInfo {
             case AttackType.Fist:
                 return new DamageInfo(50, DamageType.Light, DamageSource.Fist);
             
-            case AttackType.FistFinisher: 
-                return new DamageInfo(250, DamageType.Heavy, DamageSource.Fist);
+            case AttackType.FistFinisher:
+                var dmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Fist);
+                dmg.Hitstun = HitstunType.Ground;
+                return dmg;
         }
     }
 

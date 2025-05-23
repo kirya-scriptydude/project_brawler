@@ -13,7 +13,8 @@ public partial class EnemyComponent : Component, IBrawler {
     public bool CanTraverseTree { get; set; } = true;
 
     public AttackType MoveAttackType {get; set;}
-    [Property] public HitboxHandler HitboxHandler { get; set; }
+    [Property, RequireComponent] public HitboxHandler HitboxHandler { get; set; }
+    [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
 
     [Property, RequireComponent] public NavMeshAgent Agent { get; set; }
     [Property, ReadOnly] public BrawlerComponent Player { get; set; }

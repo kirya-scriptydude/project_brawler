@@ -5,9 +5,10 @@ public partial class BrawlerComponent : Component, IBrawler {
         /// Active gameplay camera
         /// </summary>
         [Property] public GameObject Camera { get; set; }
-        [Property] public HitboxHandler HitboxHandler { get; set; }
+        [Property, RequireComponent] public HitboxHandler HitboxHandler { get; set; }
+        [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
 
-        public AttackType MoveAttackType {get; set;}
+        public AttackType MoveAttackType { get; set; }
 
         public BrawlerCamera BrawlerCamera { get; set; }
 

@@ -6,7 +6,9 @@ using System;
 public interface IBrawler {
     public GameObject Object { get; }
     public SkinnedModelRenderer Model { get; set; }
+
     public HitboxHandler HitboxHandler { get; set; }
+    public HurtboxHandler HurtboxHandler { get; set; }
 
     public AttackType MoveAttackType { get; set; }
 
