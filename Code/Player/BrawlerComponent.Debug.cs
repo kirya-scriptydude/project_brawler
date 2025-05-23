@@ -8,10 +8,10 @@ public partial class BrawlerComponent : Component {
         AnalogLook - {AnalogLook};
         LockOn - {Input.Down("LockOn")};
 
-        Action - {IsAction};
-        CanTraverseTree - {CanTraverseTree}
-        Name - {CurrentComboNode.ClassName}
-        {CurrentComboNode.Name}
+        Action - {ActionHandler.IsAction};
+        CanTraverseTree - {ActionHandler.CanTraverseTree}
+        Name - {ActionHandler.CurrentNode.ClassName}
+        {ActionHandler.CurrentNode.Name}
         """, 
         10, TextFlag.LeftTop
         );

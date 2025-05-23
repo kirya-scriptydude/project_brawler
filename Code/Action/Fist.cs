@@ -21,7 +21,7 @@ public class Fist : IBrawlerAction {
         velocity = Player.LocalRotation.Forward * 135;
 
         if (Player != null) {
-            Brawler.Model.Parameters.Set("fist_combo", Player.CurrentComboNode.TreeLevel);
+            Brawler.Model.Parameters.Set("fist_combo", Player.ActionHandler.CurrentNode.TreeLevel);
         }
         
         Brawler.Attack(AttackType.Fist);

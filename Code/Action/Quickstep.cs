@@ -28,16 +28,4 @@ public class Quickstep : IBrawlerAction {
     public void OnStop() {
         Brawler.MovementEnabled = true;
     }
-
-    public bool NonPlayableCondition(EnemyComponent npc) {
-        float weight = Random.Shared.Float(1, 20);
-
-        if (npc.Player.IsPerfomingAttack() || npc.QuickstepInNeutral) weight += 100;
-        if (npc.DistanceToPlayer < 100) weight += 100;
-        
-        weight *= npc.WaitWeightFactor;
-        weight += npc.Evasion * 50;
-
-        return weight >= 1000;
-    }
 }

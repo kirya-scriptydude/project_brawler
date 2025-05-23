@@ -6,7 +6,8 @@ using System;
 public interface IBrawler {
     public GameObject Object { get; }
     public SkinnedModelRenderer Model { get; set; }
-
+    
+    public ActionHandler ActionHandler { get; set; }
     public HitboxHandler HitboxHandler { get; set; }
     public HurtboxHandler HurtboxHandler { get; set; }
 
@@ -14,17 +15,12 @@ public interface IBrawler {
 
 
     public bool MovementEnabled { get; set; }
-    /// <summary>
-    /// Current action can be moved into another one, thats next on the tree. If it's npc, just means if any move can be used
-    /// </summary>
-    public bool CanTraverseTree { get; set; }
     public void SetVelocity(Vector3 velocity);
     /// <summary>
     /// Get velocity that controller wishes to move in.
     /// </summary>
     /// <returns>Vector3 movement direction.</returns>
     public Vector3 GetWishVelocity();
-    public void StopAction();
 
     public static void HookAnimgraphEvent(IBrawler brawler, SceneModel.GenericEvent tagEvent) {
         if (brawler.HitboxHandler == null) {

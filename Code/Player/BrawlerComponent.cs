@@ -7,6 +7,7 @@ public partial class BrawlerComponent : Component, IBrawler {
         [Property] public GameObject Camera { get; set; }
         [Property, RequireComponent] public HitboxHandler HitboxHandler { get; set; }
         [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
+        [Property, RequireComponent] public ActionHandler ActionHandler { get; set; }
 
         public AttackType MoveAttackType { get; set; }
 
@@ -17,7 +18,6 @@ public partial class BrawlerComponent : Component, IBrawler {
         [Property] public SkinnedModelRenderer Model { get; set; }
 
         protected override void OnStart() {
-                initializeActions();
                 Model.OnGenericEvent += delegate (SceneModel.GenericEvent e) {
                         IBrawler.HookAnimgraphEvent(this, e);
                 };
@@ -38,7 +38,6 @@ public partial class BrawlerComponent : Component, IBrawler {
         protected override void OnFixedUpdate() {
                 if (MovementEnabled) move();
                 moveRotation();
-                actionUpdate();
         }
 
         public void SetVelocity(Vector3 velocity) {

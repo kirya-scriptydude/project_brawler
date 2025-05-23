@@ -22,11 +22,11 @@ public interface IBrawlerAction {
         
         var time = Time.Now - LastTime;
 
-        if (CancelDuration >= 0 && Brawler.CanTraverseTree == false) {
-            if (time > CancelDuration) Brawler.CanTraverseTree = true;
+        if (CancelDuration >= 0 && Brawler.ActionHandler.CanTraverseTree == false) {
+            if (time > CancelDuration) Brawler.ActionHandler.CanTraverseTree = true;
         }
 
-        if (time > Duration) Brawler.StopAction();
+        if (time > Duration) Brawler.ActionHandler.Stop();
     }
 
     /// <summary>

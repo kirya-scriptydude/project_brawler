@@ -173,6 +173,26 @@
       "Enabled": true,
       "__Prefab": "prefabs/enemy-base.prefab",
       "__PrefabVariables": {}
+    },
+    {
+      "__guid": "2bec9a20-998b-4507-b403-c586a1807eda",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "-416.299,345.1301,240.7722",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ActionHandler",
+          "__guid": "eefcf301-82e5-4260-b767-0977bc914b7f",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {

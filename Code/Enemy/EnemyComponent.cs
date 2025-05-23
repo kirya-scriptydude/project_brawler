@@ -13,8 +13,10 @@ public partial class EnemyComponent : Component, IBrawler {
     public bool CanTraverseTree { get; set; } = true;
 
     public AttackType MoveAttackType {get; set;}
+
     [Property, RequireComponent] public HitboxHandler HitboxHandler { get; set; }
     [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
+    [Property] public ActionHandler ActionHandler { get; set; }
 
     [Property, RequireComponent] public NavMeshAgent Agent { get; set; }
     [Property, ReadOnly] public BrawlerComponent Player { get; set; }
@@ -57,13 +59,10 @@ public partial class EnemyComponent : Component, IBrawler {
         if (DistanceToPlayer > CHASE_DISTANCE) {
             State = EnemyState.Chase;
         }
-
-        updateActions();
     }
 
     protected override void OnStart() {
         //get all actions ready
-        initActions();
         Player = Scene.GetComponentInChildren<BrawlerComponent>();
 
         Model.OnGenericEvent += delegate (SceneModel.GenericEvent e) {
@@ -109,14 +108,6 @@ public partial class EnemyComponent : Component, IBrawler {
         var Y = Random.Shared.Int(-1, 1);
         var X = Random.Shared.Int(-1, 1);
         return new Vector3(X, Y, 0) * LocalRotation;
-    }
-
-    public void StopAction() {
-        if (IsAction) {
-            curAction.OnStop();
-            CurrentAction = "";
-            CanTraverseTree = true;
-        } 
     }
 }
 

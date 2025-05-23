@@ -34,16 +34,4 @@ public class FistFinisher : IBrawlerAction {
     public void OnStop() {
         Brawler.MovementEnabled = true;
     }
-    
-    public bool NonPlayableCondition(EnemyComponent npc) {
-        float weight = 0;
-
-        if (!npc.Player.IsPerfomingAttack()) weight += 150;
-        if (npc.DistanceToPlayer < 50) weight += 250;
-
-        weight *= npc.WaitWeightFactor;
-        weight += npc.Aggression * 50;
-
-        return weight >= 1000;
-    }
 }

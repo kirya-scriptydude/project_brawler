@@ -1,3 +1,5 @@
+using System;
+
 public partial class BrawlerComponent : Component {
 
     public Vector3 AnalogMove { get; set; } = new();
@@ -39,9 +41,9 @@ public partial class BrawlerComponent : Component {
     }
 
     private void actionControls() {
-        foreach (ComboNode node in CurrentComboNode.Children) {
+        foreach (ComboNode node in ActionHandler.CurrentNode.Children) {
             if (Input.Down(ActionToInputName[node.Button])) {
-                ActionActivate(node);
+                ActionHandler.Use(node);
             }
         }
     }

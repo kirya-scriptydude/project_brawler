@@ -31,6 +31,12 @@
               "go": "df096078-5e0e-4822-959a-7f63669a5dd1",
               "component_type": "HitboxHandler"
             },
+            "HurtboxHandler": {
+              "_type": "component",
+              "component_id": "eeb1eb48-b36d-4901-bbcc-cd7684837d30",
+              "go": "df096078-5e0e-4822-959a-7f63669a5dd1",
+              "component_type": "HurtboxHandler"
+            },
             "Model": {
               "_type": "component",
               "component_id": "58df987f-3b5a-4c38-95f2-b85a34495840",
@@ -88,6 +94,16 @@
             "__type": "HitboxHandler",
             "__guid": "c1ee44f4-8ac1-472f-a76a-6cafd98adebd",
             "HitboxActive": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "HurtboxHandler",
+            "__guid": "eeb1eb48-b36d-4901-bbcc-cd7684837d30",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
