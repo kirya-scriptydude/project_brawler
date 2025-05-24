@@ -22,6 +22,9 @@ public partial class BrawlerComponent : Component {
                 $"""
                 Hitstun - {npc.HurtboxHandler.Hitstun}
                 Ragdoll - {npc.HurtboxHandler.Ragdolled}
+
+                CanTraverseTree - {npc.ActionHandler.CanTraverseTree}
+                CurrentNode - {npc.ActionHandler.CurrentNode.Name}
                 """,
                 10, TextFlag.RightTop
             );

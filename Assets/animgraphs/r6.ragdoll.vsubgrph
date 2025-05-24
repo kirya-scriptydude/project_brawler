@@ -121,7 +121,7 @@
 									m_id = 867040797
 								},
 							]
-							m_tagBehaviors = [ 3 ]
+							m_tagBehaviors = [ 0 ]
 							m_name = "lyingdown"
 							m_inputConnection = 
 							{

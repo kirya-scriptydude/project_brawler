@@ -33,12 +33,8 @@ public partial class EnemyComponent : Component, IBrawler {
             if (node.NonPlayableCondition(this)) {
                 ActionHandler.Use(node);
                 WaitWeightFactor = 0;
-
-                StareAtPlayer = false;
             }
         }
-
-        if (!ActionHandler.IsAction && StareAtPlayer == false) StareAtPlayer = true;
     }
 
 }

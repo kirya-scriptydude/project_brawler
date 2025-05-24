@@ -27,14 +27,17 @@ public class HurtboxHandler : Component {
     }
 
     private void tagEvents(SceneModel.AnimTagEvent e) {
+        if (e.Status == SceneModel.AnimTagStatus.Fired) return;
+
         switch (e.Name) {
             case "Hitstun":
-                Hitstun = !Hitstun;
+                Hitstun = e.Status == SceneModel.AnimTagStatus.Start;
                 break;
             case "Ragdolled":
-                Ragdolled = !Ragdolled;
+                Ragdolled = e.Status == SceneModel.AnimTagStatus.Start;
                 break;
-        } 
+        }
+
     }
 
     private void genericEvents(SceneModel.GenericEvent e) { }

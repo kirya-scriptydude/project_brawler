@@ -686,7 +686,7 @@
 									m_id = 1410478723
 								},
 							]
-							m_tagBehaviors = [ 3 ]
+							m_tagBehaviors = [ 0 ]
 							m_name = "hurt"
 							m_inputConnection = 
 							{

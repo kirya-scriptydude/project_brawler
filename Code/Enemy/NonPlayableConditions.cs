@@ -10,7 +10,7 @@ public static class NonPlayableConditions {
 
         if (npc.DistanceToPlayer > 75) weight = 0;
 
-        Log.Info(weight);
+        //Log.Info(weight);
 
         return weight >= 1;
     }
