@@ -16,7 +16,7 @@ public class Fist : IBrawlerAction {
     public static readonly int MAX_COMBO_AMOUNT = 4;
 
     public void OnStart() {
-        Player.MovementEnabled = false;
+        Brawler.MovementEnabled = false;
         //todo change magic number
         velocity = Player.LocalRotation.Forward * 135;
 

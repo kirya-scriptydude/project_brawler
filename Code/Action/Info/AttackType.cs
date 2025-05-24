@@ -1,5 +1,6 @@
 public enum AttackType {
     None,
     Fist,
-    FistFinisher
+    FistFinisher,
+    GenericWeakAttack
 }

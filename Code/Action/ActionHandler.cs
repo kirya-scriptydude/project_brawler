@@ -27,7 +27,9 @@ public class ActionHandler : Component {
     private IBrawlerAction[] allActions = [
         new Quickstep(),
         new Fist(),
-        new FistFinisher()
+        new FistFinisher(),
+        
+        new SimpleAttack()
     ];
 
 
