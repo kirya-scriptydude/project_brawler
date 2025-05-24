@@ -34,6 +34,7 @@ public partial class BrawlerComponent : Component, IBrawler {
         }
 
         protected override void OnFixedUpdate() {
+                if (!HurtboxHandler.NotStunned) return;
                 if (MovementEnabled) move();
                 moveRotation();
         }

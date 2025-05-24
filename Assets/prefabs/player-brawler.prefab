@@ -3,6 +3,7 @@
     "__guid": "1252484b-6aa5-4abd-89c4-f857fdbc5613",
     "Flags": 0,
     "Name": "player-brawler",
+    "Tags": "brawler",
     "Enabled": true,
     "Components": [],
     "Children": [
@@ -106,6 +107,22 @@
             "OnComponentStart": null,
             "OnComponentUpdate": null,
             "UseNPCtree": false
+          },
+          {
+            "__type": "Sandbox.ManualHitbox",
+            "__guid": "55fedf4f-c0b5-4a5d-a5fb-4bdd4f47a8e1",
+            "CenterA": "0,0,0",
+            "CenterB": "0,0,72.60014",
+            "HitboxTags": "",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Radius": 31.400019,
+            "Shape": "Capsule",
+            "Target": null
           }
         ],
         "Children": [

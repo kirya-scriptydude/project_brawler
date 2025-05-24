@@ -11,6 +11,11 @@ public class HurtboxHandler : Component {
     public bool Hitstun { get; private set; } = false;
     public bool Ragdolled { get; private set; } = false;
 
+    /// <summary>
+    /// Checks all stun types. Returns true if not affected by stun
+    /// </summary>
+    public bool NotStunned => !Hitstun && !Ragdolled;
+
 
     protected override void OnStart() {
         Brawler = GameObject.GetComponent<IBrawler>();
