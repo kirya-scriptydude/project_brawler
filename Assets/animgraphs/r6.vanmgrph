@@ -63,9 +63,22 @@
 								m_id = 676284476
 							}
 						},
+						{
+							m_nodeID = 
+							{
+								m_id = 1725542997
+							}
+							m_outputID = 
+							{
+								m_id = 316922052
+							}
+						},
 					]
 					m_tags = 
 					[
+						{
+							m_id = 4294967295
+						},
 						{
 							m_id = 4294967295
 						},
@@ -1208,6 +1221,116 @@
 			{
 				key = 
 				{
+					m_id = 1725542997
+				}
+				value = 
+				{
+					_class = "CGroupAnimNode"
+					m_sName = "Quickstep"
+					m_vecPosition = [ -1120.0, 656.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1725542997
+					}
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1516956139
+					}
+					m_outputNodeID = 
+					{
+						m_id = 916904979
+					}
+					m_inputConnectionMap = [  ]
+					m_nodeManager = 
+					{
+						_class = "CAnimNodeManager"
+						m_nodes = 
+						[
+							{
+								key = 
+								{
+									m_id = 916904979
+								}
+								value = 
+								{
+									_class = "CGroupOutputAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ 200.0, 0.0 ]
+									m_nNodeID = 
+									{
+										m_id = 916904979
+									}
+									m_sNote = ""
+									m_proxyItems = 
+									[
+										{
+											m_name = "In"
+											m_outputID = 
+											{
+												m_id = 316922052
+											}
+											m_inputConnection = 
+											{
+												m_nodeID = 
+												{
+													m_id = 1522607837
+												}
+												m_outputID = 
+												{
+													m_id = 4294967295
+												}
+											}
+										},
+									]
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1516956139
+								}
+								value = 
+								{
+									_class = "CGroupInputAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ -200.0, 0.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1516956139
+									}
+									m_sNote = ""
+									m_proxyItems = [  ]
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1522607837
+								}
+								value = 
+								{
+									_class = "CSequenceAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ -208.0, 32.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1522607837
+									}
+									m_sNote = ""
+									m_tagSpans = [  ]
+									m_sequenceName = "quickstep_forward"
+									m_playbackSpeed = 1.0
+									m_bLoop = false
+								}
+							},
+						]
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1745846441
 				}
 				value = 
@@ -1253,7 +1376,7 @@
 					}
 					m_sNote = ""
 					m_commentText = ""
-					m_size = [ 544.0, 272.0 ]
+					m_size = [ 544.0, 320.0 ]
 					m_color = [ 49, 139, 146, 255 ]
 				}
 			},
@@ -1266,7 +1389,7 @@
 				{
 					_class = "CGroupAnimNode"
 					m_sName = "GenericWeakAttack"
-					m_vecPosition = [ -1136.0, 608.0 ]
+					m_vecPosition = [ -1152.0, 608.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1936560738
@@ -1631,6 +1754,7 @@
 					"Fist",
 					"FistFinisher",
 					"GenericAttack",
+					"Quickstep",
 				]
 			},
 			{

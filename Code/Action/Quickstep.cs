@@ -16,6 +16,7 @@ public class Quickstep : IBrawlerAction {
 
         velocity = BrawlerComponent.MOVESPEED * 2.5f;
         wishVelocity = Brawler.GetWishVelocity().Normal;
+        Brawler.PerformActionAnimation(AttackType.Quickstep);
     }
 
     public void OnUpdate() {

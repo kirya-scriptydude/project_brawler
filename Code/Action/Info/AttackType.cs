@@ -2,5 +2,6 @@ public enum AttackType {
     None,
     Fist,
     FistFinisher,
-    GenericAttack
+    GenericAttack,
+    Quickstep
 }
