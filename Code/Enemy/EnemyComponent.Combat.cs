@@ -15,26 +15,27 @@ public partial class EnemyComponent : Component, IBrawler {
     ];
 
     private void stateCombat() {
-        WaitWeightFactor = Math.Clamp(WaitWeightFactor + 0.005f, 0.5f, 5);
+        if (!ActionHandler.IsAction) {
+            WaitWeightFactor = Math.Clamp(WaitWeightFactor + 0.005f, 0.5f, 5);
 
-        if (DistanceToPlayer > CHASE_DISTANCE) {
-            State = EnemyState.Chase;
-        }
+            if (DistanceToPlayer > CHASE_DISTANCE) {
+                State = EnemyState.Chase;
+            }
 
-        //change walk velocity after an amount of time
-        if (Time.Now - lasTimeChangedVelocity > DIRECTION_DURATION && Random.Shared.Int(3) == 0) {
-            lasTimeChangedVelocity = Time.Now;
-            dirIndex = Random.Shared.Int(availableDirs.Length - 1);
-        }
+            //change walk velocity after an amount of time
+            if (Time.Now - lasTimeChangedVelocity > DIRECTION_DURATION && Random.Shared.Int(3) == 0) {
+                lasTimeChangedVelocity = Time.Now;
+                dirIndex = Random.Shared.Int(availableDirs.Length - 1);
+            }
 
-        SetVelocity(availableDirs[dirIndex] * COMBAT_VELOCITY_MOVESPEED * LocalRotation);
+            SetVelocity(availableDirs[dirIndex] * COMBAT_VELOCITY_MOVESPEED * LocalRotation);
 
-        foreach (var node in ActionHandler.CurrentNode.Children) {
-            if (node.NonPlayableCondition(this)) {
-                ActionHandler.Use(node);
-                WaitWeightFactor = 0;
+            foreach (var node in ActionHandler.CurrentNode.Children) {
+                if (node.NonPlayableCondition(this)) {
+                    ActionHandler.Use(node);
+                    WaitWeightFactor = 0;
+                }
             }
         }
     }
-
 }

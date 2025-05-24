@@ -32,7 +32,8 @@ public partial class EnemyComponent : Component, IBrawler {
     /// </summary>
     [Property, ReadOnly, Group("Behaviour")] public float WaitWeightFactor {get; private set;}
 
-    public static readonly int PUSH_DISTANCE = 40;
+    public static readonly int PUSH_DISTANCE = 25;
+    public static readonly int STOP_DISTANCE = 30;
 
     public static readonly float CHASE_DISTANCE = 250;
 
@@ -92,6 +93,12 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     public void SetVelocity(Vector3 velocity) {
+        //dont go towards player if too close
+        var dot = Vector3.Direction(WorldPosition, Player.WorldPosition).Dot(velocity);
+        if (dot.AlmostEqual(COMBAT_VELOCITY_MOVESPEED, 1) && DistanceToPlayer < STOP_DISTANCE) {
+            velocity = Vector3.Zero;
+        }
+
         Agent.Velocity = velocity;
     }
 

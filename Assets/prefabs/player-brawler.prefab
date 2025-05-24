@@ -15,6 +15,12 @@
           {
             "__type": "BrawlerComponent",
             "__guid": "cc753a12-dd5d-40c4-8d78-e74ea00efa73",
+            "ActionHandler": {
+              "_type": "component",
+              "component_id": "9f42a96c-1b8b-4c74-946d-1f8626cddf49",
+              "go": "df096078-5e0e-4822-959a-7f63669a5dd1",
+              "component_type": "ActionHandler"
+            },
             "Camera": {
               "_type": "gameobject",
               "go": "b396c460-a714-4d91-ad78-ec9ad6959910"
@@ -57,7 +63,7 @@
             "Acceleration": 10,
             "Bounciness": 0.3,
             "GroundAngle": 45,
-            "Height": 64,
+            "Height": 88.98,
             "IgnoreLayers": "",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -65,30 +71,9 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "Radius": 0.79,
+            "Radius": 8.66,
             "StepHeight": 18,
             "UseCollisionRules": false
-          },
-          {
-            "__type": "Sandbox.BoxCollider",
-            "__guid": "5c224b99-7e22-40db-923e-3a01d85a4258",
-            "Center": "1.057692,0.7400398,34.1743",
-            "Friction": null,
-            "IsTrigger": false,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "OnObjectTriggerEnter": null,
-            "OnObjectTriggerExit": null,
-            "OnTriggerEnter": null,
-            "OnTriggerExit": null,
-            "Scale": "13.51406,19.75967,68.25519",
-            "Static": false,
-            "Surface": null,
-            "SurfaceVelocity": "0,0,0"
           },
           {
             "__type": "HitboxHandler",
@@ -110,6 +95,17 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null
+          },
+          {
+            "__type": "ActionHandler",
+            "__guid": "9f42a96c-1b8b-4c74-946d-1f8626cddf49",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "UseNPCtree": false
           }
         ],
         "Children": [
