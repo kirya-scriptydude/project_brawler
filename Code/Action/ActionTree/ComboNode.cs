@@ -26,7 +26,7 @@ public class ComboNode {
     /// <summary>
     /// Function that is used by NPC's to determine if they should use this node.
     /// </summary>
-    public Func<bool, bool> NonPlayableCondition = delegate (bool real) {
+    public Func<EnemyComponent, bool> NonPlayableCondition = delegate (EnemyComponent npc) {
         return false;
     };
 

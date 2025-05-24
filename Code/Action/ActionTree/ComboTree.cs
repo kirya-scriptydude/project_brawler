@@ -56,6 +56,11 @@ public static class ComboTree {
 
     public static ComboNode GenerateNPC() {
         var root = new ComboNode("root", ActionInputButton.None, "");
+
+        var attack = new ComboNode("attack", ActionInputButton.Quickstep, "FistFinisher");
+        attack.NonPlayableCondition = NonPlayableConditions.Attack;
+        root.Children.Add(attack);
+
         return root;
     }
 }

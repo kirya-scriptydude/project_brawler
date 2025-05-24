@@ -29,10 +29,10 @@ public class HurtboxHandler : Component {
     private void tagEvents(SceneModel.AnimTagEvent e) {
         switch (e.Name) {
             case "Hitstun":
-                Hitstun = e.Status == SceneModel.AnimTagStatus.Start;
+                Hitstun = !Hitstun;
                 break;
             case "Ragdolled":
-                Ragdolled = e.Status == SceneModel.AnimTagStatus.Start;
+                Ragdolled = !Ragdolled;
                 break;
         } 
     }

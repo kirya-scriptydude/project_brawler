@@ -9,10 +9,7 @@
       {
         "__type": "EnemyComponent",
         "__guid": "a6534f90-ea48-4b48-9517-2baa28aa79f4",
-        "ActionList": [
-          "Quickstep",
-          "FistFinisher"
-        ],
+        "ActionHandler": null,
         "Agent": {
           "_type": "component",
           "component_id": "0cec6ec0-e993-41dc-81b0-22a58152243d",
@@ -27,6 +24,12 @@
           "component_id": "4ef886ed-71c2-423a-ab06-a3b83b0897cc",
           "go": "ab75ec18-d512-4657-a40a-172226255a78",
           "component_type": "HitboxHandler"
+        },
+        "HurtboxHandler": {
+          "_type": "component",
+          "component_id": "ba093a16-709c-4758-a984-d9c037778c2a",
+          "go": "ab75ec18-d512-4657-a40a-172226255a78",
+          "component_type": "HurtboxHandler"
         },
         "Model": {
           "_type": "component",
@@ -89,6 +92,27 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "HurtboxHandler",
+        "__guid": "ba093a16-709c-4758-a984-d9c037778c2a",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "ActionHandler",
+        "__guid": "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "UseNPCtree": true
       }
     ],
     "Children": [

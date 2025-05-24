@@ -16,7 +16,7 @@ public partial class EnemyComponent : Component, IBrawler {
 
     [Property, RequireComponent] public HitboxHandler HitboxHandler { get; set; }
     [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
-    [Property] public ActionHandler ActionHandler { get; set; }
+    [Property, RequireComponent] public ActionHandler ActionHandler { get; set; }
 
     [Property, RequireComponent] public NavMeshAgent Agent { get; set; }
     [Property, ReadOnly] public BrawlerComponent Player { get; set; }
@@ -53,14 +53,6 @@ public partial class EnemyComponent : Component, IBrawler {
         }
     }
 
-    private void stateCombat() {
-        WaitWeightFactor = Math.Clamp(WaitWeightFactor + 0.005f, 0.5f, 5);
-
-        if (DistanceToPlayer > CHASE_DISTANCE) {
-            State = EnemyState.Chase;
-        }
-    }
-
     protected override void OnStart() {
         //get all actions ready
         Player = Scene.GetComponentInChildren<BrawlerComponent>();
@@ -71,20 +63,21 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     protected override void OnFixedUpdate() {
-        //if (Health.Dead) {
-        //    GameObject.Destroy();
-        //    return;
-        //}
+        
+        if (DistanceToPlayer < PUSH_DISTANCE) {
+            Agent.SetAgentPosition(LocalPosition + Vector3.Direction(Player.WorldPosition, WorldPosition) * 10);
+        }
+
+        if (HurtboxHandler.Hitstun || HurtboxHandler.Ragdolled) {
+            SetVelocity(Vector3.Zero);
+            Agent.Stop();
+            return;
+        }
 
         if (StareAtPlayer) {
             LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, Player.WorldPosition.WithZ(WorldPosition.z)));
         }
-
-        //player too close, push npc
-        if (DistanceToPlayer < PUSH_DISTANCE) {
-            Agent.SetAgentPosition(LocalPosition + Vector3.Direction(Player.WorldPosition, WorldPosition)* 10);
-        }
-
+        
         switch (State) {
             case EnemyState.Idle:
                 stateIdle();

@@ -4,7 +4,12 @@
 [Group("Project Brawler")]
 public class ActionHandler : Component {
 
-    [Property] public IBrawler Brawler { get; set; }
+    /// <summary>
+    /// use npc default tree
+    /// </summary>
+    [Property] public bool UseNPCtree { get; set; } = false;
+
+    public IBrawler Brawler { get; set; }
 
     /// <summary>
     /// If true, you can use moves thats next on tree.
@@ -29,7 +34,7 @@ public class ActionHandler : Component {
     protected override void OnStart() {
         Brawler = GameObject.GetComponent<IBrawler>();
         
-        Root = ComboTree.Generate();
+        Root = UseNPCtree ? ComboTree.GenerateNPC() : ComboTree.Generate();
         CurrentNode = Root;
     }
 
