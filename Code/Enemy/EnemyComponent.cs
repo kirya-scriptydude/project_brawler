@@ -12,8 +12,6 @@ public partial class EnemyComponent : Component, IBrawler {
     public bool MovementEnabled { get; set; } = true;
     public bool CanTraverseTree { get; set; } = true;
 
-    public AttackType MoveAttackType {get; set;}
-
     [Property, RequireComponent] public HitboxHandler HitboxHandler { get; set; }
     [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
     [Property, RequireComponent] public ActionHandler ActionHandler { get; set; }

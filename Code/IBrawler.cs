@@ -11,8 +11,6 @@ public interface IBrawler {
     public HitboxHandler HitboxHandler { get; set; }
     public HurtboxHandler HurtboxHandler { get; set; }
 
-    public AttackType MoveAttackType { get; set; }
-
 
     public bool MovementEnabled { get; set; }
     public void SetVelocity(Vector3 velocity);
@@ -30,8 +28,8 @@ public interface IBrawler {
         
         if (tagEvent.Type == "DamageFrames") {
             brawler.HitboxHandler.Cast(
-                ActionInfo.GetDamage(brawler.MoveAttackType),
-                ActionInfo.GetHitbox(brawler.MoveAttackType),
+                brawler.ActionHandler.CurrentNode.DamageInfo,
+                brawler.ActionHandler.CurrentNode.HitboxInfo,
                 Math.Clamp(tagEvent.Int, 1, 256)
             );
         }
@@ -44,6 +42,5 @@ public interface IBrawler {
     public void PerformActionAnimation(AttackType attack) {
         Model.Parameters.Set("action", (int)attack);
         Model.Parameters.Set("b_action", true);
-        MoveAttackType = attack;
     }
 }

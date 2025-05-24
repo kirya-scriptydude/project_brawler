@@ -30,6 +30,9 @@ public class ComboNode {
         return false;
     };
 
+    public HitboxInfo HitboxInfo { get; set; } = new(32);
+    public DamageInfo DamageInfo { get; set; } = new(50);
+
     public ComboNode(string name, ActionInputButton input, string className) {
         Name = name;
         Button = input;

@@ -9,8 +9,6 @@ public partial class BrawlerComponent : Component, IBrawler {
         [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
         [Property, RequireComponent] public ActionHandler ActionHandler { get; set; }
 
-        public AttackType MoveAttackType { get; set; }
-
         public BrawlerCamera BrawlerCamera { get; set; }
 
 
