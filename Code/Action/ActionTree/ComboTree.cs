@@ -57,9 +57,19 @@ public static class ComboTree {
     public static ComboNode GenerateNPC() {
         var root = new ComboNode("root", ActionInputButton.None, "");
 
-        var attack = new ComboNode("attack", ActionInputButton.Quickstep, "SimpleAttack");
+        var attack = new ComboNode("unrefined_attack", ActionInputButton.Quickstep, "SimpleAttack");
         attack.NonPlayableCondition = NonPlayableConditions.Attack;
+
+        var dmginfo = new DamageInfo(100, DamageType.Heavy, DamageSource.Fist);
+        dmginfo.Hitstun = HitstunType.Ground;
+        attack.DamageInfo = dmginfo;
+
         root.Children.Add(attack);
+
+
+        var combo = new ComboNode("unrefined_combo", ActionInputButton.Quickstep, "SimpleAttack");
+        combo.NonPlayableCondition = NonPlayableConditions.Attack;
+        root.Children.Add(combo);
 
         return root;
     }
