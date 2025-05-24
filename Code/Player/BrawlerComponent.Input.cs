@@ -41,11 +41,13 @@ public partial class BrawlerComponent : Component {
     }
 
     private void actionControls() {
+        if (!HurtboxHandler.NotStunned) return;
+        
         foreach (ComboNode node in ActionHandler.CurrentNode.Children) {
-            if (Input.Down(ActionToInputName[node.Button])) {
-                ActionHandler.Use(node);
+                if (Input.Down(ActionToInputName[node.Button])) {
+                    ActionHandler.Use(node);
+                }
             }
-        }
     }
 
     /// <summary>

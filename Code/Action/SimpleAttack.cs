@@ -8,8 +8,8 @@ public class SimpleAttack : IBrawlerAction {
 
     public string Name => "SimpleAttack";
 
-    public float Duration { get; set; } = 1f;
-    public float CancelDuration { get; set; } = 1f;
+    public float Duration { get; set; } = 1.5f;
+    public float CancelDuration { get; set; } = 1.5f;
     public float LastTime { get; set; }
 
     public void OnStart() {

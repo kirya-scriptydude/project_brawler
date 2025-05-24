@@ -73,7 +73,7 @@ public partial class EnemyComponent : Component, IBrawler {
             return;
         }
 
-        if (StareAtPlayer) {
+        if (StareAtPlayer && HurtboxHandler.NotStunned && !ActionHandler.IsAction) {
             LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, Player.WorldPosition.WithZ(WorldPosition.z)));
         }
         
