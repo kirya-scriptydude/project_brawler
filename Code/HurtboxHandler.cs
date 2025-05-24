@@ -3,6 +3,7 @@
 /// </summary>
 [Group("Project Brawler")]
 public class HurtboxHandler : Component {
+    public IBrawler Brawler { get; set; }
     public SkinnedModelRenderer Model { get; set; }
 
     public HitstunType LastType { get; set; } = HitstunType.Generic;
@@ -12,7 +13,8 @@ public class HurtboxHandler : Component {
 
 
     protected override void OnStart() {
-        Model = GameObject.GetComponent<IBrawler>().Model;
+        Brawler = GameObject.GetComponent<IBrawler>();
+        Model = Brawler.Model;
 
         Model.OnAnimTagEvent += tagEvents;
         Model.OnGenericEvent += genericEvents;
@@ -23,6 +25,7 @@ public class HurtboxHandler : Component {
         if (dmg.DoHitstun) {
             Model.Parameters.Set("hitstunType", (int)dmg.Hitstun);
             Model.Parameters.Set("b_hit", true);
+            Brawler.ActionHandler.Stop();
         }
     }
 
