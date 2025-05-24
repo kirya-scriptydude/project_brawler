@@ -41,7 +41,7 @@ public interface IBrawler {
     /// set animgraph parameters and MoveAttackType according to AttackType provided
     /// </summary>
     /// <param name="attack">desired attack</param>
-    public void Attack(AttackType attack) {
+    public void PerformActionAnimation(AttackType attack) {
         Model.Parameters.Set("action", (int)attack);
         Model.Parameters.Set("b_action", true);
         MoveAttackType = attack;

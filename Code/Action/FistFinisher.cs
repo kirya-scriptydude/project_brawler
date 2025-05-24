@@ -16,7 +16,7 @@ public class FistFinisher : IBrawlerAction {
         //todo change magic number
         velocity = Brawler.Object.LocalRotation.Forward * 75;
 
-        Brawler.Attack(AttackType.FistFinisher);
+        Brawler.PerformActionAnimation(AttackType.FistFinisher);
         //Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
     }
 

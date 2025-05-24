@@ -24,7 +24,7 @@ public class Fist : IBrawlerAction {
             Brawler.Model.Parameters.Set("fist_combo", Player.ActionHandler.CurrentNode.TreeLevel);
         }
         
-        Brawler.Attack(AttackType.Fist);
+        Brawler.PerformActionAnimation(AttackType.Fist);
     }
 
     public void OnUpdate() {
