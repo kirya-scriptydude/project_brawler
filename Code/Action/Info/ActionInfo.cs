@@ -16,7 +16,7 @@ public static class ActionInfo {
                 dmg.Hitstun = HitstunType.Ground;
                 return dmg;
 
-            case AttackType.GenericWeakAttack:
+            case AttackType.GenericAttack:
                 dmg = new DamageInfo(50, DamageType.Light, DamageSource.Fist);
                 return dmg;
         }
@@ -33,7 +33,7 @@ public static class ActionInfo {
             case AttackType.FistFinisher:
                 return new HitboxInfo(42);
 
-            case AttackType.GenericWeakAttack:
+            case AttackType.GenericAttack:
                 return new HitboxInfo(32);
         }
     }

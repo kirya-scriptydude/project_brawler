@@ -12,13 +12,13 @@ public class SimpleAttack : IBrawlerAction {
 
     public void OnStart() {
         Brawler.MovementEnabled = false;
-        Brawler.PerformActionAnimation(AttackType.GenericWeakAttack);
+        Brawler.PerformActionAnimation(AttackType.GenericAttack);
     }
 
     public void OnUpdate() {
         
     }
-    
+
     public void OnStop() {
         Brawler.MovementEnabled = true;
     }
