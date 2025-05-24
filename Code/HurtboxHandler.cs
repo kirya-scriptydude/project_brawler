@@ -11,6 +11,8 @@ public class HurtboxHandler : Component {
     public bool Hitstun { get; private set; } = false;
     public bool Ragdolled { get; private set; } = false;
 
+    public bool IFrame { get; private set; } = false;
+
     /// <summary>
     /// Checks all stun types. Returns true if not affected by stun
     /// </summary>
@@ -26,6 +28,8 @@ public class HurtboxHandler : Component {
     }
 
     public void Hurt(DamageInfo dmg) {
+        if (IFrame) return;
+        
         //todo actually deal damage
         if (dmg.DoHitstun) {
             Model.Parameters.Set("hitstunType", (int)dmg.Hitstun);
@@ -43,6 +47,9 @@ public class HurtboxHandler : Component {
                 break;
             case "Ragdolled":
                 Ragdolled = e.Status == SceneModel.AnimTagStatus.Start;
+                break;
+            case "IFrame":
+                IFrame = e.Status == SceneModel.AnimTagStatus.Start;
                 break;
         }
 

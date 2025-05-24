@@ -1318,7 +1318,18 @@
 										m_id = 1522607837
 									}
 									m_sNote = ""
-									m_tagSpans = [  ]
+									m_tagSpans = 
+									[
+										{
+											_class = "CAnimTagSpan"
+											m_id = 
+											{
+												m_id = 1859887344
+											}
+											m_fStartCycle = 0.0
+											m_fDuration = 0.327461
+										},
+									]
 									m_sequenceName = "quickstep_forward"
 									m_playbackSpeed = 1.0
 									m_bLoop = false
@@ -1838,6 +1849,14 @@
 				m_tagID = 
 				{
 					m_id = 867040797
+				}
+			},
+			{
+				_class = "CEventAnimTag"
+				m_name = "IFrame"
+				m_tagID = 
+				{
+					m_id = 1859887344
 				}
 			},
 		]
