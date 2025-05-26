@@ -14,6 +14,7 @@ public interface IBrawler {
 
     public bool MovementEnabled { get; set; }
     public void SetVelocity(Vector3 velocity);
+    public Vector3 GetVelocity();
     /// <summary>
     /// Get velocity that controller wishes to move in.
     /// </summary>

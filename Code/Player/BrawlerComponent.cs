@@ -43,6 +43,9 @@ public partial class BrawlerComponent : Component, IBrawler {
                 Controller.Velocity = velocity;
                 Controller.Move();
         }
+        public Vector3 GetVelocity() {
+                return Controller.Velocity;
+        }
 
         public Vector3 GetWishVelocity() {
                 return MoveDirectionAngled;

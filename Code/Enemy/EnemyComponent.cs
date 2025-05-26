@@ -102,6 +102,10 @@ public partial class EnemyComponent : Component, IBrawler {
         Agent.Velocity = velocity;
     }
 
+    public Vector3 GetVelocity() {
+        return Agent.Velocity;
+    }
+
     public Vector3 GetWishVelocity() {
         var Y = Random.Shared.Int(-1, 1);
         var X = Random.Shared.Int(-1, 1);
