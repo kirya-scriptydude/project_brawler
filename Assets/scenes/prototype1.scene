@@ -160,6 +160,7 @@
       "Flags": 0,
       "Name": "player-brawler",
       "Position": "-205.7952,-6.985016,8.57576",
+      "Tags": "brawler",
       "Enabled": true,
       "__Prefab": "prefabs/player-brawler.prefab",
       "__PrefabVariables": {}
@@ -189,7 +190,8 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "UseNPCtree": false
         }
       ],
       "Children": []

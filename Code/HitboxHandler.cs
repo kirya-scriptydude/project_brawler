@@ -24,7 +24,7 @@ public class HitboxHandler : Component {
         var brawler = hitbox.GameObject.Components.Get<IBrawler>();
         if (brawler == null) return;
 
-        brawler.HurtboxHandler.Hurt(dmg);
+        brawler.HurtboxHandler.Hurt(dmg, GameObject);
     }
 
     protected override void OnFixedUpdate() {
