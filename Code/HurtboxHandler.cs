@@ -71,7 +71,7 @@ public class HurtboxHandler : Component {
             var currentVel = Brawler.GetVelocity();
             if (KnockbackDrag) {
                 //todo get rid of magic number (get velocity based on knockback type)
-                var dir = Vector3.Direction(LastHit.AttackPosition, WorldPosition);
+                var dir = LastHit.AttackerForward;
                 Brawler.SetVelocity(
                     currentVel.LerpTo(dir * 350, 0.15f)
                 );
@@ -95,7 +95,11 @@ public class HitLog {
     /// <summary>
     /// Where attacker was
     /// </summary>
-    public Vector3 AttackPosition;
+    public Vector3 AttackerPosition;
+    /// <summary>
+    /// Where attacker was facing
+    /// </summary>
+    public Vector3 AttackerForward;
 
     public HitboxInfo Hitbox;
     public DamageInfo Damage;
@@ -104,7 +108,8 @@ public class HitLog {
         Timestamp = Time.Now;
         Damage = dmg;
 
-        AttackPosition = attacker.WorldPosition;
+        AttackerPosition = attacker.WorldPosition;
+        AttackerForward = attacker.LocalRotation.Forward;
     }
 }
 
