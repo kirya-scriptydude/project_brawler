@@ -93,7 +93,7 @@ public class HurtboxHandler : Component {
             default:
                 return 0;
             case HitstunType.Generic:
-                return 100;
+                return 50;
             case HitstunType.Knockdown:
                 return 300;
         }
