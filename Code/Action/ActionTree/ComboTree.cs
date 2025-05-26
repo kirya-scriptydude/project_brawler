@@ -23,32 +23,32 @@ public static class ComboTree {
     public static ComboNode Generate() {
         var root = new ComboNode("root", ActionInputButton.None, "");
 
-        {
-            var fist01 = new ComboNode("fist01", ActionInputButton.Fist, "Fist");
-            var fist02 = new ComboNode("fist02", ActionInputButton.Fist, "Fist");
-            var fist03 = new ComboNode("fist03", ActionInputButton.Fist, "Fist");
-            var fist04 = new ComboNode("fist04", ActionInputButton.Fist, "Fist");
-            Chain([root, fist01, fist02, fist03, fist04]);
 
-            var fist_Finisher = new ComboNode("fist_finisher", ActionInputButton.Kick, "FistFinisher");
-            var finisherDmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Kick);
-            finisherDmg.Hitstun = HitstunType.Knockdown;
-            fist_Finisher.DamageInfo = finisherDmg;
+        var fist01 = new ComboNode("fist01", ActionInputButton.Fist, "Fist");
+        var fist02 = new ComboNode("fist02", ActionInputButton.Fist, "Fist");
+        var fist03 = new ComboNode("fist03", ActionInputButton.Fist, "Fist");
+        var fist04 = new ComboNode("fist04", ActionInputButton.Fist, "Fist");
+        Chain([root, fist01, fist02, fist03, fist04]);
 
-            //im sorry
-            fist01.Children.Add(fist_Finisher);
+        var fist_Finisher = new ComboNode("fist_finisher", ActionInputButton.Kick, "FistFinisher");
+        var finisherDmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Kick);
+        finisherDmg.Hitstun = HitstunType.Knockdown;
+        fist_Finisher.DamageInfo = finisherDmg;
 
-            fist02.Children.Add(fist_Finisher);
+        //im sorry
+        fist01.Children.Add(fist_Finisher);
+        fist02.Children.Add(fist_Finisher);
+        fist03.Children.Add(fist_Finisher);
+        fist04.Children.Add(fist_Finisher);
 
-            fist03.Children.Add(fist_Finisher);
+        var quickstep = new ComboNode("quickstep", ActionInputButton.Quickstep, "Quickstep");
+        root.Children.Add(quickstep);
 
-            fist04.Children.Add(fist_Finisher);
-        }
+        fist01.Children.Add(quickstep);
+        fist02.Children.Add(quickstep);
+        fist03.Children.Add(quickstep);
+        fist04.Children.Add(quickstep);
 
-        {
-            var quickstep = new ComboNode("quickstep", ActionInputButton.Quickstep, "Quickstep");
-            root.Children.Add(quickstep);
-        }
         return root;
     }
 
