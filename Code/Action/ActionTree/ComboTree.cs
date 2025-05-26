@@ -30,21 +30,19 @@ public static class ComboTree {
             var fist04 = new ComboNode("fist04", ActionInputButton.Fist, "Fist");
             Chain([root, fist01, fist02, fist03, fist04]);
 
+            var fist_Finisher = new ComboNode("fist_finisher", ActionInputButton.Kick, "FistFinisher");
+            var finisherDmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Kick);
+            finisherDmg.Hitstun = HitstunType.Knockdown;
+            fist_Finisher.DamageInfo = finisherDmg;
+
             //im sorry
-            fist01.Children.Add(
-                new ComboNode("fist01_finisher", ActionInputButton.Kick, "FistFinisher")
-            );
+            fist01.Children.Add(fist_Finisher);
 
-            fist02.Children.Add(
-                new ComboNode("fist02_finisher", ActionInputButton.Kick, "FistFinisher")
-            );
+            fist02.Children.Add(fist_Finisher);
 
-            fist03.Children.Add(
-                new ComboNode("fist03_finisher", ActionInputButton.Kick, "FistFinisher")
-            );
-            fist04.Children.Add(
-                new ComboNode("fist04_finisher", ActionInputButton.Kick, "FistFinisher")
-            );
+            fist03.Children.Add(fist_Finisher);
+
+            fist04.Children.Add(fist_Finisher);
         }
 
         {

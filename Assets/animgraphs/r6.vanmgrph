@@ -750,14 +750,14 @@
 				{
 					_class = "CCommentAnimNode"
 					m_sName = "hurt"
-					m_vecPosition = [ -416.0, 416.0 ]
+					m_vecPosition = [ -432.0, 416.0 ]
 					m_nNodeID = 
 					{
 						m_id = 668003730
 					}
 					m_sNote = ""
 					m_commentText = ""
-					m_size = [ 375.0, 225.0 ]
+					m_size = [ 384.0, 240.0 ]
 					m_color = [ 178, 34, 34, 255 ]
 				}
 			},
@@ -1605,7 +1605,7 @@
 				{
 					_class = "CSelectorAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -192.0, 496.0 ]
+					m_vecPosition = [ -192.0, 512.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1973498184
@@ -1633,9 +1633,22 @@
 								m_id = 258996993
 							}
 						},
+						{
+							m_nodeID = 
+							{
+								m_id = 2109853602
+							}
+							m_outputID = 
+							{
+								m_id = 458010509
+							}
+						},
 					]
 					m_tags = 
 					[
+						{
+							m_id = 4294967295
+						},
 						{
 							m_id = 4294967295
 						},
@@ -1668,6 +1681,259 @@
 						m_vControlPoint2 = [ 0.5, 1.0 ]
 					}
 					m_intParamNames = [  ]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 2109853602
+				}
+				value = 
+				{
+					_class = "CGroupAnimNode"
+					m_sName = "hurt_knockdown"
+					m_vecPosition = [ -416.0, 592.0 ]
+					m_nNodeID = 
+					{
+						m_id = 2109853602
+					}
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1004429739
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1731765246
+					}
+					m_inputConnectionMap = [  ]
+					m_nodeManager = 
+					{
+						_class = "CAnimNodeManager"
+						m_nodes = 
+						[
+							{
+								key = 
+								{
+									m_id = 136787493
+								}
+								value = 
+								{
+									_class = "CSequenceAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ -240.0, 64.0 ]
+									m_nNodeID = 
+									{
+										m_id = 136787493
+									}
+									m_sNote = ""
+									m_tagSpans = [  ]
+									m_sequenceName = "hurt_knockdown"
+									m_playbackSpeed = 1.0
+									m_bLoop = false
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 825899921
+								}
+								value = 
+								{
+									_class = "CStateMachineAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ 0.0, 64.0 ]
+									m_nNodeID = 
+									{
+										m_id = 825899921
+									}
+									m_sNote = ""
+									m_states = 
+									[
+										{
+											_class = "CAnimState"
+											m_transitions = 
+											[
+												{
+													_class = "CAnimStateTransition"
+													m_conditions = 
+													[
+														{
+															_class = "CFinishedCondition"
+															m_comparisonOp = 0
+															m_option = "FinishedConditionOption_OnFinished"
+															m_bIsFinished = true
+														},
+													]
+													m_blendDuration = 0.2
+													m_destState = 
+													{
+														m_id = 1656956769
+													}
+													m_bReset = true
+													m_resetCycleOption = "Beginning"
+													m_flFixedCycleValue = 0.0
+													m_bBlendCycle = false
+													m_blendCurve = 
+													{
+														m_vControlPoint1 = [ 0.5, 0.0 ]
+														m_vControlPoint2 = [ 0.5, 1.0 ]
+													}
+													m_bForceFootPlant = false
+													m_bDisabled = false
+													m_bRandomTimeBetween = false
+													m_flRandomTimeStart = 0.0
+													m_flRandomTimeEnd = 0.0
+												},
+											]
+											m_tags = 
+											[
+												{
+													m_id = 2135450857
+												},
+											]
+											m_tagBehaviors = [ 0 ]
+											m_name = "start"
+											m_inputConnection = 
+											{
+												m_nodeID = 
+												{
+													m_id = 136787493
+												}
+												m_outputID = 
+												{
+													m_id = 4294967295
+												}
+											}
+											m_stateID = 
+											{
+												m_id = 1022916625
+											}
+											m_position = [ -160.0, 16.0 ]
+											m_bIsStartState = true
+											m_bIsEndtState = false
+											m_bIsPassthrough = false
+											m_bIsRootMotionExclusive = false
+											m_bAlwaysEvaluate = false
+										},
+										{
+											_class = "CAnimState"
+											m_transitions = [  ]
+											m_tags = [  ]
+											m_tagBehaviors = [  ]
+											m_name = "ragdoll"
+											m_inputConnection = 
+											{
+												m_nodeID = 
+												{
+													m_id = 1913653429
+												}
+												m_outputID = 
+												{
+													m_id = 401399200
+												}
+											}
+											m_stateID = 
+											{
+												m_id = 1656956769
+											}
+											m_position = [ -16.0, 16.0 ]
+											m_bIsStartState = false
+											m_bIsEndtState = true
+											m_bIsPassthrough = false
+											m_bIsRootMotionExclusive = false
+											m_bAlwaysEvaluate = false
+										},
+									]
+									m_bBlockWaningTags = false
+									m_bLockStateWhenWaning = false
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1004429739
+								}
+								value = 
+								{
+									_class = "CGroupInputAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ -200.0, 0.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1004429739
+									}
+									m_sNote = ""
+									m_proxyItems = [  ]
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1731765246
+								}
+								value = 
+								{
+									_class = "CGroupOutputAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ 200.0, 0.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1731765246
+									}
+									m_sNote = ""
+									m_proxyItems = 
+									[
+										{
+											m_name = "In"
+											m_outputID = 
+											{
+												m_id = 458010509
+											}
+											m_inputConnection = 
+											{
+												m_nodeID = 
+												{
+													m_id = 825899921
+												}
+												m_outputID = 
+												{
+													m_id = 4294967295
+												}
+											}
+										},
+									]
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1913653429
+								}
+								value = 
+								{
+									_class = "CSubGraphAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ -240.0, 112.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1913653429
+									}
+									m_sNote = ""
+									m_inputNodeID = 
+									{
+										m_id = 625325302
+									}
+									m_outputNodeID = 
+									{
+										m_id = 1108905767
+									}
+									m_subGraphFilename = "animgraphs\\r6.ragdoll.vsubgrph"
+									m_inputConnectionMap = [  ]
+								}
+							},
+						]
+					}
 				}
 			},
 			{
@@ -1809,6 +2075,7 @@
 				[
 					"Generic",
 					"Ground",
+					"Knockdown",
 				]
 			},
 			{
@@ -1857,6 +2124,14 @@
 				m_tagID = 
 				{
 					m_id = 1859887344
+				}
+			},
+			{
+				_class = "CEventAnimTag"
+				m_name = "KnockbackDrag"
+				m_tagID = 
+				{
+					m_id = 2135450857
 				}
 			},
 		]

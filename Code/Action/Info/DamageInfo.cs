@@ -33,5 +33,9 @@ public enum HitstunType {
     /// <summary>
     /// Go straight into ragdoll state without any anims. Not recommended to use other than testing.
     /// </summary>
-    Ground
+    Ground,
+    /// <summary>
+    /// You fly forward and land into ragdoll state.
+    /// </summary>
+    Knockdown
 }
