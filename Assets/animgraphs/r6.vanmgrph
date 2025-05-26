@@ -1727,9 +1727,20 @@
 										m_id = 136787493
 									}
 									m_sNote = ""
-									m_tagSpans = [  ]
+									m_tagSpans = 
+									[
+										{
+											_class = "CAnimTagSpan"
+											m_id = 
+											{
+												m_id = 2135450857
+											}
+											m_fStartCycle = 0.043523
+											m_fDuration = 0.563731
+										},
+									]
 									m_sequenceName = "hurt_knockdown"
-									m_playbackSpeed = 2.0
+									m_playbackSpeed = 1.0
 									m_bLoop = false
 								}
 							},
@@ -1786,13 +1797,8 @@
 													m_flRandomTimeEnd = 0.0
 												},
 											]
-											m_tags = 
-											[
-												{
-													m_id = 2135450857
-												},
-											]
-											m_tagBehaviors = [ 0 ]
+											m_tags = [  ]
+											m_tagBehaviors = [  ]
 											m_name = "start"
 											m_inputConnection = 
 											{

@@ -67,12 +67,19 @@ public class HurtboxHandler : Component {
     private void genericEvents(SceneModel.GenericEvent e) { }
 
     protected override void OnFixedUpdate() {
-        if (KnockbackDrag) {
-            //todo get rid of magic number (get velocity based on knockback)
-            Brawler.SetVelocity(
-                Vector3.Direction(LastHit.AttackPosition, WorldPosition) * 350
-            );
+        if (!NotStunned) {
+            var currentVel = Brawler.GetVelocity();
+            if (KnockbackDrag) {
+                //todo get rid of magic number (get velocity based on knockback type)
+                var dir = Vector3.Direction(LastHit.AttackPosition, WorldPosition);
+                Brawler.SetVelocity(
+                    currentVel.LerpTo(dir * 350, 0.15f)
+                );
+            } else {
+                Brawler.SetVelocity(currentVel.LerpTo(Vector3.Zero, 0.15f));
+            }
         }
+
     }
 }
 

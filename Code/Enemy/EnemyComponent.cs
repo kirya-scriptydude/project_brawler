@@ -68,7 +68,7 @@ public partial class EnemyComponent : Component, IBrawler {
         }
 
         if (HurtboxHandler.Hitstun || HurtboxHandler.Ragdolled) {
-            SetVelocity(Vector3.Zero);
+            //SetVelocity(Vector3.Zero);
             Agent.Stop();
             return;
         }
@@ -92,18 +92,22 @@ public partial class EnemyComponent : Component, IBrawler {
         }
     }
 
+    Vector3 lastVel = new();
     public void SetVelocity(Vector3 velocity) {
+        lastVel = velocity;
         //dont go towards player if too close
         var dot = Vector3.Direction(WorldPosition, Player.WorldPosition).Dot(velocity);
         if (dot.AlmostEqual(COMBAT_VELOCITY_MOVESPEED, 1) && DistanceToPlayer < STOP_DISTANCE) {
             velocity = Vector3.Zero;
         }
 
+        
         Agent.Velocity = velocity;
     }
 
     public Vector3 GetVelocity() {
-        return Agent.Velocity;
+        Log.Info(lastVel);
+        return lastVel;
     }
 
     public Vector3 GetWishVelocity() {
