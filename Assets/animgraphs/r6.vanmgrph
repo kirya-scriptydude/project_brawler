@@ -579,7 +579,18 @@
 						m_id = 612078925
 					}
 					m_sNote = ""
-					m_tagSpans = [  ]
+					m_tagSpans = 
+					[
+						{
+							_class = "CAnimTagSpan"
+							m_id = 
+							{
+								m_id = 2135450857
+							}
+							m_fStartCycle = 0.074611
+							m_fDuration = 0.393782
+						},
+					]
 					m_sequenceName = "hurt_generic"
 					m_playbackSpeed = 1.0
 					m_bLoop = false

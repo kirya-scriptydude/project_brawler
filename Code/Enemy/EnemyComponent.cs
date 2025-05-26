@@ -106,7 +106,6 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     public Vector3 GetVelocity() {
-        Log.Info(lastVel);
         return lastVel;
     }
 

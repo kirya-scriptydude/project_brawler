@@ -6,7 +6,7 @@ public class HurtboxHandler : Component {
     public IBrawler Brawler { get; set; }
     public SkinnedModelRenderer Model { get; set; }
 
-    public HitstunType LastType { get; set; } = HitstunType.Generic;
+    public HitstunType LastHitstunType { get; set; } = HitstunType.Generic;
 
     public bool Hitstun { get; private set; } = false;
     public bool Ragdolled { get; private set; } = false;
@@ -22,7 +22,6 @@ public class HurtboxHandler : Component {
 
     public HitLog LastHit { get; private set; }
 
-
     protected override void OnStart() {
         Brawler = GameObject.GetComponent<IBrawler>();
         Model = Brawler.Model;
@@ -36,6 +35,8 @@ public class HurtboxHandler : Component {
 
         //todo actually deal damage
         if (dmg.DoHitstun) {
+            LastHitstunType = dmg.Hitstun;
+
             Model.Parameters.Set("hitstunType", (int)dmg.Hitstun);
             Model.Parameters.Set("b_hit", true);
             Brawler.ActionHandler.Stop();
@@ -69,17 +70,33 @@ public class HurtboxHandler : Component {
     protected override void OnFixedUpdate() {
         if (!NotStunned) {
             var currentVel = Brawler.GetVelocity();
+            var knockbackVelocity = HitstunToVelocity(LastHitstunType);
+
             if (KnockbackDrag) {
                 //todo get rid of magic number (get velocity based on knockback type)
                 var dir = LastHit.AttackerForward;
                 Brawler.SetVelocity(
-                    currentVel.LerpTo(dir * 350, 0.15f)
+                    currentVel.LerpTo(dir * knockbackVelocity, 0.15f)
                 );
             } else {
                 Brawler.SetVelocity(currentVel.LerpTo(Vector3.Zero, 0.15f));
             }
         }
 
+    }
+
+    /// <summary>
+    /// why not a lookup dictionary? idk it breaks with enum items apparently 
+    /// </summary>
+    public float HitstunToVelocity(HitstunType type) {
+        switch (type) {
+            default:
+                return 0;
+            case HitstunType.Generic:
+                return 100;
+            case HitstunType.Knockdown:
+                return 300;
+        }
     }
 }
 
