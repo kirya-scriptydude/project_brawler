@@ -71,12 +71,14 @@ public class HurtboxHandler : Component {
         if (!NotStunned) {
             var currentVel = Brawler.GetVelocity();
             var knockbackVelocity = HitstunToVelocity(LastHitstunType);
+            var velocityFactor = LastHit.AttackerVelocity / 50;
+            Log.Info(velocityFactor.Length);
 
             if (KnockbackDrag) {
                 //todo get rid of magic number (get velocity based on knockback type)
                 var dir = LastHit.AttackerForward;
                 Brawler.SetVelocity(
-                    currentVel.LerpTo(dir * knockbackVelocity, 0.15f)
+                    currentVel.LerpTo(dir + velocityFactor * knockbackVelocity, 0.15f)
                 );
             } else {
                 Brawler.SetVelocity(currentVel.LerpTo(Vector3.Zero, 0.15f));
@@ -95,7 +97,7 @@ public class HurtboxHandler : Component {
             case HitstunType.Generic:
                 return 50;
             case HitstunType.Knockdown:
-                return 300;
+                return 100;
         }
     }
 }
@@ -117,6 +119,10 @@ public class HitLog {
     /// Where attacker was facing
     /// </summary>
     public Vector3 AttackerForward;
+    /// <summary>
+    /// How fast was the attacker
+    /// </summary>
+    public Vector3 AttackerVelocity = new();
 
     public HitboxInfo Hitbox;
     public DamageInfo Damage;
@@ -127,6 +133,11 @@ public class HitLog {
 
         AttackerPosition = attacker.WorldPosition;
         AttackerForward = attacker.LocalRotation.Forward;
+
+        var brawler = attacker.GetComponent<IBrawler>();
+        if (brawler != null) {
+            AttackerVelocity = brawler.GetVelocity();
+        }
     }
 }
 
