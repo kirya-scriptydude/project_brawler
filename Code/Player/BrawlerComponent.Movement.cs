@@ -24,6 +24,8 @@ public partial class BrawlerComponent : Component {
     }
 
     private void moveRotation() {
+        if (ActionHandler.IsAction) return;
+        
         //apply rotation
         if (!Input.Down("LockOn")) {
             var pos = GameObject.LocalPosition;
