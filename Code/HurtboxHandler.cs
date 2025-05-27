@@ -63,6 +63,8 @@ public class HurtboxHandler : Component {
                 break;
         }
 
+        
+
     }
 
     private void genericEvents(SceneModel.GenericEvent e) { }
@@ -90,16 +92,11 @@ public class HurtboxHandler : Component {
     /// <summary>
     /// why not a lookup dictionary? idk it breaks with enum items apparently 
     /// </summary>
-    public float HitstunToVelocity(HitstunType type) {
-        switch (type) {
-            default:
-                return 0;
-            case HitstunType.Generic:
-                return 50;
-            case HitstunType.Knockdown:
-                return 100;
-        }
-    }
+    public float HitstunToVelocity(HitstunType type) => type switch {
+        HitstunType.Generic => 20,
+        HitstunType.Knockdown => 100,
+        _ => 0,
+    };
 }
 
 /// <summary>
