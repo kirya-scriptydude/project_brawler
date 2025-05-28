@@ -7,6 +7,9 @@ public class FistFinisher : IBrawlerAction {
     public float Duration { get; set; } = 1.9f;
     public float CancelDuration { get; set; } = 1f;
 
+    public float DashTimeframe1 { get; set; } = 0.6f;
+    public float DashTimeframe2 { get; set; } = 0.7f;
+
     public float LastTime { get; set; }
 
     private Vector3 velocity = new();
@@ -21,14 +24,12 @@ public class FistFinisher : IBrawlerAction {
     }
 
     public void OnUpdate() {
-        velocity *= 0.95f;
+        velocity *= 0.90f;
         Brawler.SetVelocity(velocity);
 
         var time = Time.Now - LastTime;
-        var timeFrame = CancelDuration / 3;
-        var timeFrame2 = Duration / 3;
-        if (time > timeFrame && time < timeFrame2) {
-            velocity = Brawler.Object.LocalRotation.Forward * 250;
+        if (time > DashTimeframe1 && time < DashTimeframe2) {
+            velocity = Brawler.Object.LocalRotation.Forward * 400;
         }
     }
 
