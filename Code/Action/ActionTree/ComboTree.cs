@@ -17,23 +17,39 @@ public static class ComboTree {
     }
 
     /// <summary>
-    /// Generates default tree. TODO: Create options to customize it.
+    /// Generates default tree. TODO: Create options to customize it. Oh god what have i done
     /// </summary>
     /// <returns>Root node</returns>
     public static ComboNode Generate() {
         var root = new ComboNode("root", ActionInputButton.None, "");
 
+        var fistDmg = new DamageInfo(50, DamageType.Light, DamageSource.Fist);
+        var fistHitbox = new HitboxInfo(40);
 
         var fist01 = new ComboNode("fist01", ActionInputButton.Fist, "Fist");
+        fist01.DamageInfo = fistDmg;
+        fist01.HitboxInfo = fistHitbox;
+
         var fist02 = new ComboNode("fist02", ActionInputButton.Fist, "Fist");
+        fist02.DamageInfo = fistDmg;
+        fist02.HitboxInfo = fistHitbox;
+
         var fist03 = new ComboNode("fist03", ActionInputButton.Fist, "Fist");
+        fist03.DamageInfo = fistDmg;
+        fist03.HitboxInfo = fistHitbox;
+
         var fist04 = new ComboNode("fist04", ActionInputButton.Fist, "Fist");
+        fist04.DamageInfo = fistDmg;
+        fist04.HitboxInfo = fistHitbox;
         Chain([root, fist01, fist02, fist03, fist04]);
 
         var fist_Finisher = new ComboNode("fist_finisher", ActionInputButton.Kick, "FistFinisher");
         var finisherDmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Kick);
+        var finisherHitbox = new HitboxInfo(40);
+        finisherHitbox.Length = 25;
         finisherDmg.Hitstun = HitstunType.Knockdown;
         fist_Finisher.DamageInfo = finisherDmg;
+        fist_Finisher.HitboxInfo = finisherHitbox;
 
         //im sorry
         fist01.Children.Add(fist_Finisher);

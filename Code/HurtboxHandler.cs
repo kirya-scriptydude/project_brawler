@@ -118,8 +118,8 @@ public class HurtboxHandler : Component {
     /// why not a lookup dictionary? idk it breaks with enum items apparently 
     /// </summary>
     public float HitstunToVelocity(HitstunType type) => type switch {
-        HitstunType.Generic => 20,
-        HitstunType.Knockdown => 100,
+        HitstunType.Generic => 100,
+        HitstunType.Knockdown => 65,
         HitstunType.Wallbound => -40,
         _ => 0,
     };
