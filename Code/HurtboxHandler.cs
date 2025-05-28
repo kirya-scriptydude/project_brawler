@@ -76,7 +76,7 @@ public class HurtboxHandler : Component {
     protected override void OnFixedUpdate() {
         if (!NotStunned) {
             var currentVel = Brawler.GetVelocity();
-            var knockbackVelocity = HitstunToVelocity(LastHitstunType);
+            var knockbackVelocity = HitstunHelper.GetKnockbackVelocity(LastHitstunType);
 
             if (KnockbackDrag) {
                 //todo get rid of magic number (get velocity based on knockback type)
@@ -93,7 +93,7 @@ public class HurtboxHandler : Component {
     }
 
     private void updateWallbound(Vector3 dir) {
-        if (!HitstunUseWallbound(LastHitstunType)) return;
+        if (!HitstunHelper.CanUseWallbound(LastHitstunType)) return;
 
         var from = WorldPosition + Vector3.Up * 25;
         var to = from + dir * WALLBOUND_COLLISION_RANGE;
@@ -112,22 +112,6 @@ public class HurtboxHandler : Component {
             GameObject.LocalRotation = Rotation.LookAt(Vector3.Direction(to, from));
         }
     }
-
-    /// <summary>
-    /// why not a lookup dictionary? idk it breaks with enum items apparently 
-    /// </summary>
-    public float HitstunToVelocity(HitstunType type) => type switch {
-        HitstunType.Generic => 50,
-        HitstunType.Knockdown => 600,
-        HitstunType.Wallbound => -100,
-        _ => 0,
-    };
-
-    public bool HitstunUseWallbound(HitstunType type) => type switch {
-        HitstunType.Knockdown => true,
-        HitstunType.Juggle => true,
-        _ => false
-    };
 }
 
 /// <summary>
