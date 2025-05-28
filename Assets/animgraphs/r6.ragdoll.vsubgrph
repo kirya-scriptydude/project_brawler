@@ -193,7 +193,18 @@
 						m_id = 1805944421
 					}
 					m_sNote = ""
-					m_tagSpans = [  ]
+					m_tagSpans = 
+					[
+						{
+							_class = "CAnimTagSpan"
+							m_id = 
+							{
+								m_id = 1859887344
+							}
+							m_fStartCycle = 0.0
+							m_fDuration = 1.0
+						},
+					]
 					m_sequenceName = "hurt_ground_getup"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
@@ -214,7 +225,18 @@
 						m_id = 2017101160
 					}
 					m_sNote = ""
-					m_tagSpans = [  ]
+					m_tagSpans = 
+					[
+						{
+							_class = "CAnimTagSpan"
+							m_id = 
+							{
+								m_id = 1859887344
+							}
+							m_fStartCycle = 0.0
+							m_fDuration = 1.0
+						},
+					]
 					m_sequenceName = "hurt_ground"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
