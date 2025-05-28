@@ -66,7 +66,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Radius": 17.000015,
+        "Radius": 9.000016,
         "Separation": 0.25,
         "UpdatePosition": true,
         "UpdateRotation": false
@@ -118,6 +118,27 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "UseNPCtree": true
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b",
+        "Center": "0.6904992,0,49.21199",
+        "Friction": null,
+        "IsTrigger": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnObjectTriggerEnter": null,
+        "OnObjectTriggerExit": null,
+        "OnTriggerEnter": null,
+        "OnTriggerExit": null,
+        "Scale": "0.3197176,50,67.04544",
+        "Static": false,
+        "Surface": null,
+        "SurfaceVelocity": "0,0,0"
       }
     ],
     "Children": [
