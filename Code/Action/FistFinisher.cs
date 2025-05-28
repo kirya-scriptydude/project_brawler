@@ -4,7 +4,7 @@ public class FistFinisher : IBrawlerAction {
     public IBrawler Brawler { get; set; }
     public string Name { get; } = "FistFinisher";
 
-    public float Duration { get; set; } = 1.35f;
+    public float Duration { get; set; } = 1.5f;
     public float CancelDuration { get; set; } = 1f;
 
     public float LastTime { get; set; }
@@ -25,9 +25,10 @@ public class FistFinisher : IBrawlerAction {
         Brawler.SetVelocity(velocity);
 
         var time = Time.Now - LastTime;
-        var timeFrame = Duration / 3;
-        if (time > timeFrame && time < CancelDuration / 2) {
-            velocity = Brawler.Object.LocalRotation.Forward * 200;
+        var timeFrame = CancelDuration / 3;
+        var timeFrame2 = Duration / 3;
+        if (time > timeFrame && time < timeFrame2) {
+            velocity = Brawler.Object.LocalRotation.Forward * 250;
         }
     }
 

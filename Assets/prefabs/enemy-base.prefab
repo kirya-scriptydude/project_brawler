@@ -9,7 +9,12 @@
       {
         "__type": "EnemyComponent",
         "__guid": "a6534f90-ea48-4b48-9517-2baa28aa79f4",
-        "ActionHandler": null,
+        "ActionHandler": {
+          "_type": "component",
+          "component_id": "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5",
+          "go": "ab75ec18-d512-4657-a40a-172226255a78",
+          "component_type": "ActionHandler"
+        },
         "Agent": {
           "_type": "component",
           "component_id": "0cec6ec0-e993-41dc-81b0-22a58152243d",
@@ -53,7 +58,7 @@
         "__guid": "0cec6ec0-e993-41dc-81b0-22a58152243d",
         "Acceleration": 600,
         "AutoTraverseLinks": true,
-        "Height": 64,
+        "Height": 88.19972,
         "MaxSpeed": 200,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -61,7 +66,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Radius": 12,
+        "Radius": 17.000015,
         "Separation": 0.25,
         "UpdatePosition": true,
         "UpdateRotation": false

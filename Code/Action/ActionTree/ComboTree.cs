@@ -24,6 +24,7 @@ public static class ComboTree {
         var root = new ComboNode("root", ActionInputButton.None, "");
 
         var fistDmg = new DamageInfo(50, DamageType.Light, DamageSource.Fist);
+        fistDmg.KnockbackMultiplier = 4f;
         var fistHitbox = new HitboxInfo(40);
 
         var fist01 = new ComboNode("fist01", ActionInputButton.Fist, "Fist");

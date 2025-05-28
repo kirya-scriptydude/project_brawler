@@ -72,7 +72,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "Radius": 8.66,
+            "Radius": 18.11,
             "StepHeight": 18,
             "UseCollisionRules": false
           },

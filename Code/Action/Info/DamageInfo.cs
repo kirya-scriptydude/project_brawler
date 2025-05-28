@@ -5,6 +5,7 @@ public struct DamageInfo {
 
     public bool DoHitstun = true;
     public HitstunType Hitstun = HitstunType.Generic;
+    public float KnockbackMultiplier = 1f;
 
     public DamageInfo(int dmg, DamageType type = DamageType.Generic, DamageSource source = DamageSource.Generic) {
         Damage = dmg;

@@ -77,14 +77,12 @@ public class HurtboxHandler : Component {
         if (!NotStunned) {
             var currentVel = Brawler.GetVelocity();
             var knockbackVelocity = HitstunToVelocity(LastHitstunType);
-            var velocityFactor = LastHit.AttackerVelocity / 50;
-            Log.Info(velocityFactor.Length);
 
             if (KnockbackDrag) {
                 //todo get rid of magic number (get velocity based on knockback type)
                 var dir = LastHit.AttackerForward;
                 Brawler.SetVelocity(
-                    currentVel.LerpTo(dir + velocityFactor * knockbackVelocity, 0.15f)
+                    currentVel.LerpTo(dir * knockbackVelocity * LastHit.Damage.KnockbackMultiplier, 0.15f)
                 );
                 updateWallbound(dir);
             } else {
@@ -118,9 +116,9 @@ public class HurtboxHandler : Component {
     /// why not a lookup dictionary? idk it breaks with enum items apparently 
     /// </summary>
     public float HitstunToVelocity(HitstunType type) => type switch {
-        HitstunType.Generic => 100,
-        HitstunType.Knockdown => 65,
-        HitstunType.Wallbound => -40,
+        HitstunType.Generic => 50,
+        HitstunType.Knockdown => 600,
+        HitstunType.Wallbound => -100,
         _ => 0,
     };
 

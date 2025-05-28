@@ -18,7 +18,7 @@ public class Fist : IBrawlerAction {
     public void OnStart() {
         Brawler.MovementEnabled = false;
         //todo change magic number
-        velocity = Player.LocalRotation.Forward * 135;
+        velocity = Player.LocalRotation.Forward * 200;
 
         if (Player != null) {
             Brawler.Model.Parameters.Set("fist_combo", Player.ActionHandler.CurrentNode.TreeLevel);
@@ -29,7 +29,7 @@ public class Fist : IBrawlerAction {
 
     public void OnUpdate() {
         Player.Controller.Velocity = velocity;
-        velocity *= 0.92f;
+        velocity *= 0.91f;
         Player.Controller.Move();
     }
 
