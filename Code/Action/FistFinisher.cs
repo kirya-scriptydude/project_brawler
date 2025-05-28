@@ -4,7 +4,7 @@ public class FistFinisher : IBrawlerAction {
     public IBrawler Brawler { get; set; }
     public string Name { get; } = "FistFinisher";
 
-    public float Duration { get; set; } = 1.5f;
+    public float Duration { get; set; } = 1.9f;
     public float CancelDuration { get; set; } = 1f;
 
     public float LastTime { get; set; }
