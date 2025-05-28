@@ -37,5 +37,13 @@ public enum HitstunType {
     /// <summary>
     /// You fly forward and land into ragdoll state.
     /// </summary>
-    Knockdown
+    Knockdown,
+    /// <summary>
+    /// You get stunned and stay in place for a good amount of time. Not used manually, but rather when hitting the walls.
+    /// </summary>
+    Wallbound,
+    /// <summary>
+    /// You swiftly fall to the ground. This is the reaction of most knockdowns when another move landed.
+    /// </summary>
+    Juggle
 }
