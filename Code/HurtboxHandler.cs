@@ -108,7 +108,8 @@ public class HurtboxHandler : Component {
             var dmg = new DamageInfo(0, DamageType.Generic, DamageSource.Generic);
             dmg.Hitstun = HitstunType.Wallbound;
             Hurt(dmg, GameObject);
-            Log.Info("real");
+
+            GameObject.LocalRotation = Rotation.LookAt(Vector3.Direction(to, from));
         }
     }
 
