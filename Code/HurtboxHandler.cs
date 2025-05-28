@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 /// <summary>
 /// Handles object's hurtbox and response to hits. Controls hitstun using animgraph provided by model.
 /// </summary>
@@ -21,6 +23,8 @@ public class HurtboxHandler : Component {
     public bool NotStunned => !Hitstun && !Ragdolled;
 
     public HitLog LastHit { get; private set; }
+
+    public static readonly float WALLBOUND_COLLISION_RANGE = 35;
 
     protected override void OnStart() {
         Brawler = GameObject.GetComponent<IBrawler>();
@@ -63,7 +67,7 @@ public class HurtboxHandler : Component {
                 break;
         }
 
-        
+
 
     }
 
@@ -82,11 +86,32 @@ public class HurtboxHandler : Component {
                 Brawler.SetVelocity(
                     currentVel.LerpTo(dir + velocityFactor * knockbackVelocity, 0.15f)
                 );
+                updateWallbound(dir);
             } else {
                 Brawler.SetVelocity(currentVel.LerpTo(Vector3.Zero, 0.15f));
             }
         }
 
+    }
+
+    private void updateWallbound(Vector3 dir) {
+        if (!HitstunUseWallbound(LastHitstunType)) return;
+
+        var from = WorldPosition + Vector3.Up * 25;
+        var to = from + dir * WALLBOUND_COLLISION_RANGE;
+
+        var trace = Scene.Trace
+            .Ray(from, to)
+            .UsePhysicsWorld()
+            .IgnoreGameObjectHierarchy(GameObject)
+            .Run();
+
+        if (trace.Hit) {
+            var dmg = new DamageInfo(0, DamageType.Generic, DamageSource.Generic);
+            dmg.Hitstun = HitstunType.Wallbound;
+            Hurt(dmg, GameObject);
+            Log.Info("real");
+        }
     }
 
     /// <summary>
@@ -95,7 +120,14 @@ public class HurtboxHandler : Component {
     public float HitstunToVelocity(HitstunType type) => type switch {
         HitstunType.Generic => 20,
         HitstunType.Knockdown => 100,
+        HitstunType.Wallbound => -40,
         _ => 0,
+    };
+
+    public bool HitstunUseWallbound(HitstunType type) => type switch {
+        HitstunType.Knockdown => true,
+        HitstunType.Juggle => true,
+        _ => false
     };
 }
 

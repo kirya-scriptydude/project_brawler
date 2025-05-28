@@ -60,7 +60,7 @@
       "__guid": "02fc0178-b7e5-4023-bcab-bbaa4bf2b231",
       "Flags": 0,
       "Name": "Plane (1)",
-      "Position": "50.60229,-387.1499,48.28401",
+      "Position": "50.60229,-283.1793,48.28403",
       "Rotation": "-0.7071067,0,0,0.7071068",
       "Scale": "-6.588513,-6.588513,-6.588513",
       "Enabled": true,
@@ -134,7 +134,7 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "Shadows": false,
-          "SkyColor": "0,0,0,0"
+          "SkyColor": "202.38,202.38,202.38,0.05"
         },
         {
           "__type": "Sandbox.PointLight",
