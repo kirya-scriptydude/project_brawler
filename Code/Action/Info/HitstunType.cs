@@ -53,7 +53,8 @@ public static class HitstunHelper {
     /// <returns>weight</returns>
     public static int GetWeight(HitstunType type) => type switch {
         HitstunType.Knockdown => 100,
-        HitstunType.Juggle => 50,
+        HitstunType.Juggle => 49,
+        HitstunType.Wallbound => 50,
 
         _ => 0
     };

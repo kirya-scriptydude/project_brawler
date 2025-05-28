@@ -443,7 +443,18 @@
 										m_id = 1379617167
 									}
 									m_sNote = ""
-									m_tagSpans = [  ]
+									m_tagSpans = 
+									[
+										{
+											_class = "CAnimTagSpan"
+											m_id = 
+											{
+												m_id = 2135450857
+											}
+											m_fStartCycle = 0.0
+											m_fDuration = 0.639378
+										},
+									]
 									m_sequenceName = "r6_hurt_juggle"
 									m_playbackSpeed = 1.0
 									m_bLoop = false

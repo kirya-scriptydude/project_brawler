@@ -39,9 +39,11 @@ public class HurtboxHandler : Component {
 
         //todo actually deal damage
         if (dmg.DoHitstun) {
-            LastHitstunType = dmg.Hitstun;
+            var chosenHitstun = Hitstun ? chooseHitstun(dmg.Hitstun) : dmg.Hitstun;
+            LastHitstunType = chosenHitstun;
+            Log.Info(chosenHitstun);
 
-            Model.Parameters.Set("hitstunType", (int)dmg.Hitstun);
+            Model.Parameters.Set("hitstunType", (int)chosenHitstun);
             Model.Parameters.Set("b_hit", true);
             Brawler.ActionHandler.Stop();
         }
@@ -79,12 +81,14 @@ public class HurtboxHandler : Component {
             var knockbackVelocity = HitstunHelper.GetKnockbackVelocity(LastHitstunType);
 
             if (KnockbackDrag) {
-                //todo get rid of magic number (get velocity based on knockback type)
                 var dir = LastHit.AttackerForward;
+                updateWallbound(dir);
+                //todo get rid of magic number (get velocity based on knockback type)
+                
                 Brawler.SetVelocity(
                     currentVel.LerpTo(dir * knockbackVelocity * LastHit.Damage.KnockbackMultiplier, 0.15f)
                 );
-                updateWallbound(dir);
+                
             } else {
                 Brawler.SetVelocity(currentVel.LerpTo(Vector3.Zero, 0.15f));
             }
@@ -111,6 +115,13 @@ public class HurtboxHandler : Component {
 
             GameObject.LocalRotation = Rotation.LookAt(Vector3.Direction(to, from));
         }
+    }
+
+    private HitstunType chooseHitstun(HitstunType newHit) {
+        var old = LastHitstunType;
+        var overriden = HitstunHelper.HitstunOverride(old);
+
+        return HitstunHelper.GetWeight(newHit) > HitstunHelper.GetWeight(overriden) ? newHit : overriden;
     }
 }
 
