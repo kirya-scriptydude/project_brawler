@@ -32,7 +32,7 @@ public partial class EnemyComponent : Component, IBrawler {
     /// </summary>
     [Property, ReadOnly, Group("Behaviour")] public float WaitWeightFactor {get; private set;}
 
-    public static readonly int PUSH_DISTANCE = 25;
+    public static readonly int PUSH_DISTANCE = 40;
     public static readonly int STOP_DISTANCE = 30;
 
     public static readonly float CHASE_DISTANCE = 250;
