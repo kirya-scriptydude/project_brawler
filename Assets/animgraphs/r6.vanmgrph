@@ -1699,7 +1699,7 @@
 								{
 									_class = "CSequenceAnimNode"
 									m_sName = "Unnamed"
-									m_vecPosition = [ -256.0, 64.0 ]
+									m_vecPosition = [ -384.0, 64.0 ]
 									m_nNodeID = 
 									{
 										m_id = 692277191
@@ -1709,6 +1709,38 @@
 									m_sequenceName = "r6_hurt_wallbound"
 									m_playbackSpeed = 1.0
 									m_bLoop = false
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 803298389
+								}
+								value = 
+								{
+									_class = "CSpeedScaleAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ -192.0, 64.0 ]
+									m_nNodeID = 
+									{
+										m_id = 803298389
+									}
+									m_sNote = ""
+									m_inputConnection = 
+									{
+										m_nodeID = 
+										{
+											m_id = 692277191
+										}
+										m_outputID = 
+										{
+											m_id = 4294967295
+										}
+									}
+									m_param = 
+									{
+										m_id = 1132321242
+									}
 								}
 							},
 							{
@@ -1771,7 +1803,7 @@
 											{
 												m_nodeID = 
 												{
-													m_id = 692277191
+													m_id = 803298389
 												}
 												m_outputID = 
 												{
@@ -2646,6 +2678,20 @@
 					"unrefined_attack",
 					"unrefined_combo",
 				]
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "wallboundTimeScale"
+				m_id = 
+				{
+					m_id = 1132321242
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_fDefaultValue = 1.0
+				m_fMinValue = 1.0
+				m_fMaxValue = 2.5
 			},
 		]
 	}

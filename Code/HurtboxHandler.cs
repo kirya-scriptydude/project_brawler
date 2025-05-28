@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 
 /// <summary>
@@ -96,6 +97,9 @@ public class HurtboxHandler : Component {
 
     }
 
+    public static readonly float WALLBOUND_TIME = 1f;
+    private float lastWallbound = Time.Now;
+    private float wallboundScale = 1f;
     private void updateWallbound(Vector3 dir) {
         if (!HitstunHelper.CanUseWallbound(LastHitstunType)) return;
 
@@ -109,12 +113,26 @@ public class HurtboxHandler : Component {
             .Run();
 
         if (trace.Hit) {
+            //speed up wallbounds if already hit a good amount of them.
+            if (Time.Now - lastWallbound < WALLBOUND_TIME) {
+                wallboundScale = Math.Clamp(wallboundScale + 0.15f, 1f, 2.5f);
+            } else wallboundScale = 1;
+
+            Log.Info(Time.Now - lastWallbound);
+
+            Model.Parameters.Set("wallboundTimeScale", wallboundScale);
+
             var dmg = new DamageInfo(0, DamageType.Generic, DamageSource.Generic);
             dmg.Hitstun = HitstunType.Wallbound;
             Hurt(dmg, GameObject);
 
             GameObject.LocalRotation = Rotation.LookAt(Vector3.Direction(to, from));
+            
+            lastWallbound = Time.Now;
+            
         }
+
+        
     }
 
     private HitstunType chooseHitstun(HitstunType newHit) {
