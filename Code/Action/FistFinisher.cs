@@ -1,5 +1,3 @@
-using System;
-
 public class FistFinisher : IBrawlerAction {
     public IBrawler Brawler { get; set; }
     public string Name { get; } = "FistFinisher";
@@ -12,25 +10,24 @@ public class FistFinisher : IBrawlerAction {
 
     public float LastTime { get; set; }
 
-    private Vector3 velocity = new();
+    Vector3 velocity = new();
+    bool reachedHitbox = false;
 
     public void OnStart() {
         Brawler.MovementEnabled = false;
-        //todo change magic number
-        velocity = Brawler.Object.LocalRotation.Forward * 75;
 
         Brawler.PerformActionAnimation(AttackType.FistFinisher);
-        //Player.ModelAnimScale = new Vector3(2.2f, 1, 1.0f);
+
+        velocity = Brawler.ActionHandler.CurrentNode.HitboxInfo.DashVelocity * Brawler.Object.LocalRotation;
+        reachedHitbox = false;
     }
 
     public void OnUpdate() {
-        velocity *= 0.90f;
+        if (Brawler.HitboxHandler.HitboxActive) reachedHitbox = true;
+        if (!reachedHitbox) return;
+        
         Brawler.SetVelocity(velocity);
-
-        var time = Time.Now - LastTime;
-        if (time > DashTimeframe1 && time < DashTimeframe2) {
-            velocity = Brawler.Object.LocalRotation.Forward * 400;
-        }
+        velocity = velocity.LerpTo(Vector3.Zero, 0.15f);
     }
 
     public void OnStop() {

@@ -1,5 +1,3 @@
-using System;
-
 public class Quickstep : IBrawlerAction {
     public IBrawler Brawler {get; set;}
     public string Name {get;} = "Quickstep";

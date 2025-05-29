@@ -10,27 +10,27 @@ public class Fist : IBrawlerAction {
 
     public float LastTime { get; set; }
 
-    private Vector3 velocity = new();
     private BrawlerComponent Player => Brawler.Object.GetComponent<BrawlerComponent>();
 
     public static readonly int MAX_COMBO_AMOUNT = 4;
 
+    Vector3 velocity = new();
+
     public void OnStart() {
         Brawler.MovementEnabled = false;
-        //todo change magic number
-        velocity = Player.LocalRotation.Forward * 200;
 
         if (Player != null) {
             Brawler.Model.Parameters.Set("fist_combo", Player.ActionHandler.CurrentNode.TreeLevel);
         }
-        
+
         Brawler.PerformActionAnimation(AttackType.Fist);
+        
+        velocity = Brawler.ActionHandler.CurrentNode.HitboxInfo.DashVelocity * Brawler.Object.LocalRotation;
     }
 
     public void OnUpdate() {
-        Player.Controller.Velocity = velocity;
-        velocity *= 0.91f;
-        Player.Controller.Move();
+        Brawler.SetVelocity(velocity);
+        velocity = velocity.LerpTo(Vector3.Zero, 0.2f);
     }
 
     public void OnStop() {

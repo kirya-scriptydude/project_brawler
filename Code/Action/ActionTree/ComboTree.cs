@@ -26,6 +26,7 @@ public static class ComboTree {
         var fistDmg = new DamageInfo(50, DamageType.Light, DamageSource.Fist);
         fistDmg.KnockbackMultiplier = 4f;
         var fistHitbox = new HitboxInfo(40);
+        fistHitbox.DashVelocity = Vector3.Forward * 300;
 
         var fist01 = new ComboNode("fist01", ActionInputButton.Fist, "Fist");
         fist01.DamageInfo = fistDmg;
@@ -45,10 +46,16 @@ public static class ComboTree {
         Chain([root, fist01, fist02, fist03, fist04]);
 
         var fist_Finisher = new ComboNode("fist_finisher", ActionInputButton.Kick, "FistFinisher");
+
         var finisherDmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Kick);
+        finisherDmg.Hitstun = HitstunType.Knockdown;
+
         var finisherHitbox = new HitboxInfo(40);
         finisherHitbox.Length = 25;
-        finisherDmg.Hitstun = HitstunType.Knockdown;
+        finisherHitbox.DashVelocity = Vector3.Forward * 600;
+        
+
+
         fist_Finisher.DamageInfo = finisherDmg;
         fist_Finisher.HitboxInfo = finisherHitbox;
 

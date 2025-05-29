@@ -38,7 +38,8 @@ public class HitboxHandler : Component {
             durationLeft = 0;
             return;
         }
-        
+
+        HitboxActive = true;
 
         var pos = WorldPosition + (hitboxInfo.Offset * LocalRotation);
         var ray = new Ray(pos, LocalRotation.Forward);
@@ -71,6 +72,7 @@ public class HitboxHandler : Component {
         durationLeft--;
         if (durationLeft <= 0) {
             hit = new();
+            HitboxActive = false;
         }
 	}
 }

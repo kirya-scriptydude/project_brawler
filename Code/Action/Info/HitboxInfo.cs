@@ -5,8 +5,10 @@ public struct HitboxInfo {
     public Vector3 Offset = new Vector3(20, 0, 40);
     public float Length = 10;
 
+    public Vector3 DashVelocity = new Vector3();
+
     public HitboxInfo(float radius, bool doMultihit = false) {
-       Radius = radius;
+        Radius = radius;
         MultiHit = doMultihit;
     }
 }
