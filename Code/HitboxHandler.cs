@@ -3,6 +3,7 @@
 /// </summary>
 [Group("Project Brawler")]
 public class HitboxHandler : Component {
+    [Property] public IBrawler Brawler { get; set; }
     [Property, ReadOnly] public bool HitboxActive { get; set; }
 
     private List<Hitbox> hit = new();
@@ -10,6 +11,10 @@ public class HitboxHandler : Component {
 
     private DamageInfo damageInfo;
     private HitboxInfo hitboxInfo;
+
+	protected override void OnStart() {
+        Brawler = GameObject.GetComponent<IBrawler>();
+	}
 
     /// <summary>
     /// Activate hitbox. If end frame is true, reset the hit list after that iteration.
@@ -29,6 +34,10 @@ public class HitboxHandler : Component {
 
     protected override void OnFixedUpdate() {
         if (durationLeft <= 0) return;
+        if (!Brawler.HurtboxHandler.NotStunned) {
+            durationLeft = 0;
+            return;
+        }
         
 
         var pos = WorldPosition + (hitboxInfo.Offset * LocalRotation);
