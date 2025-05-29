@@ -30,7 +30,7 @@ public class Fist : IBrawlerAction {
 
     public void OnUpdate() {
         Brawler.SetVelocity(velocity);
-        velocity = velocity.LerpTo(Vector3.Zero, 0.2f);
+        velocity = velocity.LerpTo(Vector3.Zero, 0.15f);
     }
 
     public void OnStop() {
