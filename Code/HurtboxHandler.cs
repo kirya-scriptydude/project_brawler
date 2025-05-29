@@ -107,7 +107,7 @@ public class HurtboxHandler : Component {
         var to = from + dir * WALLBOUND_COLLISION_RANGE;
 
         var trace = Scene.Trace
-            .Ray(from, to)
+            .Sphere(16f, from, to)
             .UsePhysicsWorld()
             .IgnoreGameObjectHierarchy(GameObject)
             .Run();
