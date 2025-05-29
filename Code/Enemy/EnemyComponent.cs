@@ -32,7 +32,7 @@ public partial class EnemyComponent : Component, IBrawler {
     /// </summary>
     [Property, ReadOnly, Group("Behaviour")] public float WaitWeightFactor {get; private set;}
 
-    public static readonly int PUSH_DISTANCE = 40;
+    public static readonly int PUSH_DISTANCE = 30;
     public static readonly int STOP_DISTANCE = 30;
 
     public static readonly float CHASE_DISTANCE = 250;
@@ -97,7 +97,7 @@ public partial class EnemyComponent : Component, IBrawler {
         lastVel = velocity;
         //dont go towards player if too close
         var dot = Vector3.Direction(WorldPosition, Player.WorldPosition).Dot(velocity);
-        if (dot.AlmostEqual(COMBAT_VELOCITY_MOVESPEED, 1) && DistanceToPlayer < STOP_DISTANCE) {
+        if (dot.AlmostEqual(COMBAT_MOVESPEED, 1) && DistanceToPlayer < STOP_DISTANCE) {
             velocity = Vector3.Zero;
         }
 
@@ -109,11 +109,7 @@ public partial class EnemyComponent : Component, IBrawler {
         return lastVel;
     }
 
-    public Vector3 GetWishVelocity() {
-        var Y = Random.Shared.Int(-1, 1);
-        var X = Random.Shared.Int(-1, 1);
-        return new Vector3(X, Y, 0) * LocalRotation;
-    }
+    public Vector3 GetWishVelocity() => wishVelocity;
 }
 
 public enum EnemyState {

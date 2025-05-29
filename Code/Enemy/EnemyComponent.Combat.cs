@@ -2,40 +2,70 @@ using System;
 
 public partial class EnemyComponent : Component, IBrawler {
 
-    static readonly float DIRECTION_DURATION = 4f;
-    static readonly float COMBAT_VELOCITY_MOVESPEED = 50;
+    static readonly float COMBAT_MOVESPEED = 50;
+    /// <summary>
+    /// range that's npc will try to keep in combat.
+    /// </summary>
+    static readonly float COMBAT_FOOTSIES_RANGE = 150;
+    /// <summary>
+    /// How much time should pass on average before npc would pick new walk direction again
+    /// </summary>
+    static readonly float COMBAT_WALK_DECISION_TIME = 1f;
 
-    private float lasTimeChangedVelocity = Time.Now;
-    private int dirIndex = 0;
-    private Vector3[] availableDirs = [
-        Vector3.Forward,
-        Vector3.Left,
-        Vector3.Right,
-        Vector3.Zero
-    ];
+    /// <summary>
+    /// Mood that influences enemy actions and decisions. Make them play defensively or go offense 
+    /// </summary>
+    public MoodType Mood { get; private set; } = MoodType.Aggressive;
+
+    private Vector3 wishVelocity = new();
+
+    float curDecisionTime = COMBAT_WALK_DECISION_TIME;
 
     private void stateCombat() {
-        if (!ActionHandler.IsAction) {
-            WaitWeightFactor = Math.Clamp(WaitWeightFactor + 0.005f, 0.5f, 5);
+        if (DistanceToPlayer > CHASE_DISTANCE) {
+            State = EnemyState.Chase;
+            return;
+        }
 
-            if (DistanceToPlayer > CHASE_DISTANCE) {
-                State = EnemyState.Chase;
-            }
+        if (ActionHandler.IsAction) return;
+        // todo choose another moods
+        Mood = MoodType.Aggressive;
 
-            //change walk velocity after an amount of time
-            if (Time.Now - lasTimeChangedVelocity > DIRECTION_DURATION && Random.Shared.Int(3) == 0) {
-                lasTimeChangedVelocity = Time.Now;
-                dirIndex = Random.Shared.Int(availableDirs.Length - 1);
-            }
+        var footsies = COMBAT_FOOTSIES_RANGE;
+        if (Mood == MoodType.Aggressive) footsies /= 2;
 
-            SetVelocity(availableDirs[dirIndex] * COMBAT_VELOCITY_MOVESPEED * LocalRotation);
+        curDecisionTime -= Time.Delta;
+        if (curDecisionTime <= 0) {
+            wishVelocityDecision(footsies);
+            curDecisionTime = COMBAT_WALK_DECISION_TIME + Random.Shared.Float(-(COMBAT_WALK_DECISION_TIME / 2), COMBAT_WALK_DECISION_TIME / 2);
+        }
 
-            foreach (var node in ActionHandler.CurrentNode.Children) {
-                if (node.NonPlayableCondition(this)) {
-                    ActionHandler.Use(node);
-                    WaitWeightFactor = 0;
-                }
+        SetVelocity(wishVelocity * COMBAT_MOVESPEED * LocalRotation);
+
+        // choose new action yipeee
+        foreach (var node in ActionHandler.CurrentNode.Children) {
+            if (node.NonPlayableCondition(this)) {
+                ActionHandler.Use(node);
+                WaitWeightFactor = 0;
             }
         }
+
+        WaitWeightFactor = Math.Clamp(WaitWeightFactor + Time.Delta, 0.5f, 5);
+    }
+
+    private void wishVelocityDecision(float footsieRange) {
+        var strafe = Random.Shared.Int(-1, 1);
+        var x = DistanceToPlayer > footsieRange ? 1 : -1;
+
+        var multiplier = Math.Clamp(DistanceToPlayer / footsieRange, 0, 1);
+
+        wishVelocity = new(x, strafe, 0);
+        wishVelocity *= multiplier;
+    }
+
+
+    public enum MoodType {
+        Aggressive,
+        Defensive
     }
 }
