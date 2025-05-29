@@ -7,6 +7,9 @@ public struct DamageInfo {
     public HitstunType Hitstun = HitstunType.Generic;
     public float KnockbackMultiplier = 1f;
 
+    public bool PlayHitSound = false;
+    public string HitSound = "sounds/light-impact.sound";
+
     public DamageInfo(int dmg, DamageType type = DamageType.Generic, DamageSource source = DamageSource.Generic) {
         Damage = dmg;
         DamageType = type;

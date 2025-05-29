@@ -1,10 +1,12 @@
 {
   "UI": false,
   "Volume": "1",
-  "Pitch": "1",
+  "Pitch": "0.95 1.05",
   "Decibels": 70,
   "SelectionMode": "Random",
-  "Sounds": null,
+  "Sounds": [
+    "sounds/light-impact.vsnd"
+  ],
   "Occlusion": true,
   "AirAbsorption": true,
   "Transmission": true,
@@ -42,8 +44,8 @@
     }
   ],
   "DefaultMixer": {
-    "Name": "unknown",
-    "Id": "00000000-0000-0000-0000-000000000000"
+    "Name": "game",
+    "Id": "7d218771-4e02-4544-b846-fdd0a529e3de"
   },
   "__references": [],
   "__version": 1

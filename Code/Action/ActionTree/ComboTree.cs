@@ -25,6 +25,7 @@ public static class ComboTree {
 
         var fistDmg = new DamageInfo(50, DamageType.Light, DamageSource.Fist);
         fistDmg.KnockbackMultiplier = 4f;
+        fistDmg.PlayHitSound = true;
         var fistHitbox = new HitboxInfo(40);
         fistHitbox.DashVelocity = Vector3.Forward * 300;
 

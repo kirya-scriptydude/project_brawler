@@ -49,6 +49,10 @@ public class HurtboxHandler : Component {
             Brawler.ActionHandler.Stop();
         }
 
+        if (dmg.PlayHitSound) {
+            Sound.Play(dmg.HitSound, WorldPosition);
+        }
+
         LastHit = new(dmg, attacker);
     }
 
