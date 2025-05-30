@@ -20,12 +20,14 @@ public partial class BrawlerComponent : Component {
 
     public GameObject LockOnTarget {get; set;}
 
-    public IReadOnlyDictionary<ActionInputButton, string> ActionToInputName {get;} = new Dictionary<ActionInputButton, string> {
-        {ActionInputButton.None, ""},
-        {ActionInputButton.Quickstep, "Cross"},
-        {ActionInputButton.Fist, "Square"},
-        {ActionInputButton.Kick, "Triangle"},
-        {ActionInputButton.Grab, "Circle"}
+    public string ActionInputToName(ActionInputButton button) => button switch {
+        ActionInputButton.Quickstep => "Cross",
+        ActionInputButton.Fist => "Square",
+        ActionInputButton.Kick => "Triangle",
+        ActionInputButton.Grab => "Circle",
+        ActionInputButton.Block => "Block",
+
+        _ => ""
     };
 
     private void buildInput() {
@@ -44,7 +46,7 @@ public partial class BrawlerComponent : Component {
         if (!HurtboxHandler.NotStunned) return;
         
         foreach (ComboNode node in ActionHandler.CurrentNode.Children) {
-                if (Input.Down(ActionToInputName[node.Button])) {
+                if (Input.Down(ActionInputToName(node.Button))) {
                     ActionHandler.Use(node);
                 }
             }
