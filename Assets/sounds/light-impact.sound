@@ -1,11 +1,11 @@
 {
   "UI": false,
-  "Volume": "1",
+  "Volume": "0.5 0.75",
   "Pitch": "0.95 1.05",
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/light-impact.vsnd"
+    "sounds/light-impact-slap.vsnd"
   ],
   "Occlusion": true,
   "AirAbsorption": true,
