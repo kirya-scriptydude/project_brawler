@@ -8,7 +8,7 @@ public struct DamageInfo {
     public float KnockbackMultiplier = 1f;
 
     public bool PlayHitSound = false;
-    public string HitSound = "sounds/light-impact.sound";
+    public string HitSound = "sounds/hit/hit-synth-fist.sound";
 
     public DamageInfo(int dmg, DamageType type = DamageType.Generic, DamageSource source = DamageSource.Generic) {
         Damage = dmg;

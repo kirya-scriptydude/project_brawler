@@ -51,7 +51,7 @@ public static class ComboTree {
         var finisherDmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Kick);
         finisherDmg.Hitstun = HitstunType.Knockdown;
         finisherDmg.PlayHitSound = true;
-        finisherDmg.HitSound = "sounds/heavy-impact.sound";
+        finisherDmg.HitSound = "sounds/hit/hit-synth-kick.sound";
 
         var finisherHitbox = new HitboxInfo(40);
         finisherHitbox.Length = 25;
