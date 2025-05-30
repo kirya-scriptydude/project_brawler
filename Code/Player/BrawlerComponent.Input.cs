@@ -46,7 +46,7 @@ public partial class BrawlerComponent : Component {
         if (!HurtboxHandler.NotStunned) return;
         
         foreach (ComboNode node in ActionHandler.CurrentNode.Children) {
-                if (Input.Down(ActionInputToName(node.Button))) {
+                if (Input.Pressed(ActionInputToName(node.Button))) {
                     ActionHandler.Use(node);
                 }
             }
