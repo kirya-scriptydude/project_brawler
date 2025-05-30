@@ -1,6 +1,6 @@
-using System;
-
 public partial class BrawlerComponent : Component {
+
+    public static readonly float INPUT_BUFFER = 0.1f;
 
     public Vector3 AnalogMove { get; set; } = new();
     public Angles AnalogLook => Input.AnalogLook;
@@ -42,14 +42,30 @@ public partial class BrawlerComponent : Component {
         AnalogMoveAngled = AnalogMove * Scene.Camera.LocalRotation;
     }
 
+    private ActionInputButton bufferedInput = ActionInputButton.None;
+    private float bufferedInputTime = 0f;
     private void actionControls() {
         if (!HurtboxHandler.NotStunned) return;
-        
+
         foreach (ComboNode node in ActionHandler.CurrentNode.Children) {
-                if (Input.Pressed(ActionInputToName(node.Button))) {
+            if (node.Button == bufferedInput && bufferedInputTime > 0) {
+                ActionHandler.Use(node);
+                continue;
+            }
+
+            if (Input.Pressed(ActionInputToName(node.Button))) {
+                if (ActionHandler.CanTraverseTree) {
                     ActionHandler.Use(node);
+                } else {
+                    bufferedInput = node.Button;
+                    bufferedInputTime = INPUT_BUFFER;
                 }
             }
+        }
+
+        if (bufferedInputTime > 0) {
+            bufferedInputTime -= Time.Delta;
+        }
     }
 
     /// <summary>
