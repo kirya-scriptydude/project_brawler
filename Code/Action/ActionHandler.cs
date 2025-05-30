@@ -28,6 +28,7 @@ public class ActionHandler : Component {
         new Quickstep(),
         new Fist(),
         new FistFinisher(),
+        new BlockPlayer(),
         
         new SimpleAttack()
     ];

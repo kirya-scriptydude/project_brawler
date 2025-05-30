@@ -76,6 +76,9 @@ public static class ComboTree {
         fist03.Children.Add(quickstep);
         fist04.Children.Add(quickstep);
 
+        var block = new ComboNode("block", ActionInputButton.Block, "BlockPlayer");
+        root.Children.Add(block);
+
         return root;
     }
 

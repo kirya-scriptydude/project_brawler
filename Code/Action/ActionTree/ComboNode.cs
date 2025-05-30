@@ -5,7 +5,8 @@ public enum ActionInputButton {
     Quickstep,
     Fist,
     Kick,
-    Grab
+    Grab,
+    Block
 }
 
 public class ComboNode {
