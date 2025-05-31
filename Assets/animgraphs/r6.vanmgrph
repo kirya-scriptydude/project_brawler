@@ -2010,7 +2010,7 @@
 												m_id = 1859887344
 											}
 											m_fStartCycle = 0.0
-											m_fDuration = 0.327461
+											m_fDuration = 0.165979
 										},
 									]
 									m_sequenceName = "quickstep_forward"
