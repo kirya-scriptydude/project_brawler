@@ -1,21 +1,39 @@
 {
   "RootObject": {
     "__guid": "1252484b-6aa5-4abd-89c4-f857fdbc5613",
+    "__version": 1,
     "Flags": 0,
     "Name": "player-brawler",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
     "Tags": "brawler",
     "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "NetworkOrphaned": 0,
+    "OwnerTransfer": 1,
     "Components": [],
     "Children": [
       {
         "__guid": "df096078-5e0e-4822-959a-7f63669a5dd1",
+        "__version": 1,
         "Flags": 0,
         "Name": "Controller",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
         "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
         "Components": [
           {
             "__type": "BrawlerComponent",
             "__guid": "cc753a12-dd5d-40c4-8d78-e74ea00efa73",
+            "__enabled": true,
             "ActionHandler": {
               "_type": "component",
               "component_id": "9f42a96c-1b8b-4c74-946d-1f8626cddf49",
@@ -56,11 +74,93 @@
             "OnComponentEnabled": null,
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Stats": {
+              "_type": "component",
+              "component_id": "66444984-785a-42cf-a80b-5a1ff3ca4022",
+              "go": "df096078-5e0e-4822-959a-7f63669a5dd1",
+              "component_type": "StatsHandler"
+            }
+          },
+          {
+            "__type": "StatsHandler",
+            "__guid": "66444984-785a-42cf-a80b-5a1ff3ca4022",
+            "__enabled": true,
+            "AttackSpeed": 1,
+            "FistMultiplier": 1,
+            "HP": 1000,
+            "KickMultiplier": 1,
+            "MaxHP": 1000,
+            "MovementSpeed": 400,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
             "OnComponentUpdate": null
+          },
+          {
+            "__type": "HitboxHandler",
+            "__guid": "c1ee44f4-8ac1-472f-a76a-6cafd98adebd",
+            "__enabled": true,
+            "Brawler": null,
+            "HitboxActive": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "HurtboxHandler",
+            "__guid": "eeb1eb48-b36d-4901-bbcc-cd7684837d30",
+            "__enabled": true,
+            "Blocking": false,
+            "Hitstun": false,
+            "IFrame": false,
+            "KnockbackDrag": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Ragdolled": false
+          },
+          {
+            "__type": "ActionHandler",
+            "__guid": "9f42a96c-1b8b-4c74-946d-1f8626cddf49",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "UseNPCtree": false
+          },
+          {
+            "__type": "Sandbox.ManualHitbox",
+            "__guid": "55fedf4f-c0b5-4a5d-a5fb-4bdd4f47a8e1",
+            "__enabled": true,
+            "CenterA": "0,0,0",
+            "CenterB": "0,0,72.60014",
+            "HitboxTags": "",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Radius": 31.400019,
+            "Shape": "Capsule",
+            "Target": null
           },
           {
             "__type": "Sandbox.CharacterController",
             "__guid": "37598bc5-7201-4c25-aa07-b9ee5a33f232",
+            "__enabled": true,
             "Acceleration": 10,
             "Bounciness": 0.3,
             "GroundAngle": 45,
@@ -75,66 +175,28 @@
             "Radius": 18.11,
             "StepHeight": 18,
             "UseCollisionRules": false
-          },
-          {
-            "__type": "HitboxHandler",
-            "__guid": "c1ee44f4-8ac1-472f-a76a-6cafd98adebd",
-            "HitboxActive": false,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null
-          },
-          {
-            "__type": "HurtboxHandler",
-            "__guid": "eeb1eb48-b36d-4901-bbcc-cd7684837d30",
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null
-          },
-          {
-            "__type": "ActionHandler",
-            "__guid": "9f42a96c-1b8b-4c74-946d-1f8626cddf49",
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "UseNPCtree": false
-          },
-          {
-            "__type": "Sandbox.ManualHitbox",
-            "__guid": "55fedf4f-c0b5-4a5d-a5fb-4bdd4f47a8e1",
-            "CenterA": "0,0,0",
-            "CenterB": "0,0,72.60014",
-            "HitboxTags": "",
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "Radius": 31.400019,
-            "Shape": "Capsule",
-            "Target": null
           }
         ],
         "Children": [
           {
             "__guid": "db2784be-305b-45eb-8d88-b57f2f171ce9",
+            "__version": 1,
             "Flags": 0,
             "Name": "Model",
+            "Position": "0,0,0",
+            "Rotation": "0,0,0,1",
+            "Scale": "1,1,1",
+            "Tags": "",
             "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkInterpolation": true,
+            "NetworkOrphaned": 0,
+            "OwnerTransfer": 1,
             "Components": [
               {
                 "__type": "Sandbox.SkinnedModelRenderer",
                 "__guid": "58df987f-3b5a-4c38-95f2-b85a34495840",
+                "__enabled": true,
                 "AnimationGraph": null,
                 "BodyGroups": 18446744073709551615,
                 "BoneMergeTarget": null,
@@ -167,7 +229,8 @@
                 "RenderType": "On",
                 "Sequence": {
                   "Name": null,
-                  "Looping": true
+                  "Looping": true,
+                  "Blending": false
                 },
                 "Tint": "1,1,1,1",
                 "UseAnimGraph": true
@@ -176,59 +239,102 @@
             "Children": [
               {
                 "__guid": "5b458052-49c4-4684-9f3e-c3fa9ae425e1",
+                "__version": 1,
                 "Flags": 0,
                 "Name": "Bone",
                 "Position": "-0.0000004567892,0.04629277,8.723023",
                 "Rotation": "0.4999999,0.4999996,0.4999999,0.5000007",
+                "Scale": "1,1,1",
+                "Tags": "",
                 "Enabled": true,
+                "NetworkMode": 2,
+                "NetworkInterpolation": true,
+                "NetworkOrphaned": 0,
+                "OwnerTransfer": 1,
                 "Components": [],
                 "Children": [
                   {
                     "__guid": "7703124b-c6c0-4df0-9bfd-7ed755a8c531",
+                    "__version": 1,
                     "Flags": 0,
                     "Name": "Bone_001",
                     "Position": "0.000001784414,8.299654,0.000004174088",
+                    "Rotation": "0,0,0,1",
+                    "Scale": "1,1,1",
+                    "Tags": "",
                     "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkInterpolation": true,
+                    "NetworkOrphaned": 0,
+                    "OwnerTransfer": 1,
                     "Components": [],
                     "Children": []
                   },
                   {
                     "__guid": "cb7cb78e-c47c-4a4b-8361-66285a8aed61",
+                    "__version": 1,
                     "Flags": 0,
                     "Name": "Bone_002",
                     "Position": "5.832781,6.628512,0.00000141679",
                     "Rotation": "-0.7071065,-0.0000008443393,0.7071071,-0.0000007811203",
+                    "Scale": "1,1,1",
+                    "Tags": "",
                     "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkInterpolation": true,
+                    "NetworkOrphaned": 0,
+                    "OwnerTransfer": 1,
                     "Components": [],
                     "Children": []
                   },
                   {
                     "__guid": "9d5ff9bd-a6d4-4442-9b8b-81ff13c5cfaf",
+                    "__version": 1,
                     "Flags": 0,
                     "Name": "Bone_003",
                     "Position": "-5.786484,6.628506,0.00000245004",
                     "Rotation": "-0.7071065,-0.0000008443393,0.7071071,-0.0000007811203",
+                    "Scale": "1,1,1",
+                    "Tags": "",
                     "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkInterpolation": true,
+                    "NetworkOrphaned": 0,
+                    "OwnerTransfer": 1,
                     "Components": [],
                     "Children": []
                   },
                   {
                     "__guid": "88fdbaaa-178e-45eb-9f99-23b94a602125",
+                    "__version": 1,
                     "Flags": 0,
                     "Name": "Bone_004",
                     "Position": "1.851677,-1.194812,-0.00000404311",
                     "Rotation": "-0.7071065,-0.0000008443393,0.7071071,-0.0000007811203",
+                    "Scale": "1,1,1",
+                    "Tags": "",
                     "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkInterpolation": true,
+                    "NetworkOrphaned": 0,
+                    "OwnerTransfer": 1,
                     "Components": [],
                     "Children": []
                   },
                   {
                     "__guid": "9cc13cbd-5656-4911-b279-1d9a272a1118",
+                    "__version": 1,
                     "Flags": 0,
                     "Name": "Bone_005",
                     "Position": "-1.573922,-1.194814,-0.000003567508",
                     "Rotation": "-0.7071065,-0.0000008443393,0.7071071,-0.0000007811203",
+                    "Scale": "1,1,1",
+                    "Tags": "",
                     "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkInterpolation": true,
+                    "NetworkOrphaned": 0,
+                    "OwnerTransfer": 1,
                     "Components": [],
                     "Children": []
                   }
@@ -240,14 +346,23 @@
       },
       {
         "__guid": "b396c460-a714-4d91-ad78-ec9ad6959910",
+        "__version": 1,
         "Flags": 0,
         "Name": "Camera",
         "Position": "-83.57636,0,80.09563",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
         "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
         "Components": [
           {
             "__type": "Sandbox.CameraComponent",
             "__guid": "3740a1bf-6c8b-449c-bf92-97f9dd77cdee",
+            "__enabled": true,
             "BackgroundColor": "0.33333,0.46275,0.52157,1",
             "ClearFlags": "All",
             "FieldOfView": 60,
@@ -272,6 +387,7 @@
           {
             "__type": "BrawlerCamera",
             "__guid": "e4d24f6a-1269-420d-b7b4-11c7870d8cc4",
+            "__enabled": true,
             "Camera": {
               "_type": "component",
               "component_id": "3740a1bf-6c8b-449c-bf92-97f9dd77cdee",
@@ -293,7 +409,6 @@
         "Children": []
       }
     ],
-    "__variables": [],
     "__properties": {
       "NetworkInterpolation": true,
       "TimeScale": 1,
@@ -311,13 +426,14 @@
         "ExcludedBodies": "",
         "IncludedBodies": ""
       }
-    }
+    },
+    "__variables": []
   },
+  "ResourceVersion": 2,
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
-  "ResourceVersion": 1,
   "__references": [],
-  "__version": 1
+  "__version": 2
 }

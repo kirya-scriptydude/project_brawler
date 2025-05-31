@@ -15,6 +15,7 @@ public partial class EnemyComponent : Component, IBrawler {
     [Property, RequireComponent] public HitboxHandler HitboxHandler { get; set; }
     [Property, RequireComponent] public HurtboxHandler HurtboxHandler { get; set; }
     [Property, RequireComponent] public ActionHandler ActionHandler { get; set; }
+    [Property, RequireComponent] public StatsHandler Stats { get; set; }
 
     [Property, RequireComponent] public NavMeshAgent Agent { get; set; }
     [Property, ReadOnly] public BrawlerComponent Player { get; set; }

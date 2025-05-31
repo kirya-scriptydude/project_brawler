@@ -10,6 +10,7 @@ public interface IBrawler {
     public ActionHandler ActionHandler { get; set; }
     public HitboxHandler HitboxHandler { get; set; }
     public HurtboxHandler HurtboxHandler { get; set; }
+    public StatsHandler Stats { get; set; }
 
 
     public bool MovementEnabled { get; set; }
