@@ -51,7 +51,7 @@ public static class ComboTree {
         var finisherDmg = new DamageInfo(250, DamageType.Heavy, DamageSource.Kick);
         finisherDmg.Hitstun = HitstunType.Knockdown;
         finisherDmg.PlayHitSound = true;
-        finisherDmg.HitSound = "sounds/hit/hit-synth-kick.sound";
+        finisherDmg.HitSound = "sounds/heavy-impact.sound";
 
         var finisherHitbox = new HitboxInfo(40);
         finisherHitbox.Length = 25;
@@ -85,11 +85,22 @@ public static class ComboTree {
     public static ComboNode GenerateNPC() {
         var root = new ComboNode("root", ActionInputButton.None, "");
 
+        var finisherHitbox = new HitboxInfo(32);
+        finisherHitbox.Length = 16;
+        finisherHitbox.DashVelocity = Vector3.Forward * 400;
+
         var attack = new ComboNode("unrefined_attack", ActionInputButton.Quickstep, "SimpleAttack");
+        attack.HitboxInfo = finisherHitbox;
         attack.NonPlayableCondition = NonPlayableConditions.Attack;
 
+        var lightDmginfo = new DamageInfo(50, DamageType.Light, DamageSource.Fist);
+        lightDmginfo.HitSound = "sounds/hit/hit-synth-fist.sound";
+        lightDmginfo.PlayHitSound = true;
+
         var dmginfo = new DamageInfo(100, DamageType.Heavy, DamageSource.Fist);
-        dmginfo.Hitstun = HitstunType.Ground;
+        dmginfo.Hitstun = HitstunType.Juggle;
+        dmginfo.HitSound = "sounds/hit/hit-synth-kick.sound";
+        dmginfo.PlayHitSound = true;
         attack.DamageInfo = dmginfo;
 
         root.Children.Add(attack);
@@ -97,6 +108,8 @@ public static class ComboTree {
 
         var combo = new ComboNode("unrefined_combo", ActionInputButton.Quickstep, "SimpleAttack");
         combo.NonPlayableCondition = NonPlayableConditions.Attack;
+        combo.DamageInfo = lightDmginfo;
+        combo.HitboxInfo = finisherHitbox;
         root.Children.Add(combo);
 
         return root;

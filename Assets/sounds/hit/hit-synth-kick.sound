@@ -1,16 +1,18 @@
 {
   "UI": false,
-  "Volume": "1",
-  "Pitch": "1",
+  "Volume": "0.25",
+  "Pitch": "0.9 2",
   "Decibels": 70,
   "SelectionMode": "Random",
-  "Sounds": null,
+  "Sounds": [
+    "sounds/hit/hit-synth-kick.vsnd"
+  ],
   "Occlusion": true,
   "AirAbsorption": true,
   "Transmission": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
-  "Distance": 15000,
+  "Distance": 40000,
   "Falloff": [
     {
       "x": 0,
