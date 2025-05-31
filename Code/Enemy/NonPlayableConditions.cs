@@ -9,8 +9,7 @@ public static class NonPlayableConditions {
         weight *= npc.WaitWeightFactor;
 
         if (npc.DistanceToPlayer > 90) weight /= 2;
-
-        //Log.Info(weight);
+        if (npc.Player.HurtboxHandler.IFrame) weight /= 2;
 
         return weight >= 1;
     }
