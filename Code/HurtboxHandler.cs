@@ -10,11 +10,11 @@ public class HurtboxHandler : Component {
 
     public HitstunType LastHitstunType { get; set; } = HitstunType.Generic;
 
-    public bool Hitstun { get; private set; } = false;
-    public bool Ragdolled { get; private set; } = false;
-    public bool IFrame { get; private set; } = false;
-    public bool KnockbackDrag { get; private set; } = false;
-    public bool Blocking { get; private set; }
+    [Property, ReadOnly, Group("Tags")] public bool Hitstun { get; private set; } = false;
+    [Property, ReadOnly, Group("Tags")] public bool Ragdolled { get; private set; } = false;
+    [Property, ReadOnly, Group("Tags")] public bool IFrame { get; private set; } = false;
+    [Property, ReadOnly, Group("Tags")] public bool KnockbackDrag { get; private set; } = false;
+    [Property, ReadOnly, Group("Tags")] public bool Blocking { get; private set; }
 
     /// <summary>
     /// After hitting a block you enter slight blockstun. While blockstunned you cannot stop blocking. True if block stun active.
