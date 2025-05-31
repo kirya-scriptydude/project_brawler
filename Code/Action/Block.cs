@@ -9,13 +9,15 @@ public class BlockPlayer : IBrawlerAction {
 
     public void OnStart() {
         Brawler.MovementEnabled = false;
+        Brawler.PerformActionAnimation(AttackType.Block);
     }
 
     public void OnUpdate() {
-        if (!Input.Down("Block")) Brawler.ActionHandler.Stop();
+        if (!Input.Down("Block") && !Brawler.HurtboxHandler.IsBlockstunned) Brawler.ActionHandler.Stop();
 	}
 
     public void OnStop() {
         Brawler.MovementEnabled = true;
+        Brawler.Model.Parameters.Set("b_finishAction", true);
     }
 }

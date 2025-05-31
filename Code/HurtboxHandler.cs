@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 
 /// <summary>
 /// Handles object's hurtbox and response to hits. Controls hitstun using animgraph provided by model.
@@ -13,9 +12,20 @@ public class HurtboxHandler : Component {
 
     public bool Hitstun { get; private set; } = false;
     public bool Ragdolled { get; private set; } = false;
-
     public bool IFrame { get; private set; } = false;
     public bool KnockbackDrag { get; private set; } = false;
+    public bool Blocking { get; private set; }
+
+    /// <summary>
+    /// After hitting a block you enter slight blockstun. While blockstunned you cannot stop blocking. True if block stun active.
+    /// </summary>
+    public bool IsBlockstunned { get {
+            return Time.Now - lastBlockHit < BLOCKSTUN_SECONDS;   
+        }
+    }
+    private float lastBlockHit = Time.Now;
+
+    public static readonly float BLOCKSTUN_SECONDS = 0.35f;
 
 
     /// <summary>
@@ -38,11 +48,15 @@ public class HurtboxHandler : Component {
     public void Hurt(DamageInfo dmg, GameObject attacker) {
         if (IFrame) return;
 
+        if (Blocking) {
+            hurtBlock(dmg, attacker);
+            return;
+        }
+
         //todo actually deal damage
         if (dmg.DoHitstun) {
             var chosenHitstun = Hitstun ? chooseHitstun(dmg.Hitstun) : dmg.Hitstun;
             LastHitstunType = chosenHitstun;
-            Log.Info(chosenHitstun);
 
             Model.Parameters.Set("hitstunType", (int)chosenHitstun);
             Model.Parameters.Set("b_hit", true);
@@ -54,6 +68,16 @@ public class HurtboxHandler : Component {
         }
 
         LastHit = new(dmg, attacker);
+    }
+
+    /// <summary>
+    /// handle block stuff. Blockstun and blockbreak 
+    /// </summary>
+    private void hurtBlock(DamageInfo dmg, GameObject attacker) {
+        if (dmg.DoHitstun) {
+            Model.Parameters.Set("b_blockHit", true);
+            lastBlockHit = Time.Now;
+        }
     }
 
     private void tagEvents(SceneModel.AnimTagEvent e) {
@@ -71,6 +95,9 @@ public class HurtboxHandler : Component {
                 break;
             case "KnockbackDrag":
                 KnockbackDrag = e.Status == SceneModel.AnimTagStatus.Start;
+                break;
+            case "Block":
+                Blocking = e.Status == SceneModel.AnimTagStatus.Start;
                 break;
         }
 
