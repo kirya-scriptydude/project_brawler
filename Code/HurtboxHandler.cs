@@ -78,6 +78,8 @@ public class HurtboxHandler : Component {
             Model.Parameters.Set("b_blockHit", true);
             lastBlockHit = Time.Now;
         }
+
+        if (dmg.PlayHitSound) Sound.Play("sounds/blockhit.sound", WorldPosition);
     }
 
     private void tagEvents(SceneModel.AnimTagEvent e) {

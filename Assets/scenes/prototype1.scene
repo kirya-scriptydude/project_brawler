@@ -3,15 +3,23 @@
   "GameObjects": [
     {
       "__guid": "ad32774d-a86c-48d7-ac2f-42311e49a664",
+      "__version": 1,
       "Flags": 0,
       "Name": "Plane",
       "Position": "0,0,5.291148",
+      "Rotation": "0,0,0,1",
       "Scale": "-6.588513,-6.588513,-6.588513",
+      "Tags": "",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
           "__guid": "521e68f7-c101-4f6d-a98b-bdc7094a6c6f",
+          "__enabled": true,
           "BodyGroups": 18446744073709551615,
           "CreateAttachments": false,
           "MaterialGroup": null,
@@ -35,6 +43,7 @@
         {
           "__type": "Sandbox.BoxCollider",
           "__guid": "102812fc-7168-428c-ae30-5725d8bd76c5",
+          "__enabled": true,
           "Center": "0.0235405,0.1127357,-0.2585616",
           "Friction": null,
           "IsTrigger": false,
@@ -58,16 +67,23 @@
     },
     {
       "__guid": "02fc0178-b7e5-4023-bcab-bbaa4bf2b231",
+      "__version": 1,
       "Flags": 0,
       "Name": "Plane (1)",
       "Position": "50.60229,-283.1793,48.28403",
       "Rotation": "-0.7071067,0,0,0.7071068",
       "Scale": "-6.588513,-6.588513,-6.588513",
+      "Tags": "",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
           "__guid": "8422ebca-17ad-4698-aeb2-27ea9fa90000",
+          "__enabled": true,
           "BodyGroups": 18446744073709551615,
           "CreateAttachments": false,
           "MaterialGroup": null,
@@ -91,6 +107,7 @@
         {
           "__type": "Sandbox.BoxCollider",
           "__guid": "1bbd9722-3eac-40bc-80d0-5f3d7926caf6",
+          "__enabled": true,
           "Center": "0.0235405,0.1127357,-0.2585616",
           "Friction": null,
           "IsTrigger": false,
@@ -114,16 +131,23 @@
     },
     {
       "__guid": "16c4ae09-aa0a-4342-a88b-10d70bfa1986",
+      "__version": 1,
       "Flags": 0,
       "Name": "Sun",
       "Position": "-29.56001,-33.34032,135.8921",
       "Rotation": "0,0.7089553,0,0.7052534",
+      "Scale": "1,1,1",
       "Tags": "light_directional,light,light_point",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",
           "__guid": "5511d9f6-79f3-4769-941f-e4da302684db",
+          "__enabled": true,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
@@ -139,6 +163,7 @@
         {
           "__type": "Sandbox.PointLight",
           "__guid": "9e4396a4-e802-464a-843f-38bf8125afeb",
+          "__enabled": true,
           "Attenuation": 1,
           "FogMode": "Enabled",
           "FogStrength": 1,
@@ -157,34 +182,120 @@
     },
     {
       "__guid": "ea5aec37-7bd5-4ccb-8116-ef61fdb18468",
-      "Flags": 0,
-      "Name": "player-brawler",
-      "Position": "-205.7952,-6.985016,8.57576",
-      "Tags": "brawler",
-      "Enabled": true,
+      "__version": 1,
       "__Prefab": "prefabs/player-brawler.prefab",
-      "__PrefabVariables": {}
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "1252484b-6aa5-4abd-89c4-f857fdbc5613"
+            },
+            "Property": "Position",
+            "Value": "-205.7952,-6.985016,8.57576"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "1252484b-6aa5-4abd-89c4-f857fdbc5613"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "1252484b-6aa5-4abd-89c4-f857fdbc5613": "ea5aec37-7bd5-4ccb-8116-ef61fdb18468",
+        "df096078-5e0e-4822-959a-7f63669a5dd1": "87062c97-ed97-4e1d-a5ba-6fe42c78f3e1",
+        "cc753a12-dd5d-40c4-8d78-e74ea00efa73": "58222525-2cea-4f20-9d26-f2b21322114c",
+        "37598bc5-7201-4c25-aa07-b9ee5a33f232": "680e155b-2b43-4c14-b903-d84fb0e35855",
+        "c1ee44f4-8ac1-472f-a76a-6cafd98adebd": "22b850be-9607-408d-aeb3-c6507fed2d00",
+        "eeb1eb48-b36d-4901-bbcc-cd7684837d30": "f0f6dc43-71e5-4963-be70-7fa0a5a45d1d",
+        "9f42a96c-1b8b-4c74-946d-1f8626cddf49": "ef48576f-52f5-41cf-ac23-11bc1dddbf77",
+        "55fedf4f-c0b5-4a5d-a5fb-4bdd4f47a8e1": "5ecb3aa3-34ae-42f7-8af5-eeb4d7e218f7",
+        "db2784be-305b-45eb-8d88-b57f2f171ce9": "b7f6325c-bc8f-4795-a428-048a42b0cc27",
+        "58df987f-3b5a-4c38-95f2-b85a34495840": "d3c21e17-6864-423b-8a5a-4195580cc2d0",
+        "5b458052-49c4-4684-9f3e-c3fa9ae425e1": "a2567a46-89c0-4df0-8c31-d53fbde258f6",
+        "7703124b-c6c0-4df0-9bfd-7ed755a8c531": "a166e2af-6c8c-4972-a7f6-566c7b9e3eff",
+        "cb7cb78e-c47c-4a4b-8361-66285a8aed61": "59d9256b-c30d-4e69-8bd8-f2face32054e",
+        "9d5ff9bd-a6d4-4442-9b8b-81ff13c5cfaf": "28336ec3-ee7c-44ae-a7d4-fb61488bb5cd",
+        "88fdbaaa-178e-45eb-9f99-23b94a602125": "d7531f31-c769-48fd-ba17-cadd65cdd460",
+        "9cc13cbd-5656-4911-b279-1d9a272a1118": "c2975fc6-d02b-4a66-855a-5860747ed394",
+        "b396c460-a714-4d91-ad78-ec9ad6959910": "4c8ec3f0-debf-46c4-a5c7-26b8a39f0494",
+        "3740a1bf-6c8b-449c-bf92-97f9dd77cdee": "fa394bda-ee7f-4cb7-b247-7a5771b25708",
+        "e4d24f6a-1269-420d-b7b4-11c7870d8cc4": "480bbb39-9c15-4a46-a783-3583f342a3b9"
+      }
     },
     {
       "__guid": "85cf35a7-f84a-4685-81e8-299ee56095b1",
-      "Flags": 0,
-      "Name": "enemy-base",
-      "Position": "134.1298,4.676529,8.559952",
-      "Tags": "brawler,enemy",
-      "Enabled": true,
+      "__version": 1,
       "__Prefab": "prefabs/enemy-base.prefab",
-      "__PrefabVariables": {}
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Position",
+            "Value": "134.1298,4.676529,8.559952"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Tags",
+            "Value": "brawler,enemy"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "ab75ec18-d512-4657-a40a-172226255a78": "85cf35a7-f84a-4685-81e8-299ee56095b1",
+        "a6534f90-ea48-4b48-9517-2baa28aa79f4": "821c4e9a-9955-44f8-9de9-4363e34eeedb",
+        "0cec6ec0-e993-41dc-81b0-22a58152243d": "f1e342e8-7f72-4ec1-aa65-cefbb5d76b87",
+        "509b5e8a-c94c-4604-813c-8c83e298e31b": "fe9f4802-a8a6-4ad3-a96d-665c5d1c8557",
+        "4ef886ed-71c2-423a-ab06-a3b83b0897cc": "41bd1af7-4895-4509-96a0-7fc038b2018f",
+        "ba093a16-709c-4758-a984-d9c037778c2a": "61278561-1809-4100-b9ef-f6a74c9e3c18",
+        "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5": "e99a2877-d274-4bc5-abf5-f3d4a70c331a",
+        "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b": "1ef0675e-f43e-470b-bcbd-769aa4ff77ed",
+        "fa1722e8-7c8c-4827-a48d-fd63958348ee": "ffe77ff0-499a-4113-8c82-fed6e0a9c1cd",
+        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "7f67030a-6e31-4996-a7f9-6ab35fe5e97b"
+      }
     },
     {
       "__guid": "2bec9a20-998b-4507-b403-c586a1807eda",
+      "__version": 1,
       "Flags": 0,
       "Name": "Object",
       "Position": "-416.299,345.1301,240.7722",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "ActionHandler",
           "__guid": "eefcf301-82e5-4260-b767-0977bc914b7f",
+          "__enabled": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -215,9 +326,9 @@
       "IncludedBodies": ""
     }
   },
-  "ResourceVersion": 2,
+  "ResourceVersion": 3,
   "Title": null,
   "Description": null,
   "__references": [],
-  "__version": 2
+  "__version": 3
 }

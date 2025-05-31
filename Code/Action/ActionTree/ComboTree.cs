@@ -94,12 +94,12 @@ public static class ComboTree {
         attack.NonPlayableCondition = NonPlayableConditions.Attack;
 
         var lightDmginfo = new DamageInfo(50, DamageType.Light, DamageSource.Fist);
-        lightDmginfo.HitSound = "sounds/hit/hit-synth-fist.sound";
+        lightDmginfo.HitSound = "sounds/light-impact-alt.sound";
         lightDmginfo.PlayHitSound = true;
 
         var dmginfo = new DamageInfo(100, DamageType.Heavy, DamageSource.Fist);
         dmginfo.Hitstun = HitstunType.Juggle;
-        dmginfo.HitSound = "sounds/hit/hit-synth-kick.sound";
+        dmginfo.HitSound = "sounds/light-impact-alt.sound";
         dmginfo.PlayHitSound = true;
         attack.DamageInfo = dmginfo;
 
