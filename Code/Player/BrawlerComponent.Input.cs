@@ -1,6 +1,6 @@
 public partial class BrawlerComponent : Component {
 
-    public static readonly float INPUT_BUFFER = 0.1f;
+    public static readonly float INPUT_BUFFER = 0.2f;
 
     public Vector3 AnalogMove { get; set; } = new();
     public Angles AnalogLook => Input.AnalogLook;
