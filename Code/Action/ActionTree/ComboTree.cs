@@ -117,6 +117,10 @@ public static class ComboTree {
             var quickstepReact = new ComboNode("quickstep", ActionInputButton.Quickstep, "Quickstep");
             quickstepReact.ReactionCondition = ReactionConditions.Quickstep;
             root.Children.Add(quickstepReact);
+
+            var blockReact = new ComboNode("block", ActionInputButton.Block, "BlockNPC");
+            blockReact.ReactionCondition = ReactionConditions.Block;
+            root.Children.Add(blockReact);
         }
 
         return root;

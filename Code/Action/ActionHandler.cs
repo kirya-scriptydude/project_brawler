@@ -29,6 +29,7 @@ public class ActionHandler : Component {
         new Fist(),
         new FistFinisher(),
         new BlockPlayer(),
+        new BlockNPC(),
         
         new SimpleAttack()
     ];

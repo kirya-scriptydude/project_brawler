@@ -1,14 +1,23 @@
 {
   "RootObject": {
     "__guid": "ab75ec18-d512-4657-a40a-172226255a78",
+    "__version": 1,
     "Flags": 0,
     "Name": "enemy-base",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
     "Tags": "brawler",
     "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "NetworkOrphaned": 0,
+    "OwnerTransfer": 1,
     "Components": [
       {
         "__type": "EnemyComponent",
         "__guid": "a6534f90-ea48-4b48-9517-2baa28aa79f4",
+        "__enabled": true,
         "ActionHandler": {
           "_type": "component",
           "component_id": "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5",
@@ -21,9 +30,9 @@
           "go": "ab75ec18-d512-4657-a40a-172226255a78",
           "component_type": "NavMeshAgent"
         },
-        "Aggression": 12,
-        "ChainQuickstep": 0,
-        "Evasion": 5,
+        "Aggression": 6,
+        "Defense": 6,
+        "Evasion": 4,
         "HitboxHandler": {
           "_type": "component",
           "component_id": "4ef886ed-71c2-423a-ab06-a3b83b0897cc",
@@ -49,13 +58,13 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "Player": null,
-        "QuickstepInNeutral": false,
         "State": "Idle",
         "WaitWeightFactor": 0
       },
       {
         "__type": "Sandbox.NavMeshAgent",
         "__guid": "0cec6ec0-e993-41dc-81b0-22a58152243d",
+        "__enabled": true,
         "Acceleration": 600,
         "AutoTraverseLinks": true,
         "Height": 88.19972,
@@ -74,6 +83,7 @@
       {
         "__type": "Sandbox.ManualHitbox",
         "__guid": "509b5e8a-c94c-4604-813c-8c83e298e31b",
+        "__enabled": true,
         "CenterA": "0,0,19.70002",
         "CenterB": "0,0,56.99992",
         "HitboxTags": "",
@@ -90,6 +100,8 @@
       {
         "__type": "HitboxHandler",
         "__guid": "4ef886ed-71c2-423a-ab06-a3b83b0897cc",
+        "__enabled": true,
+        "Brawler": null,
         "HitboxActive": false,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -101,6 +113,7 @@
       {
         "__type": "HurtboxHandler",
         "__guid": "ba093a16-709c-4758-a984-d9c037778c2a",
+        "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -111,6 +124,7 @@
       {
         "__type": "ActionHandler",
         "__guid": "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5",
+        "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -122,7 +136,8 @@
       {
         "__type": "Sandbox.BoxCollider",
         "__guid": "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b",
-        "Center": "0.6904992,0,49.21199",
+        "__enabled": true,
+        "Center": "0.6904992,0.4187641,49.21199",
         "Friction": null,
         "IsTrigger": false,
         "OnComponentDestroy": null,
@@ -135,7 +150,7 @@
         "OnObjectTriggerExit": null,
         "OnTriggerEnter": null,
         "OnTriggerExit": null,
-        "Scale": "0.3197176,50,67.04544",
+        "Scale": "0.3197176,33.11695,67.04544",
         "Static": false,
         "Surface": null,
         "SurfaceVelocity": "0,0,0"
@@ -144,13 +159,23 @@
     "Children": [
       {
         "__guid": "fa1722e8-7c8c-4827-a48d-fd63958348ee",
+        "__version": 1,
         "Flags": 0,
         "Name": "Model",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
         "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
         "Components": [
           {
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "54254bfd-ac20-4468-a60c-e1ebed1962eb",
+            "__enabled": true,
             "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
@@ -183,7 +208,8 @@
             "RenderType": "On",
             "Sequence": {
               "Name": null,
-              "Looping": true
+              "Looping": true,
+              "Blending": false
             },
             "Tint": "1,0.05581,0.05581,1",
             "UseAnimGraph": true
@@ -192,7 +218,6 @@
         "Children": []
       }
     ],
-    "__variables": [],
     "__properties": {
       "NetworkInterpolation": true,
       "TimeScale": 1,
@@ -210,13 +235,14 @@
         "ExcludedBodies": "",
         "IncludedBodies": ""
       }
-    }
+    },
+    "__variables": []
   },
+  "ResourceVersion": 2,
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
-  "ResourceVersion": 1,
   "__references": [],
-  "__version": 1
+  "__version": 2
 }

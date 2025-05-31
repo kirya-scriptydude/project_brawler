@@ -20,10 +20,10 @@ public class HurtboxHandler : Component {
     /// After hitting a block you enter slight blockstun. While blockstunned you cannot stop blocking. True if block stun active.
     /// </summary>
     public bool IsBlockstunned { get {
-            return Time.Now - lastBlockHit < BLOCKSTUN_SECONDS;   
+            return Time.Now - LastBlockHit < BLOCKSTUN_SECONDS;   
         }
     }
-    private float lastBlockHit = Time.Now;
+    public float LastBlockHit { get; private set; }
 
     public static readonly float BLOCKSTUN_SECONDS = 0.35f;
 
@@ -57,6 +57,11 @@ public class HurtboxHandler : Component {
     public bool Hurt(DamageInfo dmg, GameObject attacker) {
         if (IFrame) return false;
 
+        if (NotStunned && dmg.DoHitstun)
+                ConsecutiveHits = 0;
+            else
+                ConsecutiveHits++;
+
         if (Blocking) {
             hurtBlock(dmg, attacker);
             return true;
@@ -82,11 +87,6 @@ public class HurtboxHandler : Component {
             Model.Parameters.Set("hitstunType", (int)chosenHitstun);
             Model.Parameters.Set("b_hit", true);
             Brawler.ActionHandler.Stop();
-
-            if (NotStunned)
-                ConsecutiveHits = 0;
-            else
-                ConsecutiveHits++;
         }
 
         if (dmg.PlayHitSound) {
@@ -104,7 +104,9 @@ public class HurtboxHandler : Component {
     private void hurtBlock(DamageInfo dmg, GameObject attacker) {
         if (dmg.DoHitstun) {
             Model.Parameters.Set("b_blockHit", true);
-            lastBlockHit = Time.Now;
+            LastBlockHit = Time.Now;
+
+            LocalRotation = Rotation.LookAt(Vector3.Direction(WorldPosition, attacker.WorldPosition.WithZ(WorldPosition.z)));
         }
 
         if (dmg.PlayHitSound) Sound.Play("sounds/blockhit.sound", WorldPosition);

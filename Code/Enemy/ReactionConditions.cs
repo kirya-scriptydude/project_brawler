@@ -16,8 +16,16 @@ public static class ReactionConditions {
 
         if (npc.HurtboxHandler.ConsecutiveHits == 0) weight *= 2;
 
-        Log.Info(weight);
-
         return weight >= 1;
     }
+
+    public static bool Block(EnemyComponent npc) {
+        float weight = Random.Shared.Float(0.25f);
+
+        weight += npc.Defense * 0.05f;
+        weight += (npc.HurtboxHandler.ConsecutiveHits + 1) * Random.Shared.Float(0.4f);
+
+        Log.Info(npc.HurtboxHandler.ConsecutiveHits);
+        return weight >= 1;
+    } 
 }
