@@ -27,7 +27,11 @@ public partial class EnemyComponent : Component, IBrawler {
             return;
         }
 
-        if (ActionHandler.IsAction) return;
+        if (ActionHandler.IsAction) {
+            WaitWeightFactor = 0;
+            return;
+        }
+        
         // todo choose another moods
         Mood = MoodType.Aggressive;
 
@@ -46,7 +50,6 @@ public partial class EnemyComponent : Component, IBrawler {
         foreach (var node in ActionHandler.CurrentNode.Children) {
             if (node.NonPlayableCondition(this)) {
                 ActionHandler.Use(node);
-                WaitWeightFactor = 0;
             }
         }
 

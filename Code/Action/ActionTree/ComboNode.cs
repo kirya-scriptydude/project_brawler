@@ -31,6 +31,13 @@ public class ComboNode {
         return false;
     };
 
+    /// <summary>
+    /// Function that is used by HurtboxHandler to execute on-hit moves on NPC's. Examples include blocking, quickstepping and other counters.
+    /// </summary>
+    public Func<EnemyComponent, bool> ReactionCondition = delegate (EnemyComponent npc) {
+        return false;
+    };
+
     public HitboxInfo HitboxInfo { get; set; } = new(32);
     public DamageInfo DamageInfo { get; set; } = new(50);
 

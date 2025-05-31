@@ -25,11 +25,11 @@ public class HitboxHandler : Component {
         durationLeft = lengthFrames;
     }
 
-    private void tryDamage(DamageInfo dmg, Hitbox hitbox) {
+    private bool tryDamage(DamageInfo dmg, Hitbox hitbox) {
         var brawler = hitbox.GameObject.Components.Get<IBrawler>();
-        if (brawler == null) return;
+        if (brawler == null) return false;
 
-        brawler.HurtboxHandler.Hurt(dmg, GameObject);
+        return brawler.HurtboxHandler.Hurt(dmg, GameObject);
     }
 
     protected override void OnFixedUpdate() {
@@ -64,9 +64,12 @@ public class HitboxHandler : Component {
             if (hit.Contains(traceResult.Hitbox)) continue;
 
             if (!hitboxInfo.MultiHit) hit.Add(traceResult.Hitbox);
-            tryDamage(damageInfo, traceResult.Hitbox);
+            var isHit = tryDamage(damageInfo, traceResult.Hitbox);
 
-            hit.Add(traceResult.Hitbox);
+            if (isHit) {
+                hit.Add(traceResult.Hitbox);
+            }
+            
         }
 
         durationLeft--;

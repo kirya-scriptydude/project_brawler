@@ -37,6 +37,11 @@ public class HurtboxHandler : Component {
 
     public static readonly float WALLBOUND_COLLISION_RANGE = 35;
 
+    /// <summary>
+    /// How much brawler was hit without leaving hitstun.
+    /// </summary>
+    public int ConsecutiveHits { get; private set; }
+
     protected override void OnStart() {
         Brawler = GameObject.GetComponent<IBrawler>();
         Model = Brawler.Model;
@@ -45,12 +50,28 @@ public class HurtboxHandler : Component {
         Model.OnGenericEvent += genericEvents;
     }
 
-    public void Hurt(DamageInfo dmg, GameObject attacker) {
-        if (IFrame) return;
+    /// <summary>
+    /// Try to hurt brawler with provided DamageInfo. 
+    /// </summary>
+    /// <returns>Has brawler been successfully hit?</returns>
+    public bool Hurt(DamageInfo dmg, GameObject attacker) {
+        if (IFrame) return false;
 
         if (Blocking) {
             hurtBlock(dmg, attacker);
-            return;
+            return true;
+        }
+
+        if (Brawler is EnemyComponent) {
+            var action = Brawler.ActionHandler;
+
+            foreach (var node in action.CurrentNode.Children) {
+                if (node.ReactionCondition((EnemyComponent)Brawler)) {
+                    action.Use(node);
+                    return false;
+                }
+            }
+
         }
 
         //todo actually deal damage
@@ -61,6 +82,11 @@ public class HurtboxHandler : Component {
             Model.Parameters.Set("hitstunType", (int)chosenHitstun);
             Model.Parameters.Set("b_hit", true);
             Brawler.ActionHandler.Stop();
+
+            if (NotStunned)
+                ConsecutiveHits = 0;
+            else
+                ConsecutiveHits++;
         }
 
         if (dmg.PlayHitSound) {
@@ -68,6 +94,8 @@ public class HurtboxHandler : Component {
         }
 
         LastHit = new(dmg, attacker);
+
+        return true;
     }
 
     /// <summary>

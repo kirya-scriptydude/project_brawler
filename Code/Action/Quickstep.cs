@@ -21,7 +21,7 @@ public class Quickstep : IBrawlerAction {
         var vel = wishVelocity * velocity;
 
         Brawler.SetVelocity(vel);
-        velocity *= 0.80f;
+        velocity = velocity.LerpTo(0, 0.15f);
     }
 
     public void OnStop() {
