@@ -7,13 +7,25 @@ public class BlockPlayer : IBrawlerAction {
     public float CancelDuration { get; set; } = 0;
     public float LastTime { get; set; }
 
+    Vector3 velocity = new();
+
     public void OnStart() {
         Brawler.MovementEnabled = false;
         Brawler.PerformActionAnimation(AttackType.Block);
     }
 
     public void OnUpdate() {
-        if (!Input.Down("Block") && !Brawler.HurtboxHandler.IsBlockstunned) Brawler.ActionHandler.Stop();
+        var hit = Brawler.HurtboxHandler.IsBlockstunned;
+        if (!Input.Down("Block") && !hit) Brawler.ActionHandler.Stop();
+
+        Brawler.SetVelocity(velocity);
+
+        if (hit) {
+            velocity = Vector3.Backward * 35 * Brawler.Object.LocalRotation;
+        } else {
+            velocity = new();
+        }
+
 	}
 
     public void OnStop() {
