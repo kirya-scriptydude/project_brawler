@@ -64,10 +64,16 @@ public static class HitstunHelper {
     /// </summary>
     /// <param name="type">Active hitstun</param>
     /// <returns>Chosen hitstun override</returns>
-    public static HitstunType HitstunOverride(HitstunType type) => type switch {    
+    public static HitstunType HitstunOverride(HitstunType type) => type switch {
         HitstunType.Knockdown => HitstunType.Juggle,
         HitstunType.Wallbound => HitstunType.Juggle,
 
         _ => type
+    };
+
+    public static bool IsWeakHitstun(HitstunType type) => type switch {
+        HitstunType.Generic => true,
+
+        _ => false
     };
 }

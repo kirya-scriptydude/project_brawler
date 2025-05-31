@@ -71,6 +71,10 @@ public class HurtboxHandler : Component {
             var action = Brawler.ActionHandler;
 
             foreach (var node in action.CurrentNode.Children) {
+                if (!NotStunned) {
+                    if (!HitstunHelper.IsWeakHitstun(LastHitstunType)) continue;
+                }
+
                 if (node.ReactionCondition((EnemyComponent)Brawler)) {
                     action.Use(node);
                     return false;
