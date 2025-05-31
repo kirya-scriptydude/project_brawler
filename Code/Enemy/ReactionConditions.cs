@@ -20,10 +20,10 @@ public static class ReactionConditions {
     }
 
     public static bool Block(EnemyComponent npc) {
-        float weight = Random.Shared.Float(0.25f);
+        float weight = Random.Shared.Float(0.1f);
 
         weight += npc.Defense * 0.05f;
-        weight += (npc.HurtboxHandler.ConsecutiveHits + 1) * Random.Shared.Float(0.4f);
+        weight += (npc.HurtboxHandler.ConsecutiveHits + 1) * Random.Shared.Float(0.3f);
 
         Log.Info(npc.HurtboxHandler.ConsecutiveHits);
         return weight >= 1;
