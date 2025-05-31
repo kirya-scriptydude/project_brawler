@@ -63,10 +63,9 @@ public class HitboxHandler : Component {
             if (traceResult.Hitbox.GameObject == null) continue;
             if (hit.Contains(traceResult.Hitbox)) continue;
 
-            if (!hitboxInfo.MultiHit) hit.Add(traceResult.Hitbox);
             var isHit = tryDamage(damageInfo, traceResult.Hitbox);
 
-            if (isHit) {
+            if (isHit && !hitboxInfo.MultiHit) {
                 hit.Add(traceResult.Hitbox);
             }
             
