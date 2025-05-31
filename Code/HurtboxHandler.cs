@@ -67,21 +67,8 @@ public class HurtboxHandler : Component {
             return true;
         }
 
-        if (Brawler is EnemyComponent) {
-            var action = Brawler.ActionHandler;
-
-            foreach (var node in action.CurrentNode.Children) {
-                if (!NotStunned) {
-                    if (!HitstunHelper.IsWeakHitstun(LastHitstunType)) continue;
-                }
-
-                if (node.ReactionCondition((EnemyComponent)Brawler)) {
-                    action.Use(node);
-                    return false;
-                }
-            }
-
-        }
+        var reaction = reactionNodes();
+        if (!reaction) return false;
 
         //todo actually deal damage
         if (dmg.DoHitstun) {
@@ -114,6 +101,29 @@ public class HurtboxHandler : Component {
         }
 
         if (dmg.PlayHitSound) Sound.Play("sounds/blockhit.sound", WorldPosition);
+    }
+
+    /// <summary>
+    /// Handle reaction nodes such as blocking and dashing. If returns false, then it used a reaction move.
+    /// </summary>
+    private bool reactionNodes() {
+        if (Brawler is EnemyComponent) {
+            var action = Brawler.ActionHandler;
+
+            foreach (var node in action.CurrentNode.Children) {
+                if (!NotStunned) {
+                    if (!HitstunHelper.IsWeakHitstun(LastHitstunType)) continue;
+                }
+
+                if (node.ReactionCondition((EnemyComponent)Brawler)) {
+                    action.Use(node);
+                    return false;
+                }
+            }
+
+        }
+
+        return true;
     }
 
     private void tagEvents(SceneModel.AnimTagEvent e) {
