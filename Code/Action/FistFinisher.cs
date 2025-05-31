@@ -11,6 +11,7 @@ public class FistFinisher : IBrawlerAction {
     public float LastTime { get; set; }
 
     Vector3 velocity = new();
+    Vector3 velocityWindup = new();
     bool reachedHitbox = false;
 
     public void OnStart() {
@@ -19,12 +20,18 @@ public class FistFinisher : IBrawlerAction {
         Brawler.PerformActionAnimation(AttackType.FistFinisher);
 
         velocity = Brawler.ActionHandler.CurrentNode.HitboxInfo.DashVelocity * Brawler.Object.LocalRotation;
+        velocityWindup = velocity / 3;
         reachedHitbox = false;
     }
 
     public void OnUpdate() {
         if (Brawler.HitboxHandler.HitboxActive) reachedHitbox = true;
-        if (!reachedHitbox) return;
+
+        if (!reachedHitbox) {
+            Brawler.SetVelocity(velocityWindup);
+            velocityWindup = velocityWindup.LerpTo(Vector3.Zero, 0.15f);
+            return;
+        }
         
         Brawler.SetVelocity(velocity);
         velocity = velocity.LerpTo(Vector3.Zero, 0.15f);
