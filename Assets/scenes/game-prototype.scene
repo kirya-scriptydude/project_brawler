@@ -215,7 +215,7 @@
             "_type": "gameobject",
             "prefab": "prefabs/enemy-base.prefab"
           },
-          "MaxEnemies": 20,
+          "MaxEnemies": 10,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,

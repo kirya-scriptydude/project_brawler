@@ -33,6 +33,7 @@ public static class HitstunHelper {
         HitstunType.Generic => 50,
         HitstunType.Knockdown => 600,
         HitstunType.Wallbound => -100,
+        HitstunType.Juggle => 200,
 
         _ => 0,
     };

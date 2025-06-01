@@ -16,6 +16,8 @@ public partial class BrawlerComponent : Component, IBrawler {
         [Property] public bool MovementEnabled { get; set; } = true;
         [Property] public SkinnedModelRenderer Model { get; set; }
 
+        public List<GameObject> EnemyPool { get; set; }
+
         protected override void OnStart() {
                 Model.OnGenericEvent += delegate (SceneModel.GenericEvent e) {
                         IBrawler.HookAnimgraphEvent(this, e);

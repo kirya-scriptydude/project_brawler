@@ -19,9 +19,15 @@ public partial class EnemyComponent : Component, IBrawler {
 
     private Vector3 wishVelocity = new();
 
+    private float randomFootsiesFactor;
+
     float curDecisionTime = COMBAT_WALK_DECISION_TIME;
 
     private void stateCombat() {
+        if (randomFootsiesFactor == 0) {
+            randomFootsiesFactor = Random.Shared.Float(COMBAT_FOOTSIES_RANGE * 2);
+        }
+
         if (DistanceToPlayer > CHASE_DISTANCE) {
             State = EnemyState.Chase;
             return;
@@ -31,11 +37,12 @@ public partial class EnemyComponent : Component, IBrawler {
             WaitWeightFactor = 0;
             return;
         }
-        
+
         // todo choose another moods
         Mood = MoodType.Aggressive;
 
         var footsies = COMBAT_FOOTSIES_RANGE;
+        footsies += randomFootsiesFactor;
         if (Mood == MoodType.Aggressive) footsies /= 2;
 
         curDecisionTime -= Time.Delta;
