@@ -6,6 +6,8 @@ public class HitboxHandler : Component {
     [Property] public IBrawler Brawler { get; set; }
     [Property, ReadOnly] public bool HitboxActive { get; set; }
 
+    [Property] public string[] IgnoreTags { get; set; } = new string[1];
+
     private List<Hitbox> hit = new();
     private int durationLeft = 0;
 
@@ -47,6 +49,7 @@ public class HitboxHandler : Component {
         var traces = Scene.Trace
             .Sphere(hitboxInfo.Radius, ray, hitboxInfo.Length)
             .WithTag("brawler")
+            .WithoutTags(IgnoreTags.ToArray())
             .IgnoreGameObjectHierarchy(GameObject)
             .UseHitboxes()
             .RunAll();

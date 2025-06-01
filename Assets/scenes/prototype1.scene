@@ -203,6 +203,16 @@
             },
             "Property": "NetworkInterpolation",
             "Value": false
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "c1ee44f4-8ac1-472f-a76a-6cafd98adebd"
+            },
+            "Property": "IgnoreTags",
+            "Value": [
+              null
+            ]
           }
         ],
         "MovedObjects": []
@@ -226,7 +236,8 @@
         "9cc13cbd-5656-4911-b279-1d9a272a1118": "c2975fc6-d02b-4a66-855a-5860747ed394",
         "b396c460-a714-4d91-ad78-ec9ad6959910": "4c8ec3f0-debf-46c4-a5c7-26b8a39f0494",
         "3740a1bf-6c8b-449c-bf92-97f9dd77cdee": "fa394bda-ee7f-4cb7-b247-7a5771b25708",
-        "e4d24f6a-1269-420d-b7b4-11c7870d8cc4": "480bbb39-9c15-4a46-a783-3583f342a3b9"
+        "e4d24f6a-1269-420d-b7b4-11c7870d8cc4": "480bbb39-9c15-4a46-a783-3583f342a3b9",
+        "66444984-785a-42cf-a80b-5a1ff3ca4022": "7727b299-8aa9-447e-8afe-e9be575aedcc"
       }
     },
     {
@@ -250,14 +261,6 @@
               "Type": "GameObject",
               "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
             },
-            "Property": "Tags",
-            "Value": "brawler,enemy"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
-            },
             "Property": "NetworkInterpolation",
             "Value": false
           }
@@ -274,7 +277,106 @@
         "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5": "e99a2877-d274-4bc5-abf5-f3d4a70c331a",
         "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b": "1ef0675e-f43e-470b-bcbd-769aa4ff77ed",
         "fa1722e8-7c8c-4827-a48d-fd63958348ee": "ffe77ff0-499a-4113-8c82-fed6e0a9c1cd",
-        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "7f67030a-6e31-4996-a7f9-6ab35fe5e97b"
+        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "7f67030a-6e31-4996-a7f9-6ab35fe5e97b",
+        "dab22791-1a99-4014-a69b-430795f97b37": "9db8d456-41d4-42fc-914f-c965454c12cf"
+      }
+    },
+    {
+      "__guid": "bcf9272b-da16-47ab-b30f-26d77fcb292a",
+      "__version": 1,
+      "__Prefab": "prefabs/enemy-base.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Name",
+            "Value": "enemy-base (2)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Position",
+            "Value": "134.1298,-95.73442,8.559952"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "ab75ec18-d512-4657-a40a-172226255a78": "bcf9272b-da16-47ab-b30f-26d77fcb292a",
+        "a6534f90-ea48-4b48-9517-2baa28aa79f4": "47ca8caf-9eb8-4566-8f49-4a04f4572fad",
+        "0cec6ec0-e993-41dc-81b0-22a58152243d": "fd4f7f45-c981-49e6-be3a-b1f458887fcc",
+        "509b5e8a-c94c-4604-813c-8c83e298e31b": "5c539802-00ea-4885-890d-43a2ca86b5d1",
+        "4ef886ed-71c2-423a-ab06-a3b83b0897cc": "971b8241-64aa-4202-95a8-d9c76c5ffd05",
+        "ba093a16-709c-4758-a984-d9c037778c2a": "1c02a658-f880-4589-b8ca-7c9585700d27",
+        "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5": "42cdeedb-f415-4574-b470-a44171b67cca",
+        "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b": "5e4d8a53-bfab-43bc-8395-4b450562d2d7",
+        "fa1722e8-7c8c-4827-a48d-fd63958348ee": "80bb5b54-fed3-404f-81da-4a2d6048106d",
+        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "f393c18d-b494-45cf-96ba-6e567d3deec6",
+        "dab22791-1a99-4014-a69b-430795f97b37": "8157eee7-3207-47d3-9ffb-197b24ca8fcb"
+      }
+    },
+    {
+      "__guid": "dd68a005-7319-46fe-a161-919985e0025f",
+      "__version": 1,
+      "__Prefab": "prefabs/enemy-base.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Name",
+            "Value": "enemy-base (1)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Position",
+            "Value": "134.1298,96.80738,8.559952"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "ab75ec18-d512-4657-a40a-172226255a78": "dd68a005-7319-46fe-a161-919985e0025f",
+        "a6534f90-ea48-4b48-9517-2baa28aa79f4": "e8801136-2f9b-4ccc-b727-1364ce5b0a30",
+        "0cec6ec0-e993-41dc-81b0-22a58152243d": "84945807-868d-4f1b-b564-2643de8ef47e",
+        "509b5e8a-c94c-4604-813c-8c83e298e31b": "9a6820a2-e8ae-4c5f-ba1b-7ee779a5200f",
+        "4ef886ed-71c2-423a-ab06-a3b83b0897cc": "a4e7a178-aab2-4232-b51a-0dd251f5a290",
+        "ba093a16-709c-4758-a984-d9c037778c2a": "2e9be56b-ba6f-4724-83ab-d449720c6041",
+        "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5": "c4fc4e94-1040-4f4e-8e1e-ffcb0fc6f09e",
+        "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b": "68dec0ee-6e13-4459-a35c-5d67657d4ca7",
+        "fa1722e8-7c8c-4827-a48d-fd63958348ee": "4ab68ea4-66df-49ee-97d2-67f571d2dcbf",
+        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "ed8f515a-a08d-4ad0-a304-5e0b769d5365",
+        "dab22791-1a99-4014-a69b-430795f97b37": "63468c01-417d-4ce5-9e4a-9598a398340e"
       }
     },
     {

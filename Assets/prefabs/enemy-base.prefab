@@ -7,7 +7,7 @@
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
-    "Tags": "brawler",
+    "Tags": "brawler,enemy",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
@@ -59,7 +59,12 @@
         "OnComponentUpdate": null,
         "Player": null,
         "State": "Idle",
-        "Stats": null,
+        "Stats": {
+          "_type": "component",
+          "component_id": "dab22791-1a99-4014-a69b-430795f97b37",
+          "go": "ab75ec18-d512-4657-a40a-172226255a78",
+          "component_type": "StatsHandler"
+        },
         "WaitWeightFactor": 0
       },
       {
@@ -67,8 +72,10 @@
         "__guid": "dab22791-1a99-4014-a69b-430795f97b37",
         "__enabled": true,
         "AttackSpeed": 1,
+        "DamageMultiplier": 1,
         "FistMultiplier": 1,
         "HP": 1000,
+        "IsDead": false,
         "KickMultiplier": 1,
         "MaxHP": 1000,
         "MovementSpeed": 400,
@@ -85,6 +92,9 @@
         "__enabled": true,
         "Brawler": null,
         "HitboxActive": false,
+        "IgnoreTags": [
+          "enemy"
+        ],
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
