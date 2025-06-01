@@ -13,6 +13,15 @@
 		<p>Wave @GameManager.Wave</p>
 		<p class="highlight">@GameManager.EnemiesAlive ENEMIES</p>
 	</div>
+
+	<div class="glyphs">
+		<p><img Texture=@Input.GetGlyph("Cross", InputGlyphSize.Small, false)>quickstep</p>
+		<p><img Texture=@Input.GetGlyph("Square", InputGlyphSize.Small, false)>light attack</p>
+		<p><img Texture=@Input.GetGlyph("Triangle", InputGlyphSize.Small, false)>heavy attack</p>
+		<p><img Texture=@Input.GetGlyph("Block", InputGlyphSize.Small, false)> guard</p>
+		<p><img Texture=@Input.GetGlyph("LockOn", InputGlyphSize.Small, false)>lock on</p>
+		<p><img Texture=@Input.GetGlyph("ResetCamera", InputGlyphSize.Small, false)>reset cam</p>
+	</div>
 </root>
 
 @code {
@@ -29,5 +38,5 @@
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine( Time.Now );
+	protected override int BuildHash() => System.HashCode.Combine( Time.Delta );
 }
