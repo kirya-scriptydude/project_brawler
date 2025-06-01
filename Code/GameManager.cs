@@ -3,6 +3,7 @@ using System;
 public sealed class GameManager : Component {
 	[Property, ReadOnly] public int Wave { get; private set; } = 0;
 	[Property, ReadOnly] public int EnemyCount { get; set; } = 2;
+	[Property, ReadOnly] public int EnemiesAlive => aliveEnemies.Count;
 
 	[Property, Group("Settings")] public int MaxEnemies { get; set; } = 1;
 	[Property, Group("Settings")] public float SpawnCooldown = 1f;

@@ -1,0 +1,33 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+
+	<div class="hpbar">
+		<div class="hpbarFill" style="width: @GetHealth()%;"></div>
+	</div>
+
+	<div class="waveInfo">
+		<p>Wave @GameManager.Wave</p>
+		<p class="highlight">@GameManager.EnemiesAlive ENEMIES</p>
+	</div>
+</root>
+
+@code {
+	[Property] public BrawlerComponent Player { get; set; }
+	[Property] public GameManager GameManager { get; set; }
+
+	public int GetHealth() {
+		var hp = (float)Player.Stats.HP;
+		var maxHp = (float) Player.Stats.MaxHP;
+
+		return (hp / maxHp * 100).CeilToInt();
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( Time.Now );
+}
