@@ -380,6 +380,153 @@
       }
     },
     {
+      "__guid": "7aea95df-1a7f-43f8-b74c-d6641434884f",
+      "__version": 1,
+      "__Prefab": "prefabs/enemy-base.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Name",
+            "Value": "enemy-base (5)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Position",
+            "Value": "206.1622,-145.694,8.559952"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "ab75ec18-d512-4657-a40a-172226255a78": "7aea95df-1a7f-43f8-b74c-d6641434884f",
+        "a6534f90-ea48-4b48-9517-2baa28aa79f4": "3024a6a5-23f1-46f6-aa97-98f855c4bfed",
+        "0cec6ec0-e993-41dc-81b0-22a58152243d": "d935af9f-1146-4d04-a0c1-921887ae19d1",
+        "509b5e8a-c94c-4604-813c-8c83e298e31b": "65a255a6-ea83-4038-acbc-ce1e003a770a",
+        "4ef886ed-71c2-423a-ab06-a3b83b0897cc": "69244fef-026e-4eec-813d-d2dea4a8a9cc",
+        "ba093a16-709c-4758-a984-d9c037778c2a": "32c0293f-ac5e-4d23-8f74-e601dcadae55",
+        "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5": "234abfdf-a913-482f-b7fb-8602d28f6ae9",
+        "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b": "6c5b9adf-5fc8-4c74-a2e3-4086637e1010",
+        "fa1722e8-7c8c-4827-a48d-fd63958348ee": "7e2201ed-7546-458b-aedd-815020d8b5b5",
+        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "f00233c5-8827-4dd0-9a40-115b08c6ec2d",
+        "dab22791-1a99-4014-a69b-430795f97b37": "90acecc1-ea14-4f32-9e9c-ec544a8eaa38"
+      }
+    },
+    {
+      "__guid": "556141bd-9154-499e-8ef7-fe17296bdc05",
+      "__version": 1,
+      "__Prefab": "prefabs/enemy-base.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Name",
+            "Value": "enemy-base (4)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Position",
+            "Value": "206.1622,4.676529,8.559952"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "ab75ec18-d512-4657-a40a-172226255a78": "556141bd-9154-499e-8ef7-fe17296bdc05",
+        "a6534f90-ea48-4b48-9517-2baa28aa79f4": "2c9daa77-9188-4a7b-bcb3-f0dc5d222921",
+        "0cec6ec0-e993-41dc-81b0-22a58152243d": "75af1e5d-0c7b-4fd0-a0e3-c357a7f81b8f",
+        "509b5e8a-c94c-4604-813c-8c83e298e31b": "f5dd15e9-0fa0-495b-98d9-f1eb490285da",
+        "4ef886ed-71c2-423a-ab06-a3b83b0897cc": "d5153615-9653-4dbd-9802-301d22b5b5eb",
+        "ba093a16-709c-4758-a984-d9c037778c2a": "fb053033-d1c5-437b-b843-d61f4b9d1dff",
+        "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5": "090aa309-0f14-449d-aac5-a106d45808de",
+        "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b": "fbaebd7c-50a7-481a-a756-f9dba31c94be",
+        "fa1722e8-7c8c-4827-a48d-fd63958348ee": "46f824f3-bdc5-4180-be96-6dba9a145199",
+        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "dc1de104-d058-4989-96fc-4f546b3627ec",
+        "dab22791-1a99-4014-a69b-430795f97b37": "e4c3f88d-d43f-4b31-84dc-916f6e2a323d"
+      }
+    },
+    {
+      "__guid": "4eca1d9f-9e83-4e44-bb68-e99b22e515ae",
+      "__version": 1,
+      "__Prefab": "prefabs/enemy-base.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Name",
+            "Value": "enemy-base (3)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "Position",
+            "Value": "206.1622,141.1924,8.559952"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "ab75ec18-d512-4657-a40a-172226255a78"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "ab75ec18-d512-4657-a40a-172226255a78": "4eca1d9f-9e83-4e44-bb68-e99b22e515ae",
+        "a6534f90-ea48-4b48-9517-2baa28aa79f4": "4b6d5517-dbd0-49f3-95b7-0b7fe917596d",
+        "0cec6ec0-e993-41dc-81b0-22a58152243d": "7530d354-68d6-42d9-86b3-64b1acc34935",
+        "509b5e8a-c94c-4604-813c-8c83e298e31b": "1d6f13dd-d899-4149-aabc-7ac66ef5d4c8",
+        "4ef886ed-71c2-423a-ab06-a3b83b0897cc": "804f588a-d71c-43d4-b41d-1db4e1302436",
+        "ba093a16-709c-4758-a984-d9c037778c2a": "405931d4-9e92-4e2d-a48f-fbaa855c46a2",
+        "78ff9e67-14b5-4b39-bea5-0d26cbaa8cf5": "c129a17d-523a-4b2b-aee2-1f3980c3c604",
+        "bf47fde5-e799-4fb9-aa2c-dfde93ceaf5b": "cb7af03a-a35b-4edc-bd42-a08ab4516556",
+        "fa1722e8-7c8c-4827-a48d-fd63958348ee": "7496af57-ae05-46f1-800a-6f38ec6143d8",
+        "54254bfd-ac20-4468-a60c-e1ebed1962eb": "63a678ee-1de9-4f61-ab84-f55656253653",
+        "dab22791-1a99-4014-a69b-430795f97b37": "f25929cb-0be2-4fe0-b2de-be774eee0413"
+      }
+    },
+    {
       "__guid": "2bec9a20-998b-4507-b403-c586a1807eda",
       "__version": 1,
       "Flags": 0,
