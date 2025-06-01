@@ -27,6 +27,15 @@ public partial class BrawlerComponent : Component, IBrawler {
         }
 
         protected override void OnUpdate() {
+                if (Stats.IsDead) {
+                        var opts = new SceneLoadOptions();
+                        opts.DeleteEverything = true;
+                        opts.SetScene("scenes/game-prototype.scene");
+                        Scene.Load(opts);
+
+                        return;
+                }
+                
                 buildInput();
                 actionControls();
                 miscControls();

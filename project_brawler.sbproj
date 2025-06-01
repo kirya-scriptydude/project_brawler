@@ -1,8 +1,8 @@
 {
-  "Title": "Project Brawler",
+  "Title": "Untitled Prototype Demo",
   "Type": "game",
-  "Org": "local",
-  "Ident": "project_brawler",
+  "Org": "kirillv",
+  "Ident": "untitled_prototype_demo",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,
@@ -23,7 +23,7 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/prototype1.scene",
+    "StartupScene": "scenes/game-prototype.scene",
     "ControlModes": {
       "Keyboard": true,
       "VR": false,
