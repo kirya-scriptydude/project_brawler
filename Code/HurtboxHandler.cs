@@ -190,6 +190,7 @@ public class HurtboxHandler : Component {
         var trace = Scene.Trace
             .Sphere(16f, from, to)
             .UsePhysicsWorld()
+            .WithoutTags(["brawler"])
             .IgnoreGameObjectHierarchy(GameObject)
             .Run();
 
