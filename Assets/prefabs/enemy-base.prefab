@@ -77,7 +77,7 @@
         "HP": 1000,
         "IsDead": false,
         "KickMultiplier": 1,
-        "MaxHP": 1000,
+        "MaxHP": 400,
         "MovementSpeed": 400,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,

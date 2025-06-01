@@ -13,7 +13,7 @@ public class StatsHandler : Component {
     [Property, Group("Health")] public int MaxHP { get; set; } = 1000;
     [Property, Group("Health"), Range(0, 2.5f, 0.05f)] public float DamageMultiplier { get; set; } = 1f;
     [Property, Group("Health"), ReadOnly] public bool IsDead { get; private set; } = false;
- 
+
     [Property, Group("Damage"), Range(0, 5, 0.05f)] public float FistMultiplier { get; set; } = 1f;
     [Property, Group("Damage"), Range(0, 5, 0.05f)] public float KickMultiplier { get; set; } = 1f;
 
@@ -24,5 +24,9 @@ public class StatsHandler : Component {
 
         if (HP <= 0) IsDead = true;
     }
+
+	protected override void OnStart() {
+        HP = MaxHP;
+	}
 
 }
