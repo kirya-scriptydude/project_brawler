@@ -63,6 +63,11 @@ public partial class EnemyComponent : Component, IBrawler {
     }
 
     protected override void OnFixedUpdate() {
+
+        if (Stats.IsDead) {
+            GameObject.Destroy();
+            return;
+        }
         
         if (DistanceToPlayer < PUSH_DISTANCE) {
             Agent.SetAgentPosition(LocalPosition + Vector3.Direction(Player.WorldPosition, WorldPosition) * 10);

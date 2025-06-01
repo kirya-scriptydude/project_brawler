@@ -95,5 +95,11 @@ public partial class BrawlerComponent : Component {
         } else if (Input.Released("LockOn")) {
             MoveDirectionAngled = LocalRotation.Forward;
         }
+
+        if (LockOnTarget != null) {
+            if (LockOnTarget.IsDestroyed) {
+                LockOnTarget = null;
+            }
+        }
     }
 }

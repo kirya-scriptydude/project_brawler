@@ -25,13 +25,12 @@ public partial class BrawlerComponent : Component, IBrawler {
         }
 
         protected override void OnUpdate() {
-                if (Game.IsEditor) displayDebug();
-
                 buildInput();
                 actionControls();
                 miscControls();
 
                 moveAnimate();
+                if (Game.IsEditor) displayDebug();
         }
 
         protected override void OnFixedUpdate() {

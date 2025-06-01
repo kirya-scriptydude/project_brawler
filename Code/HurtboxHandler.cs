@@ -80,6 +80,10 @@ public class HurtboxHandler : Component {
             Brawler.ActionHandler.Stop();
         }
 
+        if (dmg.Damage > 0) {
+            Brawler.Stats.TakeDamage(dmg.Damage);
+        } 
+
         if (dmg.PlayHitSound) {
             Sound.Play(dmg.HitSound, WorldPosition);
         }
