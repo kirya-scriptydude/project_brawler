@@ -103,14 +103,14 @@ public static class ComboTree {
         dmginfo.PlayHitSound = true;
         attack.DamageInfo = dmginfo;
 
-        //root.Children.Add(attack);
+        root.Children.Add(attack);
 
 
         var combo = new ComboNode("unrefined_combo", ActionInputButton.Quickstep, "SimpleAttack");
         combo.NonPlayableCondition = NonPlayableConditions.Attack;
         combo.DamageInfo = lightDmginfo;
         combo.HitboxInfo = finisherHitbox;
-        //root.Children.Add(combo);
+        root.Children.Add(combo);
 
         // reaction nodes
         {
